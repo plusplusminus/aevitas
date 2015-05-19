@@ -1,0 +1,85 @@
+/* Type Less File
+/* v 1.0.0
+/* since v 1.0.0 */
+/* Replaces bootstrap/less/type.less*/
+
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+
+
+// Body text
+// -------------------------
+p {
+  font-family: @font-family-serif;
+  margin: 0 0 (@line-height-computed / 1.2);
+}
+
+.lead {
+	font-family: @headings-font-family;
+	font-style: italic;
+	@media (min-width: @screen-sm-min) {
+	  font-size: (@font-size-base * 1.35);
+	}
+}
+
+.entry-content{
+  ul,
+  ol {
+    font-family: @font-family-serif;
+    li{
+      margin-bottom: (@line-height-computed / 1.5);
+    }
+  }
+}
+
+// Emphasis & misc
+// -------------------------
+
+
+
+// Page header
+// -------------------------
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+
+
+
+
+
+// Misc
+// -------------------------
+// Blockquotes
+blockquote {
+  margin: 0 -@line-height-computed @line-height-computed;
+  border-left: 2px solid @blockquote-border-color;
+  font-family: @headings-font-family;
+  font-style: italic;
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+	font-family: @font-family-sans-serif;
+	font-style: normal;
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  border-right: 2px solid @blockquote-border-color;
+
+}

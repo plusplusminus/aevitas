@@ -1,0 +1,166 @@
+/* Dots */
+.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-prev,
+.slick-next
+{
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    margin-top: -10px;
+    padding: 0;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+    line-height: 1;
+
+    opacity: .75;
+    color: white;
+    font-size: 4em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+    left: 55px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 25px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '\f104';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '\f105';
+}
+
+.slick-next
+{
+    right: 25px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: 25px;
+}
+.slick-next:before
+{
+    content: '\f105';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '\f104';
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -45px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0;
+
+    margin: 0 3px;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+	font-size: 0;
+
+    display: block;
+
+    width: 10px;
+    height: 10px;
+
+    padding: 5px;
+
+    border-radius: 100%;
+
+
+    background: @gray;
+    border: 1px solid @gray;	
+
+    cursor: pointer;
+    outline: none;
+
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+	outline: none;
+	background: @gray-darker;
+	border-color: @gray-darker;
+
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    opacity: 1;
+}
+.slick-dots li.slick-active button
+{
+    background: #fff;
+}

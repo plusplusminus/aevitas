@@ -1,0 +1,11 @@
+{
+  "name": "The Pretty Blog Core CSS",
+  "version": "1.0.0",
+  "homepage": "https://github.com/plusplusminus/theprettyblog",
+  "authors": [
+    "Sergio Pellegrini <sergio@plusplusminus.co.za>"
+  ],
+  "description": "Core css file",
+  "main": "style.css",
+  "license": "MIT"
+}
