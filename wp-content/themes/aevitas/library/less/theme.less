@@ -1,3 +1,9 @@
+
+body{
+	// background: url(../images/screenshots/Aevitas_0000_Home.jpg) center 7px no-repeat;
+}
+
+
 /* Mixins */
 #wpadminbar {
 	top: auto;
@@ -100,7 +106,7 @@
 	text-transform: uppercase;
 
 	font-weight: 100;
-	font-size: ceil((@font-size-base * 1.42)); // ~20px
+	font-size: ceil((@font-size-base * 1.45)); // ~20px
 
 	letter-spacing: 0.25em;
 
@@ -111,7 +117,7 @@
 
 .section_heading {
 	text-align: center;
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 }
 
 .lead-text {
@@ -127,15 +133,14 @@
 	color: #fff;
 	text-transform: uppercase;
 
-	font-weight: 600;
-	font-size: @font-size-base;
+	font-weight: 400;
+	font-size: floor(@font-size-base*1.15);
 }
 
 .meta-typo(@font-size:@font-size-small) {
 	color: @gray;
-
-
-	font-weight: 400;
+	letter-spacing: 0.1em;
+	font-weight: 300;
 	font-size: @font-size;
 
 	a {
@@ -213,6 +218,7 @@ hr.section_break {
 
 .header {
 	padding: 35px 0;
+	border-bottom: 1px solid @gray-light;
 }
 
 .navbar {
@@ -229,6 +235,7 @@ hr.section_break {
 		padding-bottom: 10px;
 		padding-left: 15px;
 		padding-right: 15px;
+		letter-spacing: 0.1em;
 
 		a {
 			font-size: 17px;
@@ -265,7 +272,7 @@ hr.section_break {
 }
 
 .secondary_nav {
-	.meta-typo();
+	.meta-typo(12px);
 
 	.list-inline();
 
@@ -277,7 +284,7 @@ hr.section_break {
 	}
 
 	>li+li:before {
-		padding: 0 5px;
+		padding: 0 11px 0px 8px;
 		color: @gray;
 		content: "\2022";
 	}
@@ -288,6 +295,7 @@ hr.section_break {
 
 .section_gallery {
 	.section_spacing();
+	.container();
 }
 
 .gallery_image {
@@ -304,6 +312,7 @@ hr.section_break {
 
 		> span {
 			border-bottom: 1px solid @gray;
+			padding-bottom: 8px;
 		}
 	}
 }
@@ -342,10 +351,9 @@ hr.section_break {
 		z-index: 200;
 		position: absolute;
 		margin: 0;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate3d(-50%, -50%, 0);
-		transform: translate3d(-50%, -50%, 0);
+		top: 40px;
+		left: 80px;
+		right: 80px;
 	}
 
 	color: #fff;
@@ -366,6 +374,7 @@ hr.section_break {
 	.meta-typo();
 
 	 font-style: normal;
+ 	text-transform: uppercase;
 }
 
 .testimonial_content--link {
@@ -424,8 +433,7 @@ hr.section_break {
 	.heading-typo();
 	
 	margin-bottom: 15px;
-
-	padding-top: 15%;
+	padding-top: 20%;
 	margin-left: 10px;
 	margin-right: 10px;
 	padding-bottom: 10px;
@@ -435,6 +443,11 @@ hr.section_break {
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: translate3d(0,-20px,0);
 	transform: translate3d(0,-20px,0);
+
+	.blog_content &{
+		padding-top: 15%;
+		padding-bottom: 0px;
+	}
 
 	.css-hover-vertical:hover & {
 		opacity: 1;
@@ -534,6 +547,7 @@ hr.section_break {
 		min-width: 100%;
 		margin: 0;
 		border-color: @blue-gray;
+		padding: 0;
 		> li {
 			a {
 				padding-top: 8px;
@@ -862,7 +876,7 @@ hr.section_break {
 }
 
 .post_header--title {
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 2em;
 	color: #3a3e40;
 	text-transform: uppercase;
@@ -986,14 +1000,16 @@ hr.section_break {
 
 	}
 	.dropdown-menu {
-		right: 0;
-		margin: 0;
+		margin: -1px 0 0 0;
 		border-color: @blue-gray;
+		min-width: 100%;
+		padding: 0;
 		> li {
 			a {
 				padding-top: 8px;
 				padding-bottom: 8px;
 				color: @blue-gray;
+				font-weight: 100;
 				&:hover {
 					background: @blue-gray;
 					color:#fff;
@@ -1017,6 +1033,10 @@ hr.section_break {
 		height: auto!important;
 	}
 
+	.panel-group .panel+.panel{
+		margin-top: -1px;
+	}
+
 	.panel {
 		width: 100%;
 		 min-height: 0px !important;
@@ -1034,9 +1054,10 @@ hr.section_break {
 
 		text-align: center;
 		font-size: @font-size-large;
-		font-weight: 600;
+		font-weight: 400;
 		text-transform: uppercase;
 		color: @title;
+		line-height: 1.4;
 
 		padding: 0;
 

@@ -18,13 +18,12 @@ global $post;
 		<div class="section_work--heading">
 			<h2 class="section_work--title">View More Work</h2>
 		</div>
-	</div>
+		
+		<figure class="work_image">
+		<?php global $tpb_options ?>
+			<img src="<?php echo $tpb_options['work_image']['url'];?>" class="img-responsive">
+		</figure>
 
-	<figure class="work_image">
-		<img src="http://placehold.it/1600x500" class="img-responsive">
-	</figure>
-
-	<div class="container">
 		<div class="work_filter">
 
 			<ul class="filter_list">

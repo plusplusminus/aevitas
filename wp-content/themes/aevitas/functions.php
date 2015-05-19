@@ -56,6 +56,16 @@ function child_sections($sections){
                         'desc'=> __('Select main logo from media gallery', 'ppm'),
                         'default'=>array('url'=>'http://s.wordpress.org/style/images/codeispoetry.png'),
                         ),
+                array(
+                        'id'=>'work_image',
+                        'type' => 'media', 
+                        'url'=> true,
+                        'title' => __('Work Section Image', 'ppm'),
+                        'compiler' => 'true',
+                        //'mode' => false, // Can be set to false to allow any media type, or can also be set to any mime type.
+                        'desc'=> __('Select work section image from media gallery', 'ppm'),
+                        'default'=>array('url'=>'http://s.wordpress.org/style/images/codeispoetry.png'),
+                        ),
  
         )
     );

@@ -19,13 +19,14 @@
 define('DB_NAME', 'aevitas');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'root_2');
 
 /** MySQL database password */
 define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+// define('DB_HOST', 'localhost');
+define('DB_HOST', '192.168.2.102');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
