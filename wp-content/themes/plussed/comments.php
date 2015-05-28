@@ -43,17 +43,6 @@ The comments page for Bones
 
 <?php if ( comments_open() ) : ?>
 
-  <?php if(page_has_comments_nav()) : ?>
-
-    <nav class="comment-nav clearfix">
-      <div class="comment-prev">
-        <?php previous_comments_link(__( '<i class="fa fa-chevron-left"></i>', 'bones' ) . '  Previous Comments') ?>
-      </div>
-      <div class="comment-next">
-        <?php next_comments_link(__( 'Next Comments  ', 'bones' ) . '<i class="fa fa-chevron-right"></i>') ?>
-      </div>
-    </nav>
-  <?php endif; ?>
 
 </div> <!-- END #COMMENTS --> 
 

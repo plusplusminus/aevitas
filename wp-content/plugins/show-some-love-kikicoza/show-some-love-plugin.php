@@ -96,7 +96,7 @@ function dynamic_inner_custom_box() {
     $c = 0;
 	if (empty($sp_head))
 	{
-		$sp_head="Service Providers";
+		$sp_head="Vendors";
 	}
 	echo '<div id="meta_inner">
 	<table class="metaboxes_table">
@@ -166,11 +166,14 @@ function dynamic_save_postdata( $post_id ) {
             return;
     }else{return;}
     // OK, we're authenticated: we need to find and save the data
- 	$sp_vendors = $_POST['sp_vendors'];
- 	$sp_head = $_POST['sp-head'];
- 	
-	update_post_meta($post_id,'songs',$sp_vendors);
-	update_post_meta($post_id,'sp_head',$sp_head);
+
+    if ($_POST['sp_vendors']) {
+	 	$sp_vendors = $_POST['sp_vendors'];
+	 	$sp_head = $_POST['sp-head'];
+	 	
+		update_post_meta($post_id,'songs',$sp_vendors);
+		update_post_meta($post_id,'sp_head',$sp_head);
+	}
 }
 
 add_action( 'admin_head', 'sp_vendors_css' );

@@ -4,8 +4,5 @@
 			<h1 class="post_header--title"><?php the_title(); ?></h1>
 			<?php get_template_part('templates/content','meta'); ?>
 		</header>
-		<figure class="post-header_image">
-			<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
-		</figure>
 	</div>	
 </section> <?php // end #wrapper ?>

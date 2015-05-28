@@ -4,7 +4,7 @@
 // Exclude categories on the homepage.
 
 $query_args = array(
-	'post_type' => 'post', 
+	'post_type' => array('post','storytelling'), 
 	'tag'=>'featured',
 	'posts_per_page' => 10
 );
@@ -38,14 +38,6 @@ query_posts( $query_args );
 												<?php _e($location,'aevitas'); ?>
 						    				</li>
 						    			<?php endif; ?>
-					    				<li class="meta_item">
-					    					<?php 
-												$category = get_the_category(); 
-												if($category[0]){
-												echo '<span>'.$category[0]->cat_name.'</span>';
-												}
-											?>
-										</li>
 									</ul>
 								</div>
 							</figcaption>

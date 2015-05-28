@@ -30,6 +30,9 @@ class tpbCustomPostTypes {
 	    ) );
 	}
 
+
+
+
     function aevitas_portfolio()
 	{
 		// Register custom post types
@@ -343,6 +346,11 @@ class tpbCustomPostTypes {
 
 	public function aevitas_images() {
 		add_image_size('slider',1600,650,true);
+		add_image_size('image-lg',380,253);
+		add_image_size('image-md',293,195);
+		add_image_size('image-sm',720,480);
+		add_image_size('review',1200,800);
+
 
 	}
 
@@ -457,20 +465,20 @@ class tpbCustomPostTypes {
 			array(	"post"	), 
 			array (	"hierarchical" 		=> true, 
 					"label" 			=> "Cultures", 
-					'labels' 			=> array(	'name' 				=> __('Cultures'),
-													'singular_name' 	=> __('Culture'),
-													'search_items' 		=> __('Search Culture'),
-													'popular_items' 	=> __('Popular Cultures'),
-													'all_items' 		=> __('All Cultures'),
-													'parent_item' 		=> __('Parent Culture'),
-													'parent_item_colon' => __('Parent Culture:'),
-													'edit_item' 		=> __('Edit Culture'),
-													'update_item'		=> __('Update Culture'),
-													'add_new_item' 		=> __('Add New Culture'),
-													'new_item_name' 	=> __('New Culture Name')	), 
+					'labels' 			=> array(	'name' 				=> __('Cultures/Religions'),
+													'singular_name' 	=> __('Culture/Religion'),
+													'search_items' 		=> __('Search Cultures/Religions'),
+													'popular_items' 	=> __('Popular Cultures/Religions'),
+													'all_items' 		=> __('All Cultures/Religions'),
+													'parent_item' 		=> __('Parent Cultures/Religions'),
+													'parent_item_colon' => __('Parent Cultures/Religions:'),
+													'edit_item' 		=> __('Edit Cultures/Religions'),
+													'update_item'		=> __('Update Cultures/Religions'),
+													'add_new_item' 		=> __('Add New Cultures/Religions'),
+													'new_item_name' 	=> __('New Cultures/Religions Name')	), 
 					'public' 			=> true,
 					'show_ui' 			=> true,
-					"rewrite" 			=> array('slug' => 'culture', 'hierarchical' => false)	
+					"rewrite" 			=> array('slug' => 'culture-religion', 'hierarchical' => false)	
 				)
 		);
 

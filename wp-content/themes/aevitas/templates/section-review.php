@@ -18,10 +18,10 @@
 				if ( $query->have_posts() ) { ?>
 					<?php while ( $query->have_posts() ) { $query->the_post(); ?>
 						<div class="slide">
-							<div id="quote-<?php echo $post->ID;?>" class="testimonial_article css-vertical" itemprop="review" itemscope itemtype="http://schema.org/Review">
+							<div id="quote-<?php echo $post->ID;?>" class="testimonial_article css-hover-vertical" itemprop="review" itemscope itemtype="http://schema.org/Review">
 						    	
 						    	<figure class="testimonial_image">
-						    		<?php the_post_thumbnail('slider',array('class'=>'img-responsive')); ?>
+						    		<?php the_post_thumbnail('review',array('class'=>'img-responsive')); ?>
 						    		<figcaption class="testimonial_content">
 						    			<div class="content_inner">
 						    				<blockquote class="testimonial_content--blockquote" itemprop="reviewBody">

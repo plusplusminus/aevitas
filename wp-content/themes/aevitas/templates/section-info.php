@@ -6,7 +6,9 @@ $page = get_page_by_title('Helpful Information');
 $query_args = array(
 	'post_type' => 'page', 
 	'posts_per_page' => 6,
-	'post_parent' => $page->ID
+	'post_parent' => $page->ID,
+	'orderby' => 'menu_order',
+	'order' => 'ASC'
 );
 
 query_posts( $query_args );

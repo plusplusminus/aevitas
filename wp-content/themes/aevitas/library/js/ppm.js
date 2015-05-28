@@ -29,7 +29,9 @@ jQuery(document).ready(function(){
 	var options = {
 	    // optionName: 'option value'
 	    // for example:
-	    index: 0 // start at first slide
+	    index: 0, // start at first slide,
+	    showAnimationDuration: 300,
+	    showHideOpacity: true
 	};
 
     // initialise as usual

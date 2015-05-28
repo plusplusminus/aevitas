@@ -1,6 +1,6 @@
 <div class="post_social">
 	<header class="social_header">
-		<span class="social_header--title">Share this post:</span>
+		<span class="social_header--title">Share this post</span>
 	</header>
 	<div class="social_options">
 		<ul class="social_buttons">

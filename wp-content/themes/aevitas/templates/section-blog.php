@@ -5,7 +5,7 @@
 
 $query_args = array(
 	'post_type' => 'post', 
-	'posts_per_page' => 10
+	'posts_per_page' => 3
 );
 
 query_posts( $query_args );
@@ -27,19 +27,6 @@ query_posts( $query_args );
 				    		<figcaption class="blog_content">
 
 			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-			    				<ul class="content_meta">
-			    					<li class="meta_item">
-			    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-											<?php echo get_the_time(get_option('date_format')) ?>
-										</time>
-									</li>
-									<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-									<?php if (!empty($location)) : ?>
-										<li class="meta_item">
-											<?php _e($location,'aevitas'); ?>
-					    				</li>
-					    			<?php endif; ?>
-								</ul>
 
 							</figcaption>
 							<a class="blog_article--link" href="<?php the_permalink();?>">&nbsp;</a>
