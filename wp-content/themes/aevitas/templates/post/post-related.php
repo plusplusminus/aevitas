@@ -2,6 +2,8 @@
 	<?php 
 	global $cpt;
 	$myposts = $cpt->search_posts();
+
+	print_r($myposts);
 	?>
 
 	<?php $count = 0; ?>
