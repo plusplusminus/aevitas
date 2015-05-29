@@ -255,12 +255,12 @@ function update_swiftype_document( $document, $post ) {
     $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
     $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
 
-
+    foreach ($taxonomies as $taxonomy) {
         $document['fields'][] = array( 
-            'name' => 'type',
+            'name' => $taxonomy['slug'],
             'type' => 'enum',
-            'value' => wp_get_post_terms($post->ID, 'type', array("fields" => "ids")));
-
+            'value' => wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids")));
+    }
 
    return $document;
 }
