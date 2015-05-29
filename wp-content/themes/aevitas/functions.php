@@ -248,7 +248,7 @@ add_filter('image_send_to_editor','give_linked_images_class',10,8);
 
 function update_swiftype_document( $document, $post ) {
 
-    $taxonomies[6] = array('name'=>'Category','slug'=>'cateory');
+    $taxonomies[6] = array('name'=>'Category','slug'=>'category');
     $taxonomies[0] = array('name'=>'Type','slug'=>'type' );
     $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
     $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
