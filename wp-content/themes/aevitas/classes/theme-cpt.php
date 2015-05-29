@@ -534,23 +534,8 @@ class tpbCustomPostTypes {
 		$client      = new SwiftypeClient();
 		$client->set_api_key( $api_key );
 
-		$tag_ids = array();
+		$stack = array();
 
-		$current_post_type = get_post_type($post->ID);
-		$current_cat = get_the_category($post->ID);
-		$current_cat = $current_cat[0]->cat_ID;
-		$this_cat = '';
-
-		$tags = get_the_tags($post->ID);
-
-		if ( $tags ) {
-			foreach($tags as $tag) {
-				$tag_ids[] = $tag->term_id;
-			}
-			$params['filters[posts][post_tags]'] = $tag_ids;
-		} else {
-			$params['filters[posts][category]'] = $current_cat;
-		}
 
 		$taxonomies[0] = array('name'=>'Type','slug'=>'type' );
 	    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
@@ -562,13 +547,17 @@ class tpbCustomPostTypes {
 
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-	        $params['filters[posts]['.$taxonomy['slug'].']'] = $terms;
+
+	    	$stack = array($stack,$terms);
 	    }
 
+	    $params['filters[posts][terms]'] = $stack;
 
 		$params['per_page'] = 3;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
+
+		print_r($params);
 
 		$swiftype_result = $client->search($engine_slug, 'posts',get_the_title(), $params);
 
