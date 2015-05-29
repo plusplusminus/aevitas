@@ -548,9 +548,12 @@ class tpbCustomPostTypes {
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
 
-	    	$stack = array($stack,$terms);
+	    	$stack = array($stack,array_values($terms));
 	    }
 
+
+	    print_r($stack);
+	    
 	    $params['filters[posts][terms]'] = $stack;
 
 		$params['per_page'] = 3;
@@ -559,7 +562,7 @@ class tpbCustomPostTypes {
 
 		print_r($params);
 
-		$swiftype_result = $client->search($engine_slug, 'posts',get_the_title(), $params);
+		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
 		$related_posts = array();
 
