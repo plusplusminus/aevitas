@@ -262,7 +262,7 @@ function update_swiftype_document( $document, $post ) {
         $document['fields'][] = array( 
             'name' => $taxonomy['slug'],
             'type' => 'enum',
-            'value' => $terms;
+            'value' => $terms
         );
 
         $stack = array_merge($stack, $terms);
