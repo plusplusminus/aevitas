@@ -40,7 +40,6 @@
 								<h1 class="page_content--title">
 									<span><?php _e( 'Yearly Archives:', 'bonestheme' ); ?></span> <?php the_time('Y'); ?>
 								</h1>
-						<?php } ?>
 
 						<?php } elseif (is_post_type_archive()) { ?>
 								<h1 class="page_content--title">
