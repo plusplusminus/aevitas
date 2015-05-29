@@ -1,3 +1,67 @@
+
+<section class="section_page">  
+	<div class="container">
+		<?php if ( have_posts() ) : ?>
+
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="page_content">
+					<?php if ( $brew_options['breadcrumb'] == 0) { ?>
+
+						<?php if (is_category()) { ?>
+							<h1 class="page_content--title">
+								<span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?>
+							</h1>
+
+						<?php } elseif (is_tag()) { ?>
+							<h1 class="page_content--title">
+								<span><?php _e( 'Posts Tagged:', 'bonestheme' ); ?></span> <?php single_tag_title(); ?>
+							</h1>
+
+						<?php } elseif (is_author()) {
+							global $post;
+							$author_id = $post->post_author;
+						?>
+							<h1 class="page_content--title">
+
+								<span><?php _e( 'Posts By:', 'bonestheme' ); ?></span> <?php the_author_meta('display_name', $author_id); ?>
+
+							</h1>
+						<?php } elseif (is_day()) { ?>
+							<h1 class="page_content--title">
+								<span><?php _e( 'Daily Archives:', 'bonestheme' ); ?></span> <?php the_time('l, F j, Y'); ?>
+							</h1>
+
+						<?php } elseif (is_month()) { ?>
+								<h1 class="page_content--title">
+									<span><?php _e( 'Monthly Archives:', 'bonestheme' ); ?></span> <?php the_time('F Y'); ?>
+								</h1>
+
+						<?php } elseif (is_year()) { ?>
+								<h1 class="page_content--title">
+									<span><?php _e( 'Yearly Archives:', 'bonestheme' ); ?></span> <?php the_time('Y'); ?>
+								</h1>
+						<?php } ?>
+
+						<?php } elseif (is_post_type_archive()) { ?>
+								<h1 class="page_content--title">
+									<?php post_type_archive_title(); ?>
+								</h1>
+						<?php } ?>
+
+					<?php } else { ?>
+
+						<?php get_template_part( 'breadcrumb' ); ?>
+						
+					<?php } ?>
+			
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+	</div>			
+</section> <?php // end #wrapper ?>
+
+
 <section class="section_blog">  
 	<div class="container">
 		<?php if ( have_posts() ) : ?>
@@ -32,6 +96,7 @@
 			</div>
 			<nav class="blog_nav">
 				<button class="blog_nav--btn">Load More</button>
+			</nav>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>
