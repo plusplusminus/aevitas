@@ -1,5 +1,4 @@
-<section class="single_related">
-	<?php 
+<?php 
 	global $cpt;
 	$myposts = $cpt->search_posts();
 
@@ -8,64 +7,44 @@
 
 	<?php $count = 0; ?>
 
-	<header class="related_header">
-		<hr class="related_header--hr"/>
-		<span class="related_header--title"><span>Similar Posts</span></span>
-	</header>
+<?php
+// Exclude categories on the homepage.
 
-	<div class="related_container">
+$query_args = array(
+	'post_type' => array('post','storytelling'), 
+	'posts_per_page'=>3,
+	'post__in'=>$myposts,
+	'orderby' => 'post__in'
+);
 
-			<?php
+query_posts( $query_args );
 
-				// Exclude categories on the homepage.
+?>
 
-				$query_args = array(
-				  'post_type' => array('post','storytelling'), 
-				  'posts_per_page'=>3,
-				  'post__in'=>$myposts,
-				  'orderby' => 'post__in'
-				);
+<section class="section_blog">  
+	<div class="container">
+		<div class="section_blog--heading">
+			<h2 class="section_blog--title">View Related Work</h2>
+		</div>
+		<?php if ( have_posts() ) : ?>
+			<div class="blog_row">
+				<?php while ( have_posts() ) : the_post(); ?>
+				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				    	
+				    	<figure class="blog_image">
+				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
+				    		<figcaption class="blog_content">
 
-				query_posts( $query_args );
+			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
 
-				// The Loop
-				if ( have_posts() ) { $count=0; ?>
-					
-					<?php while ( have_posts() ) { the_post(); $count++; ?>
-						<?php $css = 'css-'.$post->post_type; ?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class( 'article related_article clearfix '.$css ); ?> role="article">
-
-							<figure class="blog_image">
-					    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
-					    		<figcaption class="blog_content">
-						    		<div class="content_inner">
-					    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-					    				<ul class="content_meta">
-					    					<li class="meta_item">
-					    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-													<?php echo get_the_time(get_option('date_format')) ?>
-												</time>
-											</li>
-											<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-											<?php if (!empty($location)) : ?>
-												<li class="meta_item">
-													<?php _e($location,'aevitas'); ?>
-							    				</li>
-							    			<?php endif; ?>
-										</ul>
-									</div>
-								</figcaption>
-								<a class="blog_article--link" href="<?php the_permalink();?>">&nbsp;</a>
-							</figure>
-
-						</article> <?php // end article ?>
-
-					
-					<?php } ?>
-
-				<?php 
-			}
-			wp_reset_postdata();
-			?>
-	</div>
-</section>
+							</figcaption>
+							<a class="blog_article--link" href="<?php the_permalink();?>">&nbsp;</a>
+						</figure>
+					</article>
+				<?php endwhile; ?>
+			</div>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+		<hr class="section_break"/>
+	</div>	
+</section> <?php // end #wrapper ?>

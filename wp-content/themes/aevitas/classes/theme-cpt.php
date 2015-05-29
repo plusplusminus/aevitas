@@ -526,7 +526,7 @@ class tpbCustomPostTypes {
 		return $this->wordpress_search( $params );
 	}
 
-	public function swiftype_post_search( ) {
+	public function swiftype_post_search() {
 		global $post;
 
 		$api_key     = get_option( 'swiftype_api_key' );
@@ -552,21 +552,15 @@ class tpbCustomPostTypes {
 	    }
 
 
-	    print_r($stack);
-
 	    $params['filters[posts][terms]'] = $stack;
 
 		$params['per_page'] = 3;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
-		print_r($params);
-
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
 		$related_posts = array();
-
-		print_r($swiftype_result);
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
 			
@@ -574,6 +568,8 @@ class tpbCustomPostTypes {
 			if ( $post && $post->ID == $id ) continue;
 			$related_posts[] = $id;
 		}
+
+		return $related_posts;
 	
 	}
 	
