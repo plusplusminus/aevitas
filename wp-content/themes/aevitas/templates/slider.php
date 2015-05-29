@@ -6,7 +6,7 @@
 		<div class="slider">
 		<?php foreach ($media as $key => $image) {
 
-			$image_attributes_large = wp_get_attachment_image_src( $key,'slider' );
+			$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
 			?>
 			<div class="slide">
 				<figure class="slide_image">

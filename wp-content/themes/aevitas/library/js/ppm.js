@@ -7,7 +7,8 @@ jQuery(document).ready(function(){
   jQuery('.slider').slick({
   	dots: false,
   	arrows: true,
-  	adpativeHeight: true
+  	adaptiveHeight: true,
+  	slidesToShow: 1,
   });
 
   jQuery('.js-slider-testimonials').slick({
