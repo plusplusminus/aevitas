@@ -2,10 +2,9 @@
 	global $cpt;
 	$myposts = $cpt->search_posts();
 
-	print_r($myposts);
-	?>
+?>
 
-	<?php $count = 0; ?>
+<?php $count = 0; ?>
 
 <?php
 // Exclude categories on the homepage.
