@@ -247,6 +247,7 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
 add_filter('image_send_to_editor','give_linked_images_class',10,8);
 
 function update_swiftype_document( $document, $post ) {
+    $stack = array();
 
     $taxonomies[0] = array('name'=>'Type','slug'=>'type' );
     $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
@@ -256,11 +257,22 @@ function update_swiftype_document( $document, $post ) {
     $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
 
     foreach ($taxonomies as $taxonomy) {
+        $terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
+
         $document['fields'][] = array( 
             'name' => $taxonomy['slug'],
             'type' => 'enum',
-            'value' => wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids")));
+            'value' => $terms;
+        );
+
+        $stack = array_merge($stack, $terms);
+
     }
+
+    $document['fields'][] = array( 
+            'name' => 'terms',
+            'type' => 'enum',
+            'value' => $stack);
 
    return $document;
 }

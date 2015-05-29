@@ -565,7 +565,6 @@ class tpbCustomPostTypes {
 	        $params['filters[posts]['.$taxonomy['slug'].']'] = $terms;
 	    }
 
-	    print_r($params);
 
 		$params['per_page'] = 3;
 		$params['page'] = 1;
@@ -574,6 +573,8 @@ class tpbCustomPostTypes {
 		$swiftype_result = $client->search($engine_slug, 'posts',get_the_title(), $params);
 
 		$related_posts = array();
+
+		print_r($swiftype_result);
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
 			
