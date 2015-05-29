@@ -548,12 +548,12 @@ class tpbCustomPostTypes {
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
 
-	    	$stack = array($stack,array_values($terms));
+	    	$stack = array_merge($stack,array_values($terms));
 	    }
 
 
 	    print_r($stack);
-	    
+
 	    $params['filters[posts][terms]'] = $stack;
 
 		$params['per_page'] = 3;
