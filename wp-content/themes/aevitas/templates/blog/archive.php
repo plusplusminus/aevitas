@@ -18,24 +18,24 @@ query_posts( $query_args );
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
-				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
+				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
 				    		<figcaption class="blog_content">
-
-			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-			    				<ul class="content_meta">
-			    					<li class="meta_item">
-			    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-											<?php echo get_the_time(get_option('date_format')) ?>
-										</time>
-									</li>
-									<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-									<?php if (!empty($location)) : ?>
-										<li class="meta_item">
-											<?php _e($location,'aevitas'); ?>
-					    				</li>
-					    			<?php endif; ?>
-								</ul>
-
+					    		<div class="content_inner">
+				    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
+				    				<ul class="content_meta">
+				    					<li class="meta_item">
+				    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
+												<?php echo get_the_time(get_option('date_format')) ?>
+											</time>
+										</li>
+										<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
+										<?php if (!empty($location)) : ?>
+											<li class="meta_item">
+												<?php _e($location,'aevitas'); ?>
+						    				</li>
+						    			<?php endif; ?>
+									</ul>
+								</div>
 							</figcaption>
 							<a class="blog_article--link" href="<?php the_permalink();?>">&nbsp;</a>
 						</figure>

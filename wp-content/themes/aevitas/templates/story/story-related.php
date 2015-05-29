@@ -23,30 +23,22 @@ $connected = new WP_Query( array(
 				    	<figure class="story-related_image">
 				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
 				    		<figcaption class="story-related_content">
-
-			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-			    				<ul class="content_meta">
-			    					<li class="meta_item">
-			    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-											<?php echo get_the_time(get_option('date_format')) ?>
-										</time>
-									</li>
-									<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-									<?php if (!empty($location)) : ?>
-										<li class="meta_item">
-											<?php _e($location,'aevitas'); ?>
-					    				</li>
-					    			<?php endif; ?>
-				    				<li class="meta_item">
-				    					<?php 
-											$category = get_the_category(); 
-											if($category[0]){
-											echo '<span>'.$category[0]->cat_name.'</span>';
-											}
-										?>
-									</li>
-								</ul>
-
+					    		<div class="content_inner">
+				    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
+				    				<ul class="content_meta">
+				    					<li class="meta_item">
+				    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
+												<?php echo get_the_time(get_option('date_format')) ?>
+											</time>
+										</li>
+										<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
+										<?php if (!empty($location)) : ?>
+											<li class="meta_item">
+												<?php _e($location,'aevitas'); ?>
+						    				</li>
+						    			<?php endif; ?>
+									</ul>
+								</div>
 							</figcaption>
 							<a class="story-related_article--link" href="<?php the_permalink();?>">&nbsp;</a>
 						</figure>

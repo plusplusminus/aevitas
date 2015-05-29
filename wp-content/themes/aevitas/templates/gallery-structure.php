@@ -49,6 +49,9 @@
                 <div class="pswp__share-tooltip"></div> 
             </div>
 
+            <button class="NEW-button-left" title="Previous (arrow left)">PREV</button>
+            <button class="NEW-button-right" title="Next (arrow right)">NEXT</button>
+
             <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
             </button>
 

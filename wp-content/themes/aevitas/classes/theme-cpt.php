@@ -252,7 +252,7 @@ class tpbCustomPostTypes {
 		$album_meta = new_cmb2_box( array(
 	        'id'            => $prefix . 'album_metabox',
 	        'title'         => __( 'Album Meta', 'cmb2' ),
-	        'object_types'  => array( 'page','portfolio' ), // Post type
+	        'object_types'  => array( 'page' ), // Post type
 	        'context'       => 'normal',
 	        'priority'      => 'high',
 	        'show_names'    => true, // Show field names on the left
@@ -274,6 +274,13 @@ class tpbCustomPostTypes {
 		    'type'    => 'text',
 		    'repeatable' => true
 
+		) );
+
+		$album_meta->add_field( array(
+		    'name'    => 'Gallery',
+		    'desc'    => 'Select your gallery images',
+		    'id'      => $prefix . 'gallery',
+		    'type'    => 'file_list'
 		) );
 
 		$story_meta = new_cmb2_box( array(
@@ -336,6 +343,29 @@ class tpbCustomPostTypes {
 		    'name' => 'FAQ Category',
 		    'id'   => 'faq_category',
 		    'type' => 'text',
+		) );
+
+		$image_meta = new_cmb2_box( array(
+	        'id'            => $prefix . 'image_metabox',
+	        'title'         => __( 'Image Meta', 'cmb2' ),
+	        'context'       => 'normal',
+	        	        'object_types'  => array( 'post','storytelling'), // Post type
+	        'priority'      => 'high',
+	        'show_names'    => true, // Show field names on the left
+	        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+	        // 'closed'     => true, // true to keep the metabox closed by default
+	    ) );
+
+
+		$image_meta->add_field( array(
+		    'name'    => 'Header/Slider Image',
+		    'desc'    => 'Upload an image or enter an URL.',
+		    'id'      => $prefix . 'header_image',
+		    'type'    => 'file',
+		    // Optionally hide the text input for the url:
+		    'options' => array(
+		        'url' => false,
+		    ),
 		) );
 
 

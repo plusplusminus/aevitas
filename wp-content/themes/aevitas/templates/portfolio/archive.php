@@ -3,7 +3,7 @@
 
 $query_args = array(
 	'post_type' => 'portfolio', 
-	'posts_per_page' => 10
+	'posts_per_page' => -1
 );
 
 query_posts( $query_args );
@@ -62,8 +62,6 @@ query_posts( $query_args );
 					</article>
 				<?php endwhile; ?>
 			</div>
-			<nav class="portfolio_nav">
-				<button class="portfolio_nav--btn">Load More</button>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>

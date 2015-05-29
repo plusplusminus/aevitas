@@ -161,7 +161,7 @@ function camelCase($str, array $noStrip = [])
 add_filter('post_thumbnail_html', 'tpb_thumbnail_attr',10,5);
 
 function tpb_thumbnail_attr($html, $post_id, $post_thumbnail_id, $size, $attr ) {
-    if ($size == 'full') :
+    if ($size == 'grid') :
         $attr = array('class'=>'img-responsive js-cut');
 
         $portrait_id = get_post_meta($post_id,'_ppm_portrait_featured_image_id',true); 
@@ -183,9 +183,49 @@ function tpb_thumbnail_attr($html, $post_id, $post_thumbnail_id, $size, $attr ) 
                     </picture>';
     endif;
 
+    if ($size == 'slider') :
+        $attr = array('class'=>'img-responsive js-cut');
+
+        $header_id = get_post_meta($post_id,'_ppm_header_image_id',true); 
+
+        $image_lg = wp_get_attachment_image_src( $header_id, 'slider');
+        $image_md = wp_get_attachment_image_src( $header_id, 'slider');
+        $image_sm = wp_get_attachment_image_src( $header_id, 'slider');
+
+
+        $html =    '<picture class="js-cut">
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="'.$image_lg[0].'" media="(min-width: 1200px)" class="img-responsive">
+                        <source srcset="'.$image_lg[0].'" media="(min-width: 992px)" class="img-responsive">
+                        <source srcset="'.$image_sm[0].'" media="(min-width: 768px)" class="img-responsive">
+                        
+                        
+                         <!--[if IE 9]></video><![endif]-->
+                        <img srcset="'.$image_sm[0].'" class="img-responsive">
+                    </picture>';
+    endif;
+
     return $html;
 }
 
+
+function filter_ptags_on_images($content){
+   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+
+add_filter('the_content', 'filter_ptags_on_images');
+
+function give_linked_images_class($html, $id, $caption, $title, $align, $url, $size, $alt = '' ){
+    $gallery = wp_get_attachment_image_src($id,'full');
+    $img = wp_get_attachment_image_src($id,$size);
+
+    $attachment = get_post( $id );
+
+    $image = '<a class="fancybox" title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" /></a>';
+  
+  return $image;
+}
+add_filter('image_send_to_editor','give_linked_images_class',10,8);
 
 
 

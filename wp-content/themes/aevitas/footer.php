@@ -1,3 +1,4 @@
+  <?php global $tpb_options; ?> 
     <footer id="footer" class="footer clearfix">
       <div class="container">
         <div class="text-center">

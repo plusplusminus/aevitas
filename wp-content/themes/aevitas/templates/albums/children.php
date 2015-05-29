@@ -23,10 +23,7 @@ query_posts( $query_args );
 				    		<?php the_title(); ?>
 				    	</header>
 
-				    	<figure class="child_image">
-				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
-		
-						</figure>
+				    	<?php get_template_part('templates/slider'); ?>
 
 						<div class="child_content">
 							<?php the_content(); ?>

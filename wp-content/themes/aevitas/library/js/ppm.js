@@ -4,6 +4,11 @@ jQuery(document).ready(function(){
   	arrows: false,
   });
 
+  jQuery('.slider').slick({
+  	dots: false,
+  	arrows: true,
+  });
+
   jQuery('.js-slider-testimonials').slick({
   	dots: false,
   	arrows: true,
@@ -120,6 +125,86 @@ jQuery(document).ready(function(){
 	});
 
 });
+
+var tx = 0; // current translation
+var tdir = 0;
+var slidepseactive = false;
+
+// helper function to get current translate3d positions 
+// as per http://stackoverflow.com/a/7982594/826194
+function getTransform(el) {
+  var results = jQuery(el).css('-webkit-transform').match(/matrix(?:(3d)\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))(?:, (-{0,1}\d+)), -{0,1}\d+\)|\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))\))/)
+  if(!results) return [0, 0, 0];
+  if(results[1] == '3d') return results.slice(2,5);
+  results.push(0);
+  return results.slice(5, 8);
+}
+
+// set the translate x position of an element
+function translate3dX($e, x) {
+  $e.css({
+    // TODO: depending on the browser we need one of those, for now just chrome
+    //'-webkit-transform': 'translate3d(' +String(x) + 'px, 0px, 0px)'
+    //, '-moz-transform': 'translate3d(' +String(x) + 'px, 0px, 0px)'
+    'transform': 'translate3d(' +String(x) + 'px, 0px, 0px)'
+  });
+};
+
+// will slide to the left or to the right
+function slidePS(direction) {
+  if (slidepseactive) // prevent interruptions
+    return;
+
+  tdir = -1;
+  if (direction == "left") {
+    tdir = 1;
+  }
+
+  // get the current slides transition position
+  var t = getTransform(".pswp__container");
+  tx = parseInt(t[0]);
+
+  // reset anim counter (you can use any property as anim counter)
+  jQuery(".pswp__container").css("text-indent", "0px");
+
+  slidepseactive = true;
+  jQuery(".pswp__container").animate(
+    {textIndent: 100},{
+      step: function (now, fx) {
+        // here 8.7 is the no. of pixels we move per animation step %
+        // so in this case we slide a total of 870px, depends on your setup
+        // you might want to use a percentage value, in this case it was
+        // a popup thats why it is a a fixed value per step
+        translate3dX(jQuery(this), tx + Math.round(8.7 * now * tdir));
+      },
+      duration: '300ms',
+      done: function () {
+        // now that we finished sliding trigger the original buttons so 
+        // that the photoswipe state reflects the new situation
+        slidepseactive = false;
+        if (tdir == -1)
+          jQuery(".pswp__button--arrow--right").trigger("click");
+        else
+          jQuery(".pswp__button--arrow--left").trigger("click");
+      }
+    },
+    'linear');
+}
+
+// now activate our buttons
+jQuery(function(){
+
+  jQuery(".NEW-button-left").click(function(){
+    slidePS("left");
+  });
+
+  jQuery(".NEW-button-right").click(function(){
+    slidePS("right");
+ });
+
+});
+
+
 
 
 
