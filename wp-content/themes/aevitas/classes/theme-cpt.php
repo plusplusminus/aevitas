@@ -380,6 +380,8 @@ class tpbCustomPostTypes {
 		add_image_size('image-md',293,195);
 		add_image_size('image-sm',720,480);
 		add_image_size('review',1200,800);
+		add_image_size('grid-6',585,390);
+
 
 
 	}
@@ -513,6 +515,8 @@ class tpbCustomPostTypes {
 		);
 
 	}
+
+
 	
 }
 global $cpt; 

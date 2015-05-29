@@ -246,6 +246,28 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
 }
 add_filter('image_send_to_editor','give_linked_images_class',10,8);
 
+function update_swiftype_document( $document, $post ) {
+
+    $taxonomies[6] = array('name'=>'Category','slug'=>'cateory');
+    $taxonomies[0] = array('name'=>'Type','slug'=>'type' );
+    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
+    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
+    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
+    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
+    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
+
+    foreach ($taxonomies as $taxonomy) {
+        $document['fields'][] = array( 
+            'name' => $taxonomy->slug,
+            'type' => 'enum',
+            'value' => wp_get_post_terms($post->ID, $taxonomy->slug, array("fields" => "ids")));
+    }
+
+   return $document;
+}
+
+add_filter( 'swiftype_document_builder', 'update_swiftype_document', 10, 2 );
+
 
 
 ?>
