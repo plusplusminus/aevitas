@@ -561,7 +561,7 @@ class tpbCustomPostTypes {
 	    $taxonomies[6] = array('name'=>'Category','slug'=>'category' );
 
 	    foreach ($taxonomies as $taxonomy) {
-	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids")));
+	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
 	        $params['filters[posts]['.$taxonomy['slug'].']'] = $terms;
 	    }
 
