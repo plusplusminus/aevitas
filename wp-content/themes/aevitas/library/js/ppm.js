@@ -7,6 +7,7 @@ jQuery(document).ready(function(){
   jQuery('.slider').slick({
   	dots: false,
   	arrows: true,
+  	adpativeHeight: true
   });
 
   jQuery('.js-slider-testimonials').slick({

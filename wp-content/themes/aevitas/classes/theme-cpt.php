@@ -349,7 +349,7 @@ class tpbCustomPostTypes {
 	        'id'            => $prefix . 'image_metabox',
 	        'title'         => __( 'Image Meta', 'cmb2' ),
 	        'context'       => 'normal',
-	        	        'object_types'  => array( 'post','storytelling'), // Post type
+	       	'object_types'  => array( 'post','storytelling','page'), // Post type
 	        'priority'      => 'high',
 	        'show_names'    => true, // Show field names on the left
 	        // 'cmb_styles' => false, // false to disable the CMB stylesheet
@@ -547,14 +547,13 @@ class tpbCustomPostTypes {
 
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-
 	    	$stack = array_merge($stack,array_values($terms));
 	    }
 
 
 	    $params['filters[posts][terms]'] = $stack;
 
-		$params['per_page'] = 3;
+		$params['per_page'] = 10;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
