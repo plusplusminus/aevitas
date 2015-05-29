@@ -164,10 +164,29 @@ function tpb_thumbnail_attr($html, $post_id, $post_thumbnail_id, $size, $attr ) 
     if ($size == 'grid') :
         $attr = array('class'=>'img-responsive js-cut');
 
-        $portrait_id = get_post_meta($post_id,'_ppm_portrait_featured_image_id',true); 
-
         $image_lg = wp_get_attachment_image_src( $post_thumbnail_id, 'image-lg');
         $image_md = wp_get_attachment_image_src( $post_thumbnail_id, 'image-md');
+        $image_sm = wp_get_attachment_image_src( $post_thumbnail_id, 'image-sm');
+
+
+        $html =    '<picture class="js-cut">
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="'.$image_lg[0].'" media="(min-width: 1200px)" class="img-responsive">
+                        <source srcset="'.$image_lg[0].'" media="(min-width: 992px)" class="img-responsive">
+                        <source srcset="'.$image_sm[0].'" media="(min-width: 768px)" class="img-responsive">
+                        
+                        
+                         <!--[if IE 9]></video><![endif]-->
+                        <img srcset="'.$image_sm[0].'" class="img-responsive">
+                    </picture>';
+    endif;
+
+     if ($size == 'grid-6') :
+        $attr = array('class'=>'img-responsive js-cut');
+
+
+        $image_lg = wp_get_attachment_image_src( $post_thumbnail_id, 'grid-6');
+        $image_md = wp_get_attachment_image_src( $post_thumbnail_id, 'grid-6');
         $image_sm = wp_get_attachment_image_src( $post_thumbnail_id, 'image-sm');
 
 

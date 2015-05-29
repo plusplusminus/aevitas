@@ -19,7 +19,7 @@ query_posts( $query_args );
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('portfolio_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="portfolio_image">
-				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
+				    		<?php the_post_thumbnail('grid-6',array('class'=>'img-responsive')); ?>
 				    		<figcaption class="portfolio_content">
 
 			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
