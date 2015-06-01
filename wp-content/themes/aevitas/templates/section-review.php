@@ -31,9 +31,7 @@
 												<span itemprop="name"><?php echo get_post_meta($post->ID,'_byline',true); ?></span>
 											</cite>
 											<div class="clearfix">
-												<?php if (!empty($tpb_options['weddingwire_url'])) : ?>
-													<a target="_blank" href="<?php echo $tpb_options['weddingwire_url'];?>" class="testimonial_content--link"> More Reviews</a>
-												<?php endif; ?>
+												<a target="_blank" href="<?php echo get_post_meta($post->ID,'_url',true); ?>" class="testimonial_content--link"> More Reviews</a>
 											</div>
 										</div>
 									</figcaption>

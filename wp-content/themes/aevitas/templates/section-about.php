@@ -18,7 +18,7 @@ global $post;
 				echo wpautop($desc);
 			?>
 			<br>
-			<a class="about_content--btn" href="<?php echo link;?>">Read More</a>
+			<a class="about_content--btn" href="<?php echo $link;?>">Read More</a>
 		</div>
 		<hr class="section_break"/>
 	</div>
