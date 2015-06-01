@@ -43,8 +43,10 @@ jQuery(document).ready(function(){
 
     	facets = _.filter(facets,function(n){
     		console.log(n);
-    		return n.tax_id != tax_id;
+    		return n.id != tax_id;
     	})
+
+    	console.log(facets);
 
     });
 
