@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
 
     facets.push({tax:tax,id:tax_id});
 
-    var html = '<button class="btn btn-success">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
+    var html = '<button class="btn btn-default">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
 
     filters.append(html);
 
