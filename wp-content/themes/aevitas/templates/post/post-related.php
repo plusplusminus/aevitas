@@ -1,6 +1,6 @@
 <?php 
 	global $cpt;
-	$myposts = $cpt->search_posts();
+	$myposts = $cpt->related_posts();
 
 ?>
 

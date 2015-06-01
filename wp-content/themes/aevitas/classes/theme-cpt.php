@@ -31,8 +31,6 @@ class tpbCustomPostTypes {
 	}
 
 
-
-
     function aevitas_portfolio()
 	{
 		// Register custom post types
@@ -552,7 +550,7 @@ class tpbCustomPostTypes {
 
 	}
 
-	public function search_posts($facets) {
+	public function search_posts($facets=array()) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {
 			try {
@@ -562,7 +560,17 @@ class tpbCustomPostTypes {
 		return $this->wordpress_search( $params );
 	}
 
-	public function swiftype_post_search($facets) {
+	public function related_posts() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {
+			try {
+				return $this->swiftype_related_search();
+			} catch ( Exception $e ) {}
+		}
+		return $this->wordpress_search( $params );
+	}
+
+	public function swiftype_post_search($facets=array()) {
 		global $post;
 
 		$api_key     = get_option( 'swiftype_api_key' );
@@ -584,7 +592,63 @@ class tpbCustomPostTypes {
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
-		return $swiftype_result;
+
+		$related_posts = array();
+
+		foreach ( $swiftype_result['records']['posts'] as $rel ) {
+			
+			$id = $rel['external_id'];
+			if ( $post && $post->ID == $id ) continue;
+			$related_posts[] = $id;
+		}
+
+		return $related_posts;
+	
+	}
+
+	public function swiftype_related_search() {
+		global $post;
+
+		$api_key     = get_option( 'swiftype_api_key' );
+		$engine_slug = get_option( 'swiftype_engine_slug' );
+		$client      = new SwiftypeClient();
+		$client->set_api_key( $api_key );
+
+		$stack = array();
+
+
+		$taxonomies[0] = array('name'=>'Type','slug'=>'type' );
+	    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
+	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
+	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
+	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
+	    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
+	    $taxonomies[6] = array('name'=>'Category','slug'=>'category' );
+
+	    foreach ($taxonomies as $taxonomy) {
+	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
+	    	$stack = array_merge($stack,array_values($terms));
+	    }
+
+
+	    $params['filters[posts][terms]'] = $stack;
+
+		$params['per_page'] = 10;
+		$params['page'] = 1;
+		$params['fetch_fields[posts]'] = array("external_id");
+
+		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
+
+		$related_posts = array();
+
+		foreach ( $swiftype_result['records']['posts'] as $rel ) {
+			
+			$id = $rel['external_id'];
+			if ( $post && $post->ID == $id ) continue;
+			$related_posts[] = $id;
+		}
+
+		return $related_posts;
 	
 	}
 	

@@ -3,11 +3,12 @@
 
 <?php
 	global $cpt; 
-	$facets = isset($_REQUEST['formdata']) ? $_REQUEST['formdata'] : array();
 
+	$data = isset($_REQUEST['formdata']) ? $_REQUEST['formdata'] : array();
+
+	$tempData = str_replace("\\", "",$data);
+	$facets = json_decode($tempData,true);
 	$results = $cpt->search_posts($facets);
-
-	print_r($results);
 ?>
 
 
@@ -16,8 +17,8 @@
 // Exclude categories on the homepage.
 
 $query_args = array(
-  'post_type' => array('any'), 
-  'post__in'=>$results['result'],
+  'post_type' => array('post','storytelling'), 
+  'post__in'=>$results,
   'orderby' => 'post__in',
   'posts_per_page'=>-1
 );
