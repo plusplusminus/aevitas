@@ -552,17 +552,17 @@ class tpbCustomPostTypes {
 
 	}
 
-	public function search_posts() {
+	public function search_posts($facets) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {
 			try {
-				return $this->swiftype_post_search();
+				return $this->swiftype_post_search($facets);
 			} catch ( Exception $e ) {}
 		}
 		return $this->wordpress_search( $params );
 	}
 
-	public function swiftype_post_search() {
+	public function swiftype_post_search($facets) {
 		global $post;
 
 		$api_key     = get_option( 'swiftype_api_key' );
@@ -572,39 +572,19 @@ class tpbCustomPostTypes {
 
 		$stack = array();
 
+		foreach ($facets as $facet) {
+			$params['filters[posts]['.$facet['tax'].']'][] = $facet['id'];
+		}
 
-		$taxonomies[0] = array('name'=>'Type','slug'=>'type' );
-	    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
-	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
-	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
-	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
-	    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
-	    $taxonomies[6] = array('name'=>'Category','slug'=>'category' );
-
-	    foreach ($taxonomies as $taxonomy) {
-	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-	    	$stack = array_merge($stack,array_values($terms));
-	    }
-
-
-	    $params['filters[posts][terms]'] = $stack;
+		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
 
 		$params['per_page'] = 10;
 		$params['page'] = 1;
-		$params['fetch_fields[posts]'] = array("external_id");
+		
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
-		$related_posts = array();
-
-		foreach ( $swiftype_result['records']['posts'] as $rel ) {
-			
-			$id = $rel['external_id'];
-			if ( $post && $post->ID == $id ) continue;
-			$related_posts[] = $id;
-		}
-
-		return $related_posts;
+		return $swiftype_result;
 	
 	}
 	
