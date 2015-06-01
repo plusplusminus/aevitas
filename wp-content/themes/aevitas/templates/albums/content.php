@@ -5,8 +5,10 @@
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="page_content">
 					<h1 class="page_content--title"><?php the_title(); ?></h1>
-					<?php get_template_part('templates/slider'); ?>
+
 					<?php the_content(); ?>
+
+					<?php get_template_part('templates/slider'); ?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
