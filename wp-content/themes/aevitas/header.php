@@ -32,6 +32,7 @@
 
 		<script src="//use.typekit.net/qub1zxv.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
 
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>

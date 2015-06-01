@@ -516,6 +516,42 @@ class tpbCustomPostTypes {
 
 	}
 
+	public function facet_search_posts($facets) {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {
+			try {
+				return $this->swiftype_facet_search($facets);
+			} catch ( Exception $e ) {}
+		}
+	}
+
+	public function swiftype_facet_search($facets) {
+
+		global $post;
+
+		$api_key     = get_option( 'swiftype_api_key' );
+		$engine_slug = get_option( 'swiftype_engine_slug' );
+		$client      = new SwiftypeClient();
+		$client->set_api_key( $api_key );
+
+		$stack = array();
+
+		foreach ($facets as $facet) {
+			$params['filters[posts]['.$facet['tax'].']'][] = $facet['id'];
+		}
+
+		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
+
+		$params['per_page'] = 10;
+		$params['page'] = 1;
+		
+
+		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
+
+		return $swiftype_result['info']['posts'];
+
+	}
+
 	public function search_posts() {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {

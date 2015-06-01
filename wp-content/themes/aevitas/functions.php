@@ -28,6 +28,8 @@ function ppm_scripts_and_styles() {
         wp_enqueue_script('photoswipe');
         wp_enqueue_script('photoswipe-ui');
 
+        wp_localize_script( 'ppm', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
+
         wp_enqueue_script('ppm');
 
 
@@ -278,6 +280,33 @@ function update_swiftype_document( $document, $post ) {
 }
 
 add_filter( 'swiftype_document_builder', 'update_swiftype_document', 10, 2 );
+
+add_action("wp_ajax_get_faceted_search", "get_facets");
+add_action("wp_ajax_nopriv_get_faceted_search", "get_facets");
+
+function get_facets() {
+
+    global $cpt;
+    $facets = $_REQUEST["facets"];
+
+    $results = $cpt->facet_search_posts($facets);
+
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+
+        $return = array(
+                'message'   => 'Saved',
+                'data' => $facets,
+                'result' => $results
+        );
+
+        wp_send_json($return);
+    }
+    else {
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+
+    die();
+}
 
 
 

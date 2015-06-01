@@ -1,4 +1,44 @@
 jQuery(document).ready(function(){
+
+  var facets = [];
+  jQuery( document ).on('click','.select-item',function(e) {
+    console.log(e);
+    e.preventDefault();
+    var tax = jQuery(this).data('taxonomy'),
+      tax_id = jQuery(this).data('id'),
+      filters = jQuery('.filters');
+
+    jQuery(this).attr('disabled','disabled');
+
+    facets.push({tax:tax,id:tax_id});
+
+    var html = '<button class="btn btn-success">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
+
+    filters.append(html);
+
+    jQuery.ajax({
+      type : "post",
+      dataType : "json",
+      url : myAjax.ajaxurl,
+      data : {action: "get_faceted_search",facets:facets},
+      success: function(response) {
+        var taxomonies = JSON.parse(items);  
+        var html = '';
+
+        _.forEach(response.result.facets, function(n, key) {
+          html = '';
+          _.forEach(n,function(k,count){
+            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+' ('+k+')</a></li>';
+
+
+
+
+          })
+          jQuery('#'+key).html(html);
+        });
+      }
+    })   
+  });
   jQuery('.section_gallery').slick({
   	dots: true,
   	arrows: false,
@@ -16,7 +56,7 @@ jQuery(document).ready(function(){
   	arrows: true,
   });
 
-  jQuery(".work_filter select").selectize();
+  
 
   jQuery('.js-gallery-init').on('click',function(e){
 
@@ -205,6 +245,10 @@ jQuery(function(){
  });
 
 });
+
+function timesThree(n) {
+  return n * 3;
+}
 
 
 
