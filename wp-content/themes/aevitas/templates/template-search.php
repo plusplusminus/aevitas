@@ -7,9 +7,8 @@
 
 	$results = $cpt->search_posts();
 ?>
-
-
-
+<?php print_r($results);
+?>
 <?php
 // Exclude categories on the homepage.
 

@@ -584,7 +584,16 @@ class tpbCustomPostTypes {
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
-		return $swiftype_result;
+		$related_posts = array();
+
+		foreach ( $swiftype_result['records']['posts'] as $rel ) {
+			
+			$id = $rel['external_id'];
+			if ( $post && $post->ID == $id ) continue;
+			$related_posts[] = $id;
+		}
+
+		return $related_posts;
 	
 	}
 	
