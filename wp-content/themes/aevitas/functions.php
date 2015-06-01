@@ -287,7 +287,7 @@ add_action("wp_ajax_nopriv_get_faceted_search", "get_facets");
 function get_facets() {
 
     global $cpt;
-    $facets = $_REQUEST["facets"];
+    $facets = isset($_REQUEST["facets"]) ? $_REQUEST["facets"] : array();
 
     $results = $cpt->facet_search_posts($facets);
 

@@ -54,27 +54,12 @@ global $cpt;
 					}
 				}
 				?>
-				<?php /* foreach ($taxonomies as $taxonomy) {
-					if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
-						echo '<li>';
-						echo '<select data-name="'.$taxonomy['name'].'" data-placeholder="'.$taxonomy['name'].'" style="width:100%;" tabindex="1">';
-				        echo '<option value="">'.$taxonomy['description'].'</option>';
-						foreach ( $taxonomy['terms'] as $term ) {
-						 	echo '<option value="'.$term->term_id.'">' . $term->name . '</option>';
-						}
-						echo '</select>';
-						echo '</li>';
-					}
-				}*/
-				?>
 			</ul>
 			<div class="filters"></div>
 			<div class="filter_submit">
 				<button class="submit_button">Filter</button>
 			</div>
 		</div>
-
-		<?php $cpt->facet_search_posts(); ?>
 		<hr class="section_break"/>
 		<script type="text/javascript">
 			var items = '<?php echo json_encode($arr); ?>';

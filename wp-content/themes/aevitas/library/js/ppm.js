@@ -16,25 +16,8 @@ jQuery(document).ready(function(){
 
     filters.append(html);
 
-    jQuery.ajax({
-      type : "post",
-      dataType : "json",
-      url : myAjax.ajaxurl,
-      data : {action: "get_faceted_search",facets:facets},
-      success: function(response) {
-        var taxomonies = JSON.parse(items);  
-        var html = '';
+    ajaxSearch(facets);
 
-        _.forEach(response.result.facets, function(n, key) {
-          html = '';
-          _.forEach(n,function(k,count){
-            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
-
-          })
-          jQuery('#'+key).html(html);
-        });
-      }
-    })   
   });
 
 	jQuery( document ).on('click','.js-remove',function(e) {
@@ -42,11 +25,14 @@ jQuery(document).ready(function(){
     	var tax_id = jQuery(this).data('id');
 
     	facets = _.filter(facets,function(n){
-    		console.log(n);
-    		return n.tax_id != tax_id;
+    		return n.id != tax_id;
     	})
 
-    });
+      jQuery(this).remove();
+
+      ajaxSearch(facets);
+
+  });
 
 
 
@@ -257,8 +243,25 @@ jQuery(function(){
 
 });
 
-function timesThree(n) {
-  return n * 3;
+function ajaxSearch(facetItems) {
+  jQuery.ajax({
+    type : "post",
+    dataType : "json",
+    url : myAjax.ajaxurl,
+    data : {action: "get_faceted_search",facets:facetItems},
+    success: function(response) {
+      var taxomonies = JSON.parse(items);  
+      var html = '';
+
+      _.forEach(response.result.facets, function(n, key) {
+        html = '';
+        _.forEach(n,function(k,count){
+          html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
+        })
+        jQuery('#'+key).html(html);
+      });
+    }
+  })
 }
 
 
