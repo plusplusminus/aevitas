@@ -23,10 +23,13 @@ query_posts( $query_args );
 				    		<?php the_title(); ?>
 				    	</header>
 
+				    	<div class="child_content">
+							<?php the_content(); ?>
+						</div>
+
 				    	<?php get_template_part('templates/slider'); ?>
 
 						<div class="child_content">
-							<?php the_content(); ?>
 							<?php $album_includes = get_post_meta($post->ID,'_ppm_album_includes',true); ?>
 							<?php if (!empty($album_includes)) : ?>
 								<?php $album_includes_heading = get_post_meta($post->ID,'_ppm_album_includes_heading',true); ?>
