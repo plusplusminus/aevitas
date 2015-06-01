@@ -5,7 +5,7 @@
 
 $query_args = array(
 	'post_type' => array('post','storytelling'), 
-	'tags'=>'featured,featured-tai',
+	'tag'=>'featured+featured-tai',
 	'posts_per_page' => 10
 );
 
