@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
 
     facets.push({tax:tax,id:tax_id});
 
-    var html = '<button class="btn btn-default">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
+    var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
 
     filters.append(html);
 
@@ -28,10 +28,7 @@ jQuery(document).ready(function(){
         _.forEach(response.result.facets, function(n, key) {
           html = '';
           _.forEach(n,function(k,count){
-            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+' ('+k+')</a></li>';
-
-
-
+            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
 
           })
           jQuery('#'+key).html(html);
@@ -39,6 +36,20 @@ jQuery(document).ready(function(){
       }
     })   
   });
+
+	jQuery( document ).on('click','.js-remove',function(e) {
+    	console.log(e);
+    	var tax_id = jQuery(this).data('id');
+
+    	facets = _.filter(facets,function(n){
+    		console.log(n);
+    		return n.tax_id != tax_id;
+    	})
+
+    });
+
+
+
   jQuery('.section_gallery').slick({
   	dots: true,
   	arrows: false,
