@@ -607,6 +607,34 @@ hr.section_break {
 	}
 }
 
+.filters {
+	.btn {
+		font-size: @font-size-small;
+		font-weight: 100;
+		text-transform: uppercase;
+
+		background: transparent;
+		border: 1px solid transparent;
+		color: @blue-gray;
+
+		min-width: 170px;	
+		padding-top:10px;
+		padding-bottom: 10px;
+
+		.transition(0.8s);
+
+		&:hover,&:focus {
+			border: 1px solid @blue-gray;
+			background: transparent;
+
+		}	
+
+		&:focus {
+			outline: none!important;
+		}
+	}
+}
+
 .filter_submit {
 	margin-top: 40px;
 	text-align: center;
