@@ -347,7 +347,7 @@ class tpbCustomPostTypes {
 	        'id'            => $prefix . 'image_metabox',
 	        'title'         => __( 'Image Meta', 'cmb2' ),
 	        'context'       => 'normal',
-	       	'object_types'  => array( 'post','storytelling','page'), // Post type
+	       	'object_types'  => array( 'post','storytelling','page','inspiration'), // Post type
 	        'priority'      => 'high',
 	        'show_names'    => true, // Show field names on the left
 	        // 'cmb_styles' => false, // false to disable the CMB stylesheet
