@@ -7,11 +7,11 @@
 	$data = isset($_REQUEST['formdata']) ? $_REQUEST['formdata'] : array();
 
 	$tempData = str_replace("\\", "",$data);
+	$tempData = !empty($tempData) ? $tempData : '';
 	$facets = json_decode($tempData,true);
+
 	$results = $cpt->search_posts($facets);
 ?>
-
-
 
 <?php
 // Exclude categories on the homepage.

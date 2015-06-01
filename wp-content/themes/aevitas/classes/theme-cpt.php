@@ -540,7 +540,7 @@ class tpbCustomPostTypes {
 
 		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
 
-		$params['per_page'] = 10;
+		$params['per_page'] = 12;
 		$params['page'] = 1;
 		
 
@@ -571,6 +571,7 @@ class tpbCustomPostTypes {
 	}
 
 	public function swiftype_post_search($facets=array()) {
+
 		global $post;
 
 		$api_key     = get_option( 'swiftype_api_key' );
@@ -586,14 +587,11 @@ class tpbCustomPostTypes {
 
 		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
 
-		$params['per_page'] = 10;
+		$params['per_page'] = 12;
 		$params['page'] = 1;
 		
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
-
-
-		$related_posts = array();
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
 			
@@ -633,7 +631,7 @@ class tpbCustomPostTypes {
 
 	    $params['filters[posts][terms]'] = $stack;
 
-		$params['per_page'] = 10;
+		$params['per_page'] = 12;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
