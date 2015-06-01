@@ -48,6 +48,7 @@ jQuery(document).ready(function(){
   	arrows: true,
   	adaptiveHeight: true,
   	slidesToShow: 1,
+  	lazyLoad: true
   });
 
   jQuery('.js-slider-testimonials').slick({
