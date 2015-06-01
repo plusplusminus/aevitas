@@ -1,11 +1,13 @@
-<?php /* Template Name : Search */ ?>
+<?php /* Template Name: Search */ ?>
 <?php get_header(); ?>
 
 <?php
 	global $cpt; 
-	$facets = isset($_REQUEST['formdata']) : $_REQUEST['formdata'] ? array();
+	$facets = isset($_REQUEST['formdata']) ? $_REQUEST['formdata'] : array();
 
-	$results = $cpt->search_posts();
+	$results = $cpt->search_posts($facets);
+
+	print_r($results);
 ?>
 
 

@@ -57,7 +57,10 @@ global $cpt;
 			</ul>
 			<div class="filters"></div>
 			<div class="filter_submit">
-				<button class="submit_button">Filter</button>
+				<form action="<?php echo home_url();?>/search" method="POST">
+					<input name="formdata" type="hidden" value=""/>
+					<button type="submit" class="submit_button">Filter</button>
+				</form>
 			</div>
 		</div>
 		<hr class="section_break"/>

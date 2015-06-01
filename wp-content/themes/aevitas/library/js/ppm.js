@@ -36,6 +36,8 @@ jQuery(document).ready(function(){
 
 
 
+
+
   jQuery('.section_gallery').slick({
   	dots: true,
   	arrows: false,
@@ -260,6 +262,8 @@ function ajaxSearch(facetItems) {
         })
         jQuery('#'+key).html(html);
       });
+
+      jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
     }
   })
 }
