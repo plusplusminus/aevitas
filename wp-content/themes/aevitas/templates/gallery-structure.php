@@ -43,6 +43,7 @@
                       </div>
                     </div>
                 </div>
+                
             </div>
 
             <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
