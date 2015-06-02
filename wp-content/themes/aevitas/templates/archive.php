@@ -30,8 +30,11 @@
 					</article>
 				<?php endwhile; ?>
 			</div>
-			<nav class="blog_nav">
-				<button class="blog_nav--btn">Load More</button>
+			<nav class="wp-prev-next hide">
+				<ul class="clearfix">
+					<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+					<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+				</ul>
 			</nav>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
