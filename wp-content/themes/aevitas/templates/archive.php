@@ -3,7 +3,7 @@
 		<?php if ( have_posts() ) : ?>
 			<div class="blog_row">
 				<?php while ( have_posts() ) : the_post(); ?>
-				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
 				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>

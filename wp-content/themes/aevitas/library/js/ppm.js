@@ -1,8 +1,20 @@
 jQuery(document).ready(function(){
 
+  var ias = jQuery.ias({
+    container:  '.blog_row',
+    item:       '.js-infinite',
+    pagination: '.wp-prev-next',
+    next:       '.prev-link > a'
+  });
+
+  // Add a text when there are no more pages left to load
+  ias.extension(new IASPagingExtension());
+  ias.extension(new IASHistoryExtension({ prev: '.prev a' }));
+  ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="grid_footer ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><button class="grid_footer--btn footer--btn">Load More <span class="icon icon-angle-down"></span></button></div>'}));
+
+
   var facets = [];
   jQuery( document ).on('click','.select-item',function(e) {
-    console.log(e);
     e.preventDefault();
     var tax = jQuery(this).data('taxonomy'),
       tax_id = jQuery(this).data('id'),
@@ -85,10 +97,6 @@ jQuery(document).ready(function(){
 
   });
 
-
-
-
-
   jQuery('.section_gallery').slick({
   	dots: true,
   	arrows: false,
@@ -112,14 +120,9 @@ jQuery(document).ready(function(){
   jQuery('.js-gallery-init').on('click',function(e){
 
   	e.preventDefault();
-	 
-
   	var id = jQuery(this).data('id');
-
   	var galleryItems = jQuery('meta[name="gallery-'+id+'"]').attr("content"); 
-
   	var obj = JSON.parse(galleryItems);
-
   	var pswpElement = document.querySelectorAll('.pswp')[0];
 
 

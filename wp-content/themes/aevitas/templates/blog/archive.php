@@ -2,8 +2,7 @@
 // Exclude categories on the homepage.
 
 $query_args = array(
-	'post_type' => 'post', 
-	'posts_per_page' => 10
+	'post_type' => 'post',
 );
 
 query_posts( $query_args );
@@ -15,7 +14,7 @@ query_posts( $query_args );
 		<?php if ( have_posts() ) : ?>
 			<div class="blog_row">
 				<?php while ( have_posts() ) : the_post(); ?>
-				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
 				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
@@ -41,9 +40,14 @@ query_posts( $query_args );
 						</figure>
 					</article>
 				<?php endwhile; ?>
+				<nav class="wp-prev-next hide">
+					<ul class="clearfix">
+						<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+						<li class="next-link"><?php prev_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+					</ul>
+				</nav>
+
 			</div>
-			<nav class="blog_nav">
-				<button class="blog_nav--btn">Load More</button>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>
