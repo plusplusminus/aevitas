@@ -21,7 +21,7 @@
 								<?php if (!empty($attachment->post_title) || !empty($attachment->post_excerpt)) ; ?>
 									<figcaption>
 										<?php if (!empty($attachment->post_title)) : ?>
-											<h3 class="image_title"><? _e($attachment->post_title(); ?></h3>
+											<h3 class="image_title"><? _e($attachment->post_title()); ?></h3>
 										<?php endif; ?>
 										<?php if(!empty($attachment->post_content)) : ?>
 											<?php echo wpautop($attachment->post_content); ?>
