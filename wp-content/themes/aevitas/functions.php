@@ -23,7 +23,7 @@ function ppm_scripts_and_styles() {
         
         wp_register_script( 'third-party', get_stylesheet_directory_uri() . '/library/js/third-party.js', array('jquery'), '1.0.0',true);
         
-        wp_register_script( 'ppm', get_stylesheet_directory_uri() . '/library/js/ppm.js', array('slick','selectize','jquery'), '1.0.43',true);
+        wp_register_script( 'ppm', get_stylesheet_directory_uri() . '/library/js/ppm.js', array('third-party','slick','selectize','jquery'), '1.0.43',true);
 
         wp_enqueue_script('isotope');
 

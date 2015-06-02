@@ -1,8 +1,13 @@
 <?php
-// Exclude categories on the homepage.
+
+$paged = 1;
+if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
+if ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
+$paged = intval( $paged );
 
 $query_args = array(
 	'post_type' => 'post',
+	'paged' => $paged,
 );
 
 query_posts( $query_args );
