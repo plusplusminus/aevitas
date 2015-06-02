@@ -9,6 +9,32 @@ jQuery(document).ready(function(){
     next:       '.prev-link > a'
   });
 
+  var owl = jQuery(".owl-slider");
+ 
+  owl.owlCarousel({
+    navigation : true, // Show next and prev buttons
+    slideSpeed : 300,
+    paginationSpeed : 400,
+    singleItem:true
+  });
+ 
+  // Custom Navigation Events
+  jQuery(".next").click(function(){
+    owl.trigger('owl.next');
+  })
+
+  jQuery(".prev").click(function(){
+    owl.trigger('owl.prev');
+  })
+
+  jQuery(".play").click(function(){
+    owl.trigger('owl.play',1000); //owl.play event accept autoPlay speed as second parameter
+  })
+
+  jQuery(".stop").click(function(){
+    owl.trigger('owl.stop');
+  })
+
   // Add a text when there are no more pages left to load
   ias.extension(new IASPagingExtension());
   ias.extension(new IASHistoryExtension({ prev: '.prev a' }));
