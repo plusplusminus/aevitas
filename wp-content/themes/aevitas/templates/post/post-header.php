@@ -7,26 +7,26 @@
 		</header>
 
 		<?php $gallery = get_post_meta($post->ID,'_ppm_gallery',true); ?>
-		<?php if(!empty($gallery)) : ?>
-			<aside class="post_slider">
-				<div class="owl-slider">
-				<?php foreach ($gallery as $key => $image) {
+		<?php if(!empty($gallery)) :?>
+				<aside class="post_slider">
+					<div class="owl-slider owl-carousel owl-theme">
+					<?php foreach ($gallery as $key => $image) {
 
-					$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
-					?>
-					<div class="item">
-						<figure class="slide_image">
-							<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
-							<figcaption>
-								<h3 class="image_title">Title</h3>
-								<small>Content Hello</small>
-							</figcaption>
-						</figure>
+						$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
+						?>
+						<div class="item">
+							<figure class="slide_image">
+								<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
+								<figcaption>
+									<h3 class="image_title">Title</h3>
+									<small>Content Hello</small>
+								</figcaption>
+							</figure>
+						</div>
+
+					<?php } ?>
 					</div>
-
-				<?php } ?>
-				</div>
-			</aside>
+				</aside>
 		<?php else : ?>
 			<figure class="post-header_image">
 				<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
