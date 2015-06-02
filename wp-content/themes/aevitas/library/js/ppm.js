@@ -16,7 +16,12 @@ jQuery(document).ready(function(){
     slideSpeed : 300,
     paginationSpeed : 400,
     singleItem:true,
-    pagination: false
+    pagination: false,
+    afterMove: function (elem) {
+      var current = this.currentItem;
+      var src = elem.find(".owl-item").eq(current).find("img").attr('src');
+      console.log('Image current is ' + src);
+    }
   });
  
   // Custom Navigation Events
