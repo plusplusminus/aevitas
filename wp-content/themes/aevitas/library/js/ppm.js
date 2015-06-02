@@ -12,26 +12,27 @@ jQuery(document).ready(function(){
   var owl = jQuery(".owl-slider");
  
   owl.owlCarousel({
-    navigation : true, // Show next and prev buttons
+    navigation : false, // Show next and prev buttons
     slideSpeed : 300,
     paginationSpeed : 400,
-    singleItem:true
+    singleItem:true,
+    pagination: false
   });
  
   // Custom Navigation Events
-  jQuery(".next").click(function(){
+  jQuery(".js-next").click(function(){
     owl.trigger('owl.next');
   })
 
-  jQuery(".prev").click(function(){
+  jQuery(".js-prev").click(function(){
     owl.trigger('owl.prev');
   })
 
-  jQuery(".play").click(function(){
-    owl.trigger('owl.play',1000); //owl.play event accept autoPlay speed as second parameter
+  jQuery(".js-play").click(function(){
+    owl.trigger('owl.play',3000); //owl.play event accept autoPlay speed as second parameter
   })
 
-  jQuery(".stop").click(function(){
+  jQuery(".js-stop").click(function(){
     owl.trigger('owl.stop');
   })
 
