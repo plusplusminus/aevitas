@@ -26,11 +26,11 @@
 
 					<?php } ?>
 					</div>
-					<div class="customNavigation">
-					  <a class="js-prev"><span class="fa fa-angle-left"></span>Previous</a>
-					  <a class="js-next"><span class="fa fa-angle-right"></span>Next</a>
-					  <a class="js-play"><span class="fa fa-play"></span>Autoplay</a>
-					  <a class="js-stop"><span class="fa fa-stop"></span>Stop</a>
+					<div class="post_slider--nav">
+					  <a class="js-prev"><span class="fa fa-angle-left"></span></a>
+					  <a class="js-next"><span class="fa fa-angle-right"></span></a>
+					  <a class="js-play"><span class="fa fa-play"></span></a>
+					  <a class="js-stop"><span class="fa fa-stop"></span></a>
 					</div>
 				</aside>
 		<?php else : ?>
