@@ -18,7 +18,7 @@
 						<div class="item">
 							<figure class="slide_image">
 								<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
-								<?php if (!empty($attachment->post_title) || !empty($attachment->post_excerpt)) ; ?>
+								<?php if (!empty($attachment->post_title) || !empty($attachment->post_excerpt)) : ?>
 									<figcaption>
 										<?php if (!empty($attachment->post_title)) : ?>
 											<h3 class="image_title"><? _e($attachment->post_title()); ?></h3>
