@@ -43,7 +43,7 @@ query_posts( $query_args );
 				<nav class="wp-prev-next hide">
 					<ul class="clearfix">
 						<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
-						<li class="next-link"><?php prev_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+						<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
 					</ul>
 				</nav>
 
