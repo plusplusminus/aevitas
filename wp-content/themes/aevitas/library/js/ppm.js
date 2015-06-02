@@ -6,17 +6,41 @@ jQuery(document).ready(function(){
     e.preventDefault();
     var tax = jQuery(this).data('taxonomy'),
       tax_id = jQuery(this).data('id'),
-      filters = jQuery('.filters');
+      filters = jQuery('.filters'),
+      button = jQuery(this);
 
     jQuery(this).attr('disabled','disabled');
+    jQuery('.submit_button').attr('disabled','disabled').text('Loading');
 
     facets.push({tax:tax,id:tax_id});
 
-    var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+jQuery(this).text()+' <span class="fa fa-times"></span></button>';
+    jQuery.ajax({
+      type : "post",
+      dataType : "json",
+      url : myAjax.ajaxurl,
+      data : {action: "get_faceted_search",facets:facets},
+      success: function(response) {
+        var taxomonies = JSON.parse(items);  
+        var html = '';
 
-    filters.append(html);
+        _.forEach(response.result.facets, function(n, key) {
+          html = '';
+          _.forEach(n,function(k,count){
+            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
+          })
+          jQuery('#'+key).html(html);
+        });
 
-    ajaxSearch(facets);
+        jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
+
+        var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+button.text()+' <span class="fa fa-times"></span></button>';
+
+        filters.append(html);
+
+        jQuery('.submit_button').removeAttr("disabled").text('Filter');
+
+      }
+    })
 
   });
 
@@ -29,8 +53,35 @@ jQuery(document).ready(function(){
     	})
 
       jQuery(this).remove();
+      jQuery('.submit_button').attr('disabled','disabled');
 
-      ajaxSearch(facets);
+      jQuery.ajax({
+        type : "post",
+        dataType : "json",
+        url : myAjax.ajaxurl,
+        data : {action: "get_faceted_search",facets:facets},
+        success: function(response) {
+          var taxomonies = JSON.parse(items);  
+          var html = '';
+
+          _.forEach(response.result.facets, function(n, key) {
+            html = '';
+            _.forEach(n,function(k,count){
+              html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
+            })
+            jQuery('#'+key).html(html);
+          });
+
+          jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
+
+          var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+button.text()+' <span class="fa fa-times"></span></button>';
+
+          filters.append(html);
+
+          jQuery('.submit_button').removeAttr("disabled");
+
+        }
+      })
 
   });
 

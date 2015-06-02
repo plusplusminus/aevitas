@@ -28,10 +28,10 @@
 												<?php the_content(); ?>
 											</blockquote>
 											<cite class="testimonial_content--author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-												<span itemprop="name"><?php echo get_post_meta($post->ID,'_byline',true); ?></span>
+												<a target="_blank" href="<?php echo get_post_meta($post->ID,'_url',true); ?>"><span itemprop="name"><?php echo get_post_meta($post->ID,'_byline',true); ?></span></a>
 											</cite>
 											<div class="clearfix">
-												<a target="_blank" href="<?php echo get_post_meta($post->ID,'_url',true); ?>" class="testimonial_content--link"> More Reviews</a>
+												<a target="_blank" href="<?php echo $tpb_options['weddingwire_url'];?>" class="testimonial_content--link"> More Reviews</a>
 											</div>
 										</div>
 									</figcaption>
