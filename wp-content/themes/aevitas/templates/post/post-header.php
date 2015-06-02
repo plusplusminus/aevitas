@@ -13,14 +13,21 @@
 					<?php foreach ($gallery as $key => $image) {
 
 						$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
+						$attachment = get_post($key); 
 						?>
 						<div class="item">
 							<figure class="slide_image">
 								<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
-								<figcaption>
-									<h3 class="image_title">Title</h3>
-									<small>Content Hello</small>
-								</figcaption>
+								<?php if (!empty($attachment->post_title) || !empty($attachment->post_excerpt)) ; ?>
+									<figcaption>
+										<?php if (!empty($attachment->post_title)) : ?>
+											<h3 class="image_title"><? _e($attachment->post_title(); ?></h3>
+										<?php endif; ?>
+										<?php if(!empty($attachment->post_content)) : ?>
+											<?php echo wpautop($attachment->post_content); ?>
+										<?php endif; ?>
+									</figcaption>
+								<?php endif; ?>
 							</figure>
 						</div>
 
