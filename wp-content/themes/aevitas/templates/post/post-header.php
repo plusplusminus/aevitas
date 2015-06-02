@@ -34,6 +34,13 @@
 					  <a class="js-play"><span class="fa fa-play"></span></a>
 					  <a class="js-stop"><span class="fa fa-stop"></span></a>
 					</div>
+					<div class="post_slider--social">
+						<a class="js-facebook"><span class="fa fa-facebook"></span></a>
+					  	<a class="js-twitter"><span class="fa fa-twitter"></span></a>
+					  	<a class="js-pinterest"><span class="fa fa-pinterest"></span></a>
+					  	<a class="js-download"><span class="fa fa-download"></span></a>
+					</div>
+					<div class="clearfix"></div>
 				</aside>
 		<?php else : ?>
 			<figure class="post-header_image">
