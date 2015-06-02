@@ -1,5 +1,7 @@
 jQuery(document).ready(function(){
 
+  jQuery(".fancybox").fancybox();
+
   var ias = jQuery.ias({
     container:  '.blog_row',
     item:       '.js-infinite',
