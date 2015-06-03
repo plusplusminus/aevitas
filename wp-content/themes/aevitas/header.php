@@ -73,6 +73,18 @@
 						<div class="col-md-9">
 						    <div class="navbar-collapse collapse navbar-responsive-collapse">
 						      <?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
+						      <form action="<?php echo home_url( '/' ); ?>" method="get" class="form-inline">
+								    <fieldset>
+								    <div class="input-group">
+								      <input type="text" name="s" id="search" placeholder="<?php _e("Search","bonestheme"); ?>" value="<?php the_search_query(); ?>" class="form-control" />
+								      <span class="input-group-btn">
+								        <button type="submit" class="btn btn-primary"><?php _e("Search","bonestheme"); ?></button>
+								      </span>
+								    </div>
+								    </fieldset>
+								</form>
+
+
 						      <div class="clearfix"></div>
 						      <?php bones_main_nav(); ?>
 						    </div>
