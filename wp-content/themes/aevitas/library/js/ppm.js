@@ -4,6 +4,13 @@ jQuery(document).ready(function(){
     jQuery('.aev-search').toggleClass('aev-search-open');
   })
   
+  jQuery('#searchform').submit(function(){
+    if ( jQuery( "input:first" ).val() === "" ) {
+      jQuery('.aev-search').toggleClass('aev-search-open');
+      event.preventDefault();
+    }
+  })
+
   jQuery(".fancybox").fancybox({
       fsBtn:true,
       openEffect  : 'none',
