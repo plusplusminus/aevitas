@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
       helpers   : {
         title : { type : 'inside' },
         buttons : {}
-      }
+      },
       afterLoad  : function () {
           jQuery.extend(this, {
               aspectRatio : false,
