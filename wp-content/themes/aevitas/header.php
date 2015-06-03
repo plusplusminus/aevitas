@@ -75,14 +75,13 @@
 						      
 
 								<div class="aev-search" id="aev-search">
-							<form method="get" id="searchform" action="http://tympanus.net/codrops/">
-								<div class="aev-search-input-wrap">
-									<input class="aev-search-input" placeholder="Search on Codrops..." type="text" value="" name="s" id="s"/>
+									<form id="searchform" action="<?php echo home_url( '/' ); ?>" method="get">
+										<div class="aev-search-input-wrap">
+											<input class="aev-search-input" placeholder="Search on Aevitas..." type="text" value="" name="s" id="s"/>
+										</div>
+										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search fa fa-search"></span>
+									</form>
 								</div>
-								<input type="hidden" name="search-type" value="posts" />
-								<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search fa fa-search"></span>
-							</form>
-						</div>
 								<?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
 						      	<div class="clearfix"></div>
 						     	<?php bones_main_nav(); ?>
