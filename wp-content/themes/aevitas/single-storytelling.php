@@ -4,8 +4,6 @@
 
    <?php get_template_part('templates/story/story','content'); ?>
 
-    <?php get_template_part('templates/story/story','related'); ?>
-
     <?php get_template_part('templates/section','info'); ?>
 
 <?php get_footer(); ?>

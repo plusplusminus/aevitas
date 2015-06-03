@@ -7,7 +7,7 @@
 					<div class="post_entry">
 						<?php the_content(); ?>
 					</div>
-					<hr class="section_break"/>
+					<?php get_template_part('templates/story/story','related'); ?>
 					<?php get_template_part('templates/post/post','social'); ?>
 				</div>
 			<?php endwhile; ?>

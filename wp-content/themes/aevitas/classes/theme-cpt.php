@@ -299,6 +299,7 @@ class tpbCustomPostTypes {
 		    'type'    => 'text'
 		) );
 
+
 		$faq_meta = new_cmb2_box( array(
 	        'id'            => $prefix . 'faq_metabox',
 	        'title'         => __( 'FAQ Meta', 'cmb2' ),

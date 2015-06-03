@@ -10,6 +10,8 @@
 
 	<?php get_template_part('templates/helpful/page'); ?>
 
+	<?php get_template_part('templates/section','work'); ?>
+
 
 
 <?php get_footer(); ?>

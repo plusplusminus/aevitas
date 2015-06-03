@@ -23,7 +23,7 @@ query_posts( $query_args );
 <section class="section_blog">  
 	<div class="container">
 		<div class="section_blog--heading">
-			<h2 class="section_blog--title">View Related Work</h2>
+			<h2 class="section_blog--title">You Might Also Enjoy These</h2>
 		</div>
 		<?php if ( have_posts() ) : ?>
 			<div class="blog_row">

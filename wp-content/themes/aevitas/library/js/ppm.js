@@ -20,7 +20,7 @@ jQuery(document).ready(function(){
     afterMove: function (elem) {
       var current = this.currentItem;
       var src = elem.find(".owl-item").eq(current).find("img").attr('src');
-      console.log('Image current is ' + src);
+      
     }
   });
  
@@ -44,7 +44,7 @@ jQuery(document).ready(function(){
   // Add a text when there are no more pages left to load
   ias.extension(new IASPagingExtension());
   ias.extension(new IASHistoryExtension({ prev: '.prev a' }));
-  ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="grid_footer--btn ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><button class="grid_footer--btn footer--btn">Load More <span class="icon icon-angle-down"></span></button></div>'}));
+  ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><button class="grid_footer--btn footer--btn">Load More <span class="icon icon-angle-down"></span></button></div>'}));
 
 
   var facets = [];
