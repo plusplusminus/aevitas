@@ -18,7 +18,7 @@ class tpbCustomPostTypes {
 		add_action( 'cmb2_init', array($this,'campaign_register_metabox'));
 
 
-		//add_action( 'p2p_init', array($this,'story_connection_types') );
+		add_action( 'p2p_init', array($this,'story_connection_types') );
 
     }
 

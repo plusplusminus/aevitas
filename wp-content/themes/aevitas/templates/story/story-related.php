@@ -1,4 +1,6 @@
 <?php
+global $post;
+
 // Exclude categories on the homepage.
 $story_related = get_post_meta($post->ID,'_ppm_story-related_heading',true);
 
