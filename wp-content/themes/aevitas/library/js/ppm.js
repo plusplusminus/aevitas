@@ -19,8 +19,23 @@ jQuery(document).ready(function(){
               content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
           });
       },
+      beforeShow: function () {
+          if (this.title) {
+
+            console.log(this);
+              // New line
+
+              title = this.title;
+             
+               // Add tweet button
+              this.title += '<div class="fancy_social"><a target="blank" href="https://twitter.com/intent/tweet?text='+title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a>';
+              this.title += '<a target="blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a>';
+              this.title += '<a target="blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a>';
+              this.title += '</div>';
+          }
+      },
       tpl : {
-        closeBtn : '<button type="button" class="fancy-box-close"><svg class="svg shape-close-cross"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-close-cross"></use></svg></button>',
+        closeBtn : '<button type="button" class="fancy-box-close"></button>',
         next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>',
         prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>'
       }
