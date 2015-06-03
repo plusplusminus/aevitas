@@ -202,7 +202,7 @@ jQuery(document).ready(function(){
   	arrows: true,
   	adaptiveHeight: true,
   	slidesToShow: 1,
-  	lazyLoad: true
+  	lazyLoad: 'progressive'
   });
 
   jQuery('.js-slider-testimonials').slick({

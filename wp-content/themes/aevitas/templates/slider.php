@@ -10,7 +10,7 @@
 			?>
 			<div class="slide">
 				<figure class="slide_image">
-					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
+					<img data-lazy="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 				</figure>
 			</div>
 
