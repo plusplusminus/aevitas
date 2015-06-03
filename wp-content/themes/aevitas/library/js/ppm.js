@@ -2,10 +2,12 @@ jQuery(document).ready(function(){
   jQuery('.aev-icon-search').on('click',function(e){
     e.preventDefault();
     jQuery('.aev-search').toggleClass('aev-search-open');
+    jQuery('#searchform input:first').focus();
+
   })
-  
+
   jQuery('#searchform').submit(function(){
-    if ( jQuery( "input:first" ).val() === "" ) {
+    if ( jQuery( "#searchform input:first" ).val() === "" ) {
       jQuery('.aev-search').toggleClass('aev-search-open');
       event.preventDefault();
     }
