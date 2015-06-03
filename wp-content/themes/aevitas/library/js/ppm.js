@@ -17,8 +17,8 @@ jQuery(document).ready(function(){
       },
       tpl : {
         closeBtn : '<button type="button" class="fancy-box-close"><svg class="svg shape-close-cross"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-close-cross"></use></svg></button>',
-        next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>',
-        prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>'
+        next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>',
+        prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>'
       }
     });
 
