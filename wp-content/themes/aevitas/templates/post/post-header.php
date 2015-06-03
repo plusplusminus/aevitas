@@ -29,11 +29,11 @@
 					<?php } ?>
 					</div>
 					<div class="post_slider--nav">
-					  <a class="js-prev"><span class="fa fa-angle-left fa-2x"></span></a>
+					  <a class="js-prev"><span class="fa fa-angle-left"></span></a>
 					  
-					  <a class="js-play"><span class="fa fa-play fa-2x"></span></a>
-					  <a class="js-stop"><span class="fa fa-stop fa-2x"></span></a>
-					  <a class="js-next"><span class="fa fa-angle-right  fa-2x"></span></a>
+					  <a class="js-play"><span class="fa fa-play"></span></a>
+					  <a class="js-stop"><span class="fa fa-stop"></span></a>
+					  <a class="js-next"><span class="fa fa-angle-right "></span></a>
 					</div>
 					<div class="clearfix"></div>
 				</aside>
