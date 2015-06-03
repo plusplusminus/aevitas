@@ -71,7 +71,7 @@ jQuery(document).ready(function(){
     paginationSpeed : 400,
     singleItem:true,
     pagination: false,
-    navigationText  ["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
+    navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
       var current = this.currentItem;
       var src = elem.find(".owl-item").eq(current).find("img").attr('src');
