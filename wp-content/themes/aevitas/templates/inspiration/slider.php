@@ -5,7 +5,7 @@
 
 $query_args = array(
 	'post_type' => 'inspiration', 
-	'tag'=>'featured',
+	'tag'=>'featured-tai',
 	'posts_per_page' => 10
 );
 

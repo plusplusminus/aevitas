@@ -8,11 +8,12 @@
 						<?php the_content(); ?>
 					</div>
 					<?php get_template_part('templates/story/story','related'); ?>
+					<hr class="section_break"/>
 					<?php get_template_part('templates/post/post','social'); ?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<hr class="section_break"/>
+		
 	</div>			
 </article><?php // end #wrapper ?>
