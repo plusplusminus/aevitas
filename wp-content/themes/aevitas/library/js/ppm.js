@@ -15,6 +15,11 @@ jQuery(document).ready(function(){
               content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
           });
       },
+      tpl : {
+        closeBtn : '<button type="button" class="fancy-box-close"><svg class="svg shape-close-cross"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-close-cross"></use></svg></button>',
+        next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>',
+        prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>'
+      }
     });
 
   var ias = jQuery.ias({
