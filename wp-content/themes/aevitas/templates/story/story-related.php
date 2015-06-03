@@ -11,7 +11,7 @@ $connected = new WP_Query( array(
 ?>
 
 <section class="section_story-related">  
-	<div class="container">
+
 		<div class="section_story-related--heading">
 			<h2 class="section_story-related--title"><?php _e($story_related,'aevitas');?></h2>
 		</div>
@@ -48,5 +48,4 @@ $connected = new WP_Query( array(
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>
-	</div>	
 </section> <?php // end #wrapper ?>
