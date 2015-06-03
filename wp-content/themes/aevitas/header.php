@@ -73,20 +73,19 @@
 						<div class="col-md-9">
 						    <div class="navbar-collapse collapse navbar-responsive-collapse">
 						      <?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
-						      <form action="<?php echo home_url( '/' ); ?>" method="get" class="form-inline">
-								    <fieldset>
-								    <div class="input-group">
-								      <input type="text" name="s" id="search" placeholder="<?php _e("Search","bonestheme"); ?>" value="<?php the_search_query(); ?>" class="form-control" />
-								      <span class="input-group-btn">
-								        <button type="submit" class="btn btn-primary"><?php _e("Search","bonestheme"); ?></button>
-								      </span>
-								    </div>
-								    </fieldset>
-								</form>
 
+								<div class="aev-search" id="aev-search">
+									<form method="get" id="searchform" action="http://tympanus.net/codrops/">
+										<div class="aev-search-input-wrap">
+											<span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input class="aev-search-input tt-query" placeholder="Search on Codrops..." type="text" value="" name="s" id="s" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: proxima-nova, 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: bold; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+										</div>
+										<input type="hidden" name="search-type" value="posts">
+										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search"></span>
+									</form>
+								</div>
 
-						      <div class="clearfix"></div>
-						      <?php bones_main_nav(); ?>
+						      	<div class="clearfix"></div>
+						     	<?php bones_main_nav(); ?>
 						    </div>
 						    <div class="clearfix"></div>
 						</div>

@@ -1284,3 +1284,119 @@ hr.section_break {
 }
 
 .pswp__container { transition: transform 0.35s ease-in-out; }
+
+.aev-search {
+    position: relative;
+    z-index: 100000;
+    float: right;
+    margin: 16px 0 0 0;
+    width: 34px;
+    height: 34px;
+}
+
+.aev-search * {
+    box-sizing: border-box;
+}
+
+.aev-search-input-wrap {
+    position: absolute;
+    right: 34px;
+    width: 265px;
+    height: 34px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.aev-search.aev-search-open .aev-search-input-wrap {
+    pointer-events: auto;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+}
+
+.aev-container .twitter-typeahead {
+    width: 100% !important;
+    background: #fff;
+}
+
+.aev-container .tt-dropdown-menu {
+    border: none;
+    border-radius: 0px;
+}
+
+.aev-icon-search,
+input[type="submit"].aev-search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 34px !important;
+    height: 34px;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.aev-icon-search {
+    z-index: 90;
+    background: #0099cc;
+    color: #237dac;
+}
+
+.aev-search.aev-search-open .aev-icon-search {
+    z-index: 1;
+    background: #237dac;
+    color: #fff;
+    pointer-events: none;
+}
+
+input[type="submit"].aev-search-submit {
+    z-index: -1;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: transparent;
+}
+
+.aev-search.aev-search-open input[type="submit"].aev-search-submit {
+    z-index: 100
+}
+
+input[type="text"].aev-search-input,
+input[type="text"].tt-hint {
+    margin: 0;
+    padding: 2px 7px;
+    width: 262px;
+    height: 34px;
+    outline: none;
+    border: none;
+    background: #fff;
+    font-family: inherit;
+    opacity: 0;
+    font-weight: bold;
+}
+
+.aev-search.aev-search-open input[type="text"].aev-search-input {
+    opacity: 1
+}
+
+::-webkit-input-placeholder {
+    color: #ddd
+}
+
+:-moz-placeholder {
+    color: #ddd
+}
+
+::-moz-placeholder {
+    color: #ddd
+}
+
+:-ms-input-placeholder {
+    color: #ddd
+}
+
+
