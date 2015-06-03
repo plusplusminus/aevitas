@@ -72,7 +72,7 @@
 						</div>
 						<div class="col-md-9">
 						    <div class="navbar-collapse collapse navbar-responsive-collapse">
-						      <?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
+						      
 
 								<div class="aev-search" id="aev-search">
 									<form method="get" id="searchform" action="http://tympanus.net/codrops/">
@@ -83,7 +83,7 @@
 										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search"></span>
 									</form>
 								</div>
-
+								<?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
 						      	<div class="clearfix"></div>
 						     	<?php bones_main_nav(); ?>
 						    </div>
