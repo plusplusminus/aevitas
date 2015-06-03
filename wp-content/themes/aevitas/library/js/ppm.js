@@ -1,5 +1,9 @@
 jQuery(document).ready(function(){
-
+  jQuery('.aev-icon-search').on('click',function(e){
+    e.preventDefault();
+    jQuery('.aev-search').toggleClass('aev-search-open');
+  })
+  
   jQuery(".fancybox").fancybox({
       fsBtn:true,
       openEffect  : 'none',
@@ -69,7 +73,7 @@ jQuery(document).ready(function(){
     e.preventDefault();
 
     jQuery(document).toggleFullScreen();
-    
+
   });
  
   // Custom Navigation Events
