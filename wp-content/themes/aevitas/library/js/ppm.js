@@ -6,6 +6,10 @@ jQuery(document).ready(function(){
       closeEffect : 'none',
       padding: 0,
       margin:10,
+      helpers   : {
+        title : { type : 'inside' },
+        buttons : {}
+      }
       afterLoad  : function () {
           jQuery.extend(this, {
               aspectRatio : false,
