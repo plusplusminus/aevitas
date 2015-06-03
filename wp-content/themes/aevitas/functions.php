@@ -13,17 +13,17 @@ function ppm_scripts_and_styles() {
     global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
     if (!is_admin()) {
         
-        wp_register_script( 'isotope', get_stylesheet_directory_uri() . '/library/vendors/isotope/dist/isotope.pkgd.min.js', array('jquery'), '1.0.9',true);
+        wp_register_script( 'isotope', get_stylesheet_directory_uri() . '/library/vendors/isotope/dist/isotope.pkgd.min.js', array('jquery'), '1.0.8',true);
         
-        wp_register_script( 'photoswipe', get_stylesheet_directory_uri() . '/library/vendors/photoswipe/dist/photoswipe.min.js', array('jquery'), '1.0.9',true);
-        wp_register_script( 'photoswipe-ui', get_stylesheet_directory_uri() . '/library/vendors/photoswipe/dist/photoswipe-ui-default.min.js', array('jquery'), '1.0.9',true);
+        wp_register_script( 'photoswipe', get_stylesheet_directory_uri() . '/library/vendors/photoswipe/dist/photoswipe.min.js', array('jquery'), '1.0.8',true);
+        wp_register_script( 'photoswipe-ui', get_stylesheet_directory_uri() . '/library/vendors/photoswipe/dist/photoswipe-ui-default.min.js', array('jquery'), '1.0.8',true);
 
-        wp_register_script( 'slick', get_stylesheet_directory_uri() . '/library/vendors/slick.js/slick/slick.min.js', array('jquery'), '1.0.9',true);
-        wp_register_script( 'selectize', get_stylesheet_directory_uri() . '/library/vendors/selectize/dist/js/standalone/selectize.min.js', array('jquery'), '1.0.9',true);
+        wp_register_script( 'slick', get_stylesheet_directory_uri() . '/library/vendors/slick.js/slick/slick.min.js', array('jquery'), '1.0.8',true);
+        wp_register_script( 'selectize', get_stylesheet_directory_uri() . '/library/vendors/selectize/dist/js/standalone/selectize.min.js', array('jquery'), '1.0.8',true);
         
-        wp_register_script( 'third-party', get_stylesheet_directory_uri() . '/library/js/third-party.js', array('jquery'), '1.0.9',true);
+        wp_register_script( 'third-party', get_stylesheet_directory_uri() . '/library/js/third-party.js', array('jquery'), '1.0.8',true);
         
-        wp_register_script( 'ppm', get_stylesheet_directory_uri() . '/library/js/ppm.js', array('third-party','slick','selectize','jquery'), '1.0.49',true);
+        wp_register_script( 'ppm', get_stylesheet_directory_uri() . '/library/js/ppm.js', array('third-party','slick','selectize','jquery'), '1.0.48',true);
 
         wp_enqueue_script('isotope');
 
