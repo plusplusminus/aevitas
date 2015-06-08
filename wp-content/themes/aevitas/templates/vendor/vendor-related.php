@@ -2,29 +2,29 @@
 global $post;
 
 // Exclude categories on the homepage.
-$story_related = get_post_meta($post->ID,'_ppm_story-related_heading',true);
+$vendor_related = get_post_meta($post->ID,'_ppm_vendor-related_heading',true);
 
 $connected = new WP_Query( array(
-  'connected_type' => 'story_to_posts',
+  'connected_type' => 'vendor_to_posts',
   'connected_items' => get_queried_object(),
   'nopaging' => true,
 ) );
 
 ?>
 
-<section class="section_story-related">  
+<section class="section_vendor-related">  
 
-	<div class="section_story-related--heading">
-		<h2 class="section_story-related--title"><?php _e($story_related,'aevitas');?></h2>
+	<div class="section_vendor-related--heading">
+		<h2 class="section_vendor-related--title"><?php _e($vendor_related,'aevitas');?></h2>
 	</div>
 	<?php if ( $connected->have_posts() ) : ?>
-		<div class="story-related_row">
+		<div class="vendor-related_row">
 			<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-			  	<article id="post-<?php the_ID(); ?>" <?php post_class('story-related_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+			  	<article id="post-<?php the_ID(); ?>" <?php post_class('vendor-related_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 			    	
-			    	<figure class="story-related_image">
+			    	<figure class="vendor-related_image">
 			    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
-			    		<figcaption class="story-related_content">
+			    		<figcaption class="vendor-related_content">
 				    		<div class="content_inner">
 			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
 			    				<ul class="content_meta">
@@ -42,7 +42,7 @@ $connected = new WP_Query( array(
 								</ul>
 							</div>
 						</figcaption>
-						<a class="story-related_article--link" href="<?php the_permalink();?>">&nbsp;</a>
+						<a class="vendor-related_article--link" href="<?php the_permalink();?>">&nbsp;</a>
 					</figure>
 				</article>
 			<?php endwhile; ?>

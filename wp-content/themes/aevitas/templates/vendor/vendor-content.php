@@ -19,7 +19,7 @@
 
 			<?php get_template_part('templates/video'); ?>
 
-			<?php get_template_part('templates/story/story','related'); ?>
+			<?php get_template_part('templates/vendor/vendor','related'); ?>
 
 			<?php get_template_part('templates/post/post','social'); ?>
 		</div>
