@@ -49,8 +49,9 @@ jQuery(document).ready(function(){
 
   jQuery(".fancybox").fancybox({
       fsBtn:true,
-      openEffect  : 'none',
-      closeEffect : 'none',
+      openEffect: 'fade',
+      prevEffect: 'fade',
+      nextEffect: 'fade'
       padding: 0,
       margin:10,
       helpers   : {
