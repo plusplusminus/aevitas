@@ -32,8 +32,8 @@ class tpbCustomPostTypes {
 	    ) );
 
 	    p2p_register_connection_type( array(
-	        'name' => 'vendor_to_posts',
-	        'from' => 'vendor',
+	        'name' => 'vendors_to_posts',
+	        'from' => 'vendors',
 	        'to' => 'post'
 	    ) );
 	}
