@@ -1,4 +1,7 @@
 jQuery(document).ready(function(){
+
+  jQuery('.post_video').fitvids();
+
   jQuery('.aev-icon-search').on('click',function(e){
     e.preventDefault();
     jQuery('.aev-search').toggleClass('aev-search-open');
