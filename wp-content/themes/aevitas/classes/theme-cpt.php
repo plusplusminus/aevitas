@@ -270,7 +270,7 @@ class tpbCustomPostTypes {
 		$post_meta = new_cmb2_box( array(
 	        'id'            => $prefix . 'post_metabox',
 	        'title'         => __( 'Post Meta', 'cmb2' ),
-	        'object_types'  => array( 'post','portfolio','detail'), // Post type
+	        'object_types'  => array( 'post','portfolio','detail','vendors'), // Post type
 	        'context'       => 'normal',
 	        'priority'      => 'high',
 	        'show_names'    => true, // Show field names on the left
