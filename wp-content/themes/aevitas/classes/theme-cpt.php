@@ -345,7 +345,7 @@ class tpbCustomPostTypes {
 		) );
 
 	    $vendor_meta = new_cmb2_box( array(
-	        'id'            => $prefix . 'story_metabox',
+	        'id'            => $prefix . 'vendor_metabox',
 	        'title'         => __( 'Vendor Meta', 'cmb2' ),
 	        'object_types'  => array( 'vendors' ), // Post type
 	        'context'       => 'normal',
