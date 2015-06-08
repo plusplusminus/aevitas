@@ -18,7 +18,7 @@
 						?>
 						<div class="item">
 							<figure class="slide_image">
-								<a class="fancybox" title="<? _e($attachment->post_excerpt); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery">
+								<a class="fancybox" title="<? _e($attachment->post_title); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery">
 									<img alt="<? _e($attachment->post_title); ?>" src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 								</a>
 								<?php if (!empty($attachment->post_excerpt)) : ?>
