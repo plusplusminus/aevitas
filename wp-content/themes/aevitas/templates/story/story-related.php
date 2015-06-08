@@ -5,7 +5,7 @@ global $post;
 $vendor_related = get_post_meta($post->ID,'_ppm_vendor-related_heading',true);
 
 $connected = new WP_Query( array(
-  'connected_type' => 'vendor_to_posts',
+  'connected_type' => 'vendors_to_posts',
   'connected_items' => get_queried_object(),
   'nopaging' => true,
 ) );

@@ -344,6 +344,24 @@ class tpbCustomPostTypes {
 		    'type'    => 'text'
 		) );
 
+	    $vendor_meta = new_cmb2_box( array(
+	        'id'            => $prefix . 'story_metabox',
+	        'title'         => __( 'Vendor Meta', 'cmb2' ),
+	        'object_types'  => array( 'vendors' ), // Post type
+	        'context'       => 'normal',
+	        'priority'      => 'high',
+	        'show_names'    => true, // Show field names on the left
+	        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+	        // 'closed'     => true, // true to keep the metabox closed by default
+	    ) );
+
+	    $vendor_meta->add_field( array(
+		    'name'    => 'Vendor Related Heading',
+		    'desc'    => 'Enter the related vendor heading',
+		    'id'      => $prefix . 'vendor-related_heading',
+		    'type'    => 'text'
+		) );
+
 
 		$faq_meta = new_cmb2_box( array(
 	        'id'            => $prefix . 'faq_metabox',
