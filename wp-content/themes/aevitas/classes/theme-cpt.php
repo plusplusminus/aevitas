@@ -30,6 +30,12 @@ class tpbCustomPostTypes {
 	        'from' => 'storytelling',
 	        'to' => 'post'
 	    ) );
+
+	    p2p_register_connection_type( array(
+	        'name' => 'vendor_to_posts',
+	        'from' => 'vendor',
+	        'to' => 'post'
+	    ) );
 	}
 
 
