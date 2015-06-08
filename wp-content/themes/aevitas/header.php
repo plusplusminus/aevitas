@@ -77,9 +77,9 @@
 								<div class="aev-search" id="aev-search">
 									<form id="searchform" action="<?php echo home_url( '/' ); ?>" method="get">
 										<div class="aev-search-input-wrap">
-											<input class="aev-search-input" placeholder="Search on Aevitas..." type="text" value="" name="s" id="s"/>
+											<input class="aev-search-input" placeholder="Search on Aevitas Weddings..." type="text" value="" name="s" id="s"/>
 										</div>
-										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search fa fa-search"></span>
+										<input class="aev-search-submit" type="submit" id="go" value="">Search <span class="aev-icon-search fa fa-search"></span>
 									</form>
 								</div>
 								<?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
