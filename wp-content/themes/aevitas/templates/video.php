@@ -12,6 +12,7 @@
 				<?php echo wp_oembed_get( $url ); ?>
 			</div>
 		</div>
+		<hr class="section_break"/>
 	</aside>
 <?php endif; ?>
 
