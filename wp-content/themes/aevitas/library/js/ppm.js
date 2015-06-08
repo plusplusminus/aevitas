@@ -51,7 +51,7 @@ jQuery(document).ready(function(){
       fsBtn:true,
       openEffect: 'fade',
       prevEffect: 'fade',
-      nextEffect: 'fade'
+      nextEffect: 'fade',
       padding: 0,
       margin:10,
       helpers   : {
