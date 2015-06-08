@@ -16,6 +16,9 @@
 			<?php wp_reset_query(); ?>
 			<?php get_template_part('templates/slider'); ?>
 			<hr class="section_break"/>
+
+			<?php get_template_part('template/video'); ?>
+			
 			<?php get_template_part('templates/story/story','related'); ?>
 
 			<?php get_template_part('templates/post/post','social'); ?>

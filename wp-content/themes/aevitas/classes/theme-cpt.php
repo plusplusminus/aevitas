@@ -362,6 +362,13 @@ class tpbCustomPostTypes {
 		    'type'    => 'text'
 		) );
 
+		$vendor_meta->add_field(array(
+			'name' => 'oEmbed',
+			'desc' => 'Enter a youtube, twitter, or instagram URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.',
+			'id' => $prefix . 'video_embed',
+			'type' => 'oembed',
+		));
+
 
 		$faq_meta = new_cmb2_box( array(
 	        'id'            => $prefix . 'faq_metabox',
