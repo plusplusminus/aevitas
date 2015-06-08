@@ -1,5 +1,36 @@
 jQuery(document).ready(function(){
 
+  var docElem = document.documentElement,
+    header = document.querySelector( '.header' ),
+    didScroll = false,
+    changeHeaderOn = 300;
+
+  function init() {
+    window.addEventListener( 'scroll', function( event ) {
+      if( !didScroll ) {
+        didScroll = true;
+        setTimeout( scrollPage, 250 );
+      }
+    }, false );
+  }
+
+  function scrollPage() {
+    var sy = scrollY();
+    if ( sy >= changeHeaderOn ) {
+      classie.add( header, 'css-header-shrink' );
+    }
+    else {
+      classie.remove( header, 'css-header-shrink' );
+    }
+    didScroll = false;
+  }
+
+  function scrollY() {
+    return window.pageYOffset || docElem.scrollTop;
+  }
+
+  init();
+
   jQuery('.post_video').fitVids();
 
   jQuery('.aev-icon-search').on('click',function(e){
@@ -345,42 +376,6 @@ function ajaxSearch(facetItems) {
   })
 }
 
-cbpAnimatedHeader();
-
-var cbpAnimatedHeader = (function() {
-
-  var docElem = document.documentElement,
-    header = document.querySelector( '.header' ),
-    didScroll = false,
-    changeHeaderOn = 300;
-
-  function init() {
-    window.addEventListener( 'scroll', function( event ) {
-      if( !didScroll ) {
-        didScroll = true;
-        setTimeout( scrollPage, 250 );
-      }
-    }, false );
-  }
-
-  function scrollPage() {
-    var sy = scrollY();
-    if ( sy >= changeHeaderOn ) {
-      classie.add( header, 'css-header-shrink' );
-    }
-    else {
-      classie.remove( header, 'css-header-shrink' );
-    }
-    didScroll = false;
-  }
-
-  function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
-  }
-
-  init();
-
-})();
 
 
 
