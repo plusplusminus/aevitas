@@ -345,6 +345,7 @@ function ajaxSearch(facetItems) {
   })
 }
 
+cbpAnimatedHeader();
 
 var cbpAnimatedHeader = (function() {
 
