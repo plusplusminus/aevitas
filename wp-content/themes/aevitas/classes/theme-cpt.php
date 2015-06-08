@@ -181,6 +181,43 @@ class tpbCustomPostTypes {
 			);			
 	}
 
+	function aevitas_vendors()
+	{
+		// Register custom post types
+		register_post_type(	'vendors', 
+			array(	'label' 			=> __('Vendors'),
+					'labels' 			=> array(	'name' 					=> __('Vendors'),
+													'singular_name' 		=> __('Vendors'),
+													'add_new' 				=> __('Add New'),
+													'add_new_item' 			=> __('Add New Vendors'),
+													'edit' 					=> __('Edit'),
+													'edit_item' 			=> __('Edit Vendors'),
+													'new_item' 				=> __('New Vendors'),
+													'view_item'				=> __('View Vendors'),
+													'search_items' 			=> __('Search Vendors'),
+													'not_found' 			=> __('No Vendors found'),
+													'not_found_in_trash' 	=> __('No Vendors found in trash')	),
+					'public' 			=> true,
+					'can_export'		=> true,
+					'show_ui' 			=> true, // UI in admin panel
+					'_builtin' 			=> false, // It's a custom post type, not built in
+					'_edit_link' 		=> 'post.php?post=%d',
+					'capability_type' 	=> 'post',
+					'menu_icon' 		=> 'dashicons-awards',
+					'hierarchical' 		=> false,
+					'has_archive' 		=> false,
+					'rewrite' 			=> array(	"slug" => "vendor"	), // Permalinks
+					'query_var' 		=> "vendors", // This goes to the WP_Query schema
+					'supports' 			=> array(	'title',																
+													'editor',
+													'thumbnail'
+													),
+					'show_in_nav_menus'	=> false ,
+					'taxonomies'		=> array(	'post_tag' )
+				)
+			);			
+	}
+
 	public function campaign_register_metabox() {
 
 	    // Start with an underscore to hide fields from custom fields list
