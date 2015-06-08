@@ -50,8 +50,8 @@ jQuery(document).ready(function(){
   jQuery(".fancybox").fancybox({
       fsBtn:true,
       openEffect: 'fade',
-      prevEffect: 'fade',
-      nextEffect: 'fade',
+      transitionIn: 'fade',
+      transitionOut: 'fade',
       padding: 0,
       margin:10,
       helpers   : {
