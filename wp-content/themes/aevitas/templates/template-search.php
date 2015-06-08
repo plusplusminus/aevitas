@@ -55,4 +55,6 @@ query_posts( $query_args );
 	</div>	
 </section> <?php // end #wrapper ?>
 
+<?php get_template_part('templates/section','work'); ?>
+
 <?php get_footer(); ?>
