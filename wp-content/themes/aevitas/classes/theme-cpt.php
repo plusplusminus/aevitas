@@ -13,6 +13,8 @@ class tpbCustomPostTypes {
 
 		add_action( 'init', array($this,'aevitas_storytelling'));
 
+		add_action( 'init', array($this,'aevitas_vendors'));
+
 		add_action( 'init', array($this,'aevitas_images'));
 
 		add_action( 'cmb2_init', array($this,'campaign_register_metabox'));
