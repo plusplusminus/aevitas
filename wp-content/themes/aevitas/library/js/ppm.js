@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-  jQuery('.post_video').fitvids();
+  jQuery('.post_video').fitVids();
 
   jQuery('.aev-icon-search').on('click',function(e){
     e.preventDefault();
