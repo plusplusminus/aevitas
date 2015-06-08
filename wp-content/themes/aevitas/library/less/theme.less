@@ -244,6 +244,21 @@ hr.section_break {
 .header {
 	padding: 35px 0;
 	border-bottom: 1px solid @gray-light;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10000;
+
+	overflow: hidden;
+	-webkit-transition: padding 0.3s;
+	-moz-transition: padding 0.3s;
+	transition: padding 0.3s;
+
+	.css-header-shrink & {
+		padding: 5px 0;
+	}
 }
 
 .navbar {
