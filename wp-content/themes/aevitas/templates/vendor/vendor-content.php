@@ -14,6 +14,7 @@
 			<?php endif; ?>
 
 			<?php wp_reset_query(); ?>
+			<?php get_template_part('templates/slider'); ?>
 			<hr class="section_break"/>
 			<?php get_template_part('templates/story/story','related'); ?>
 
