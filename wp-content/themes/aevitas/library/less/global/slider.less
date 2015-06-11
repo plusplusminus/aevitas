@@ -375,11 +375,11 @@
 
 .slide_image--caption {
     position: absolute;
-    width: 100%;
-    left:0;
-    right:0;
-    bottom: 0;
-    padding: 20px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    padding: 20px 20px;
+    background: rgba(53,58,61,0.79);
     color: #fff;
 
     background: rgba(255,255,255,0.2);
@@ -391,5 +391,14 @@
 
     .slide_image:hover & {
         .translate3d(0,0%,0);
+    }
+
+    .image_title {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 17px;
+        margin: 0;
+        line-height: 17px;
     }
 }

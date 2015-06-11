@@ -185,7 +185,7 @@ function tpb_thumbnail_attr($html, $post_id, $post_thumbnail_id, $size, $attr ) 
                     </picture>';
     endif;
 
-     if ($size == 'grid-6') :
+    if ($size == 'grid-6') :
         $attr = array('class'=>'img-responsive js-cut');
 
 
@@ -310,6 +310,35 @@ function get_facets() {
     die();
 }
 
+
+add_filter('woothemes_testimonials_post_type_args','change_testimonials_to_reviews',10,1);
+
+function change_testimonials_to_reviews($args) {
+
+    $labels = array(
+        'name' => _x( 'Reviews', 'post type general name', 'woothemes-reviews' ),
+        'singular_name' => _x( 'Review', 'post type singular name', 'woothemes-reviews' ),
+        'add_new' => _x( 'Add New', 'review', 'woothemes-reviews' ),
+        'add_new_item' => sprintf( __( 'Add New %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
+        'edit_item' => sprintf( __( 'Edit %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
+        'new_item' => sprintf( __( 'New %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
+        'all_items' => sprintf( __( 'All %s', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
+        'view_item' => sprintf( __( 'View %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
+        'search_items' => sprintf( __( 'Search %a', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
+        'not_found' =>  sprintf( __( 'No %s Found', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
+        'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
+        'parent_item_colon' => '',
+        'menu_name' => __( 'Reviews', 'woothemes-reviews' )
+
+    );
+
+    $args['labels'] = $labels;
+    $args['has_archive'] = false;
+    $args['rewrite'] = array( 'slug' => 'review', 'with_front' => false );
+
+    return $args;
+
+}
 
 
 ?>
