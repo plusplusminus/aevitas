@@ -1,5 +1,7 @@
 jQuery(document).ready(function(){
 
+  cbpBGSlideshow.init()
+
   var docElem = document.documentElement,
     header = document.querySelector( '.header' ),
     didScroll = false,
@@ -106,6 +108,7 @@ jQuery(document).ready(function(){
     paginationSpeed : 400,
     singleItem:true,
     pagination: false,
+    transitionStyle : "fade",
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
       var current = this.currentItem;
@@ -226,11 +229,6 @@ jQuery(document).ready(function(){
         }
       })
 
-  });
-
-  jQuery('.section_gallery').slick({
-  	dots: true,
-  	arrows: false,
   });
 
   jQuery('.slider').slick({
@@ -378,6 +376,49 @@ function ajaxSearch(facetItems) {
 }
 
 
+
+var cbpBGSlideshow = (function() {
+
+  var $slideshow = jQuery( '.owl-slider' ),
+    $items = jQuery( '.owl-slider' ).find( '.item' ),
+    itemsCount = $items.length;
+
+  function init( config ) {
+
+    console.log( $items);
+
+    // preload the images
+    $slideshow.imagesLoaded( function() {
+      initHeader();
+      if( Modernizr.backgroundsize ) {
+        $items.each( function() {
+          var $item = jQuery( this );
+          $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
+        } );
+      }
+      else {
+        $slideshow.find( 'img' ).show();
+        // for older browsers add fallback here (image size and centering)
+      }
+    } );
+    
+  }
+
+  return { init : init };
+
+})();
+
+function initHeader() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    target = {x: width/2, y: height/2};
+
+
+    largeHeader = document.querySelector('.owl-item');
+
+    largeHeader.style.height = height+'px';
+
+}
 
 
 
