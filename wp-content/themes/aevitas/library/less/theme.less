@@ -37,8 +37,6 @@ body{
 
 .vertical(@size){
 
-
-	
 	background: rgba(53,58,61,0);
 
 	position: absolute;
@@ -83,11 +81,11 @@ body{
 		-webkit-transform: scale(1,0);
 	}
 
-	.css-hover-vertical:hover & {
+	.css-hover-vertical:hover &,.touch & {
 		background: rgba(53,58,61,0.90);
 	}
 
-  	.css-hover-vertical:hover &::before,.css-hover-vertical:hover &::after {
+  	.css-hover-vertical:hover &::before,.touch &::before,.css-hover-vertical:hover &::after,.touch &::after {
 		opacity: 1;
 		-webkit-transform: scale(1);
 		transform: scale(1);
