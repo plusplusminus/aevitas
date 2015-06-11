@@ -6,7 +6,7 @@
 $query_args = array(
 	'post_type' => array('post','storytelling','inspiration'), 
 	'tag'=>'featured',
-	'posts_per_page' => 2
+	'posts_per_page' => 10
 );
 
 query_posts( $query_args );
