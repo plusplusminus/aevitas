@@ -66,7 +66,7 @@ global $cpt;
 		</div>
 		<hr class="section_break"/>
 		<script type="text/javascript">
-			var items = "<?php echo htmlspecialchars(json_encode($arr), ENT_QUOTES, 'UTF-8'); ?>";
+			var items = '<?php echo htmlspecialchars(json_encode($arr), ENT_QUOTES, 'UTF-8'); ?>';
 		</script>
 	</div>
 </section>
