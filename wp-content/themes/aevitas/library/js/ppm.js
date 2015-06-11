@@ -380,7 +380,7 @@ function ajaxSearch(facetItems) {
 var cbpBGSlideshow = (function() {
 
   var $slideshow = jQuery( '.owl-slider' ),
-    $items = jQuery( '.owl-slider' ).find( '.item' ),
+    $items = jQuery( '.owl-slider' ).find( '.owl-item' ),
     itemsCount = $items.length;
 
   function init( config ) {
@@ -389,12 +389,14 @@ var cbpBGSlideshow = (function() {
 
     // preload the images
     $slideshow.imagesLoaded( function() {
-      initHeader();
+      height = window.innerHeight;
+      var $itemP = jQuery( '.owl-item' ).css('height',height);
+      
 
       if( Modernizr.backgroundsize ) {
         $slideshow.find( 'img' ).hide();
         $items.each( function() {
-          var $item = jQuery( this );
+
           $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
         } );
       }
