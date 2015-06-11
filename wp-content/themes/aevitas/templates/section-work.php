@@ -65,8 +65,14 @@ global $cpt;
 			</div>
 		</div>
 		<hr class="section_break"/>
+		<?php
+			$arr = array_map('utf8_encode', $arr);
+			$json = json_encode($arr);
+		?>
 		<script type="text/javascript">
-			var items = '<?php echo htmlspecialchars(json_encode($arr), ENT_QUOTES, 'UTF-8'); ?>';
+
+			
+			var items = '<?php echo $json ?>';
 		</script>
 	</div>
 </section>
