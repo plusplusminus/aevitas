@@ -396,7 +396,7 @@ var cbpBGSlideshow = (function() {
       if( Modernizr.backgroundsize ) {
         $slideshow.find( 'img' ).hide();
         $items.each( function() {
-
+          var $item = jQuery( this );
           $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
         } );
       }
