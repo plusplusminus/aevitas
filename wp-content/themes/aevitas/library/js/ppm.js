@@ -390,7 +390,9 @@ var cbpBGSlideshow = (function() {
     // preload the images
     $slideshow.imagesLoaded( function() {
       initHeader();
+
       if( Modernizr.backgroundsize ) {
+        $slideshow.find( 'img' ).hide();
         $items.each( function() {
           var $item = jQuery( this );
           $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
@@ -414,7 +416,7 @@ function initHeader() {
     target = {x: width/2, y: height/2};
 
 
-    largeHeader = document.querySelector('.owl-item');
+    largeHeader = document.querySelectorAll('.owl-item');
 
     largeHeader.style.height = height+'px';
 
