@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
 
 
 
-  jQuery('.selectize').selectize({
+  jQuery('.selectiz1e').selectize({
       sortField: 'text',
       onChange: function(value) {
         jQuery(this).attr('disabled','disabled');
