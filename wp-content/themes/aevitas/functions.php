@@ -370,10 +370,12 @@ function get_tax_opts($tax,$tax_name) {
             }
             ksort($children);
 
-            print_r($children);
+      
                  
             // OPTGROUP FOR PARENTS
             if (count($children) > 0 ) {
+                $optgroups[] = array('value'=>$term->name,'label'=> $term->name);
+
                      $list_of_terms .= '<optgroup label="'. $term->name .'">';
                      if ($term->count > 0)
                      $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$term->term_id.'" '.$select.'>'. $term->name .'</option>';
@@ -384,6 +386,7 @@ function get_tax_opts($tax,$tax_name) {
              
             // now the CHILDREN.
             foreach($children as $child) {
+                $options[] = array('value'=>$child->term_id,'label'=> $child->name,'class'=>$term->name);
                  $select = ($current_selected == $cterm->slug) ? "selected" : "";
                  $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$child->term_id.'" '.$select.'>'. $child->name.' </option>';
                   
@@ -398,7 +401,10 @@ function get_tax_opts($tax,$tax_name) {
     }
      
     $list_of_terms .= '</select>';
-     
+     echo '<pre>';
+     print_r($options);
+     print_r($optgroups);
+     echo '<pre>';
     echo $list_of_terms;
 }
 
