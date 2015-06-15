@@ -396,13 +396,13 @@ function get_tax_opts_ajax($tax) {
                  
             // OPTGROUP FOR PARENTS
             if (count($children) > 0 ) {
-                $optgroups[] = array('value'=>$term->slug,'label'=> $term->name);
-            } else $options[] = array('value'=>$term->term_id,'label'=> $term->name);
+                $optgroups[] = array('value'=>$term->slug,'text'=> $term->name);
+            } else $options[] = array('value'=>$term->term_id,'text'=> $term->name);
              
              
             // now the CHILDREN.
             foreach($children as $child) {
-                $options[] = array('value'=>$child->term_id,'label'=> $child->name,'class'=>$term->slug);
+                $options[] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
                       
             } //end foreach
      

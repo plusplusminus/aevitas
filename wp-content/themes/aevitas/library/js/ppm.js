@@ -568,7 +568,11 @@ var Selectizer = function () {
 
           console.log(data);
 
-          callback(data.opts);
+          //callback(data.opts);
+
+          selectize.addOptionGroup(data.optgroups);
+
+          selectize.addOption(data.opts);
 
           // *** This is the most important step ***
           // Add item once the Ajax is successful only for intialization
