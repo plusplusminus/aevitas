@@ -545,6 +545,8 @@ function initHeader() {
 }
 
 
+var facets = [];
+
 // A selectizer module to contain all reusable functions
 var Selectizer = function () {
   return {
@@ -627,7 +629,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#type-select').selectize({
@@ -651,7 +655,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#setting-select').selectize({
@@ -675,7 +681,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#venue-select').selectize({
@@ -699,7 +707,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#style-select').selectize({
@@ -723,7 +733,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#style-select').selectize({
@@ -747,7 +759,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   jQuery('#culture-select').selectize({
