@@ -8,7 +8,7 @@ global $cpt;
 
 <?php 
   $taxonomies[0] = array('name'=>'Type','description'=>"Select Type",'terms'=>get_terms( 'type' ),'slug'=>'type');
-  $taxonomies[1] = array('name'=>'Location','description'=>"Select Location",'terms'=>get_terms( 'location' ),'slug'=>'location');
+  $taxonomies[1] = array('name'=>'Location','description'=>"Select Location",'terms'=>get_terms( 'location' ),'slug'=>'location','opts'=>true);
   $taxonomies[2] = array('name'=>'Venue','description'=>"Select Venue",'terms'=>get_terms( 'venue' ),'slug'=>'venue');
   $taxonomies[3] = array('name'=>'Setting','description'=>"Select Setting",'terms'=>get_terms( 'setting' ),'slug'=>'setting');
   $taxonomies[4] = array('name'=>'Style','description'=>"Select Style",'terms'=>get_terms( 'style' ),'slug'=>'style');
@@ -33,7 +33,9 @@ global $cpt;
 					if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
 						if ($taxonomy['opts']==true) {
-							get_tax_opts($taxonomy['slug']);
+							echo '<li>';
+								get_tax_opts($taxonomy['slug']);
+							echo '</li>';
 						} else {
 							echo '<li>';
 								echo '<div class="btn-group">';
@@ -55,7 +57,7 @@ global $cpt;
 									}
 									echo '</ul>';
 								echo '</div>';
-							echo '</li>';
+							
 						}
 					}
 				}
