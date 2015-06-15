@@ -299,8 +299,7 @@ function get_facets() {
         foreach ($results["facets"] as $key => $terms) {
             foreach ($terms as $id => $count) {
                 $item = get_term_by('id', $id, $key);
-                $array[$key][] = array('value' => $id,'text'=>$item->term_name );
-                print_r($item);
+                $array[$key][] = array('value' => $id,'text'=>$item->name );
             }
 
         }
@@ -310,7 +309,7 @@ function get_facets() {
 
         $return = array(
                 'message'   => 'Saved',
-                'data' => $facets,
+                'data' => $array,
                 'result' => $results
         );
 
