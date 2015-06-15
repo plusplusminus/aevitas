@@ -601,9 +601,6 @@ var initForm = function () {
 
   // Selectize
   jQuery('#location-select').selectize({
-      valueField: 'id',
-      labelField: 'code',
-      searchField: ['code', 'name'],
       create: false,
 
       // Render
