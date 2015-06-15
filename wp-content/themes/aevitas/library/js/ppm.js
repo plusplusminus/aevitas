@@ -569,18 +569,13 @@ var Selectizer = function () {
           console.log(data);
 
           //callback(data.opts);
+          jQuery.each(data.optgroups, function(index, value) {
+            selectize.addOptionGroup(value['value'], { title: value['text'] });
+          });
 
-          selectize.addOptionGroup(data.optgroups);
+          selectize.refreshOptions();
+          callback(data.opts);
 
-          selectize.addOption(data.opts);
-
-          // *** This is the most important step ***
-          // Add item once the Ajax is successful only for intialization
-          if (selectize.settings.initItem === true && selectize.settings.dataId) {
-            selectize.addItem(selectize.settings.dataId);
-            // And turn off the intialization flag
-            selectize.settings.initItem = false;
-          }
         }
       });
     },
