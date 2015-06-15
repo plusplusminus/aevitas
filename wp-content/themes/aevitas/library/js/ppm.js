@@ -621,7 +621,31 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions('location')
+      load: Selectizer.loadOptions
+  });
+
+  jQuery('#type-select').selectize({
+      create: false,
+      optgroupField: 'class',
+      labelField: 'text',
+      searchField: ['text'],
+
+      // Render
+      //render: { option: Selectizer.renderOptions },
+
+      render: {
+        optgroup_header: function(data, escape) {
+          return '<div class="optgroup-header">' + escape(data.text) + '</div>';
+        }
+      },
+
+      initItem: true,
+
+      // Need to preload, so that Selectize will go get the option
+      preload: true,
+
+      // Load
+      load: Selectizer.loadOptions
   });
 
   
