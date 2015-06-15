@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
   jQuery('.selectize').selectize({
       sortField: 'text',
       onChange: function(value) {
+        console.log(this);
         alert(value);
       }
   });
