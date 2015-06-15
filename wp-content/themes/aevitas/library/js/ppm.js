@@ -2,13 +2,13 @@ jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
 
-  var $type = jQuery('#type-select').selectize(options);
+  var $type = jQuery('#type-select').selectize();
 
-  var $location = jQuery('#location-select').selectize(options);
+  var $location = jQuery('#location-select').selectize();
 
-  var $venue = jQuery('#venue-select').selectize(options);
+  var $venue = jQuery('#venue-select').selectize();
 
-  var $setting = jQuery('#setting-select').selectize(options);
+  var $setting = jQuery('#setting-select').selectize();
 
 
 
