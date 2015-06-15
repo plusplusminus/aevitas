@@ -373,6 +373,8 @@ function get_tax_opts_ajax($tax) {
      
     // the current selected taxonomy slug ( would come from a QUERY VAR)
     $current_selected = "";
+    $optgroups = array();
+    $options = array();
      
     // Get all terms of the chosen taxonomy
     $terms = get_terms($taxonomy, array('orderby' => 'name'));
