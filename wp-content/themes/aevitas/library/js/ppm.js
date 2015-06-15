@@ -568,7 +568,7 @@ var Selectizer = function () {
 
           console.log(data);
 
-          callback(data.options);
+          callback(data.opts);
 
           // *** This is the most important step ***
           // Add item once the Ajax is successful only for intialization
