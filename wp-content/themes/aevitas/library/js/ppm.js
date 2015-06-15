@@ -2,78 +2,10 @@ jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
 
-  var $type = jQuery('#type-select').selectize({
-    options: [
-      {class: 'mammal', value: "dog", name: "Dog" },
-      {class: 'mammal', value: "cat", name: "Cat" },
-      {class: 'mammal', value: "horse", name: "Horse" },
-      {class: 'mammal', value: "kangaroo", name: "Kangaroo" },
-      {class: 'bird', value: 'duck', name: 'Duck'},
-      {class: 'bird', value: 'chicken', name: 'Chicken'},
-      {class: 'bird', value: 'ostrich', name: 'Ostrich'},
-      {class: 'bird', value: 'seagull', name: 'Seagull'},
-      {class: 'reptile', value: 'snake', name: 'Snake'},
-      {class: 'reptile', value: 'lizard', name: 'Lizard'},
-      {class: 'reptile', value: 'alligator', name: 'Alligator'},
-      {class: 'reptile', value: 'turtle', name: 'Turtle'}
-    ],
-    optgroups: [
-      {value: 'mammal', label: 'Mammal', label_scientific: 'Mammalia'},
-      {value: 'bird', label: 'Bird', label_scientific: 'Aves'},
-      {value: 'reptile', label: 'Reptile', label_scientific: 'Reptilia'}
-    ],
-    optgroupField: 'class',
-    labelField: 'name',
-    searchField: ['name'],
-    render: {
-      optgroup_header: function(data, escape) {
-        return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
-      }
-    },
-    onChange: function(value) {
-      jQuery('.submit_button').attr('disabled','disabled').text('Loading');
-
-      this.disable();
-      
-      facets.push({tax:'type',id:value});
-      console.log($location);
-
-      $location[0].selectize.clearOptions();
-      $venue[0].selectize.clearOptions();
-      $setting[0].selectize.clearOptions();
+  initForm();
 
 
 
-      jQuery.ajax({
-        type : "post",
-        dataType : "json",
-        url : myAjax.ajaxurl,
-        data : {action: "get_faceted_search",facets:facets},
-        success: function(response) {
-          var taxomonies = JSON.parse(items);  
-          var html = '';
-          $location[0].selectize.addOption([
-            {class: 'mammal', value: "cat", name: "Cat" },
-            {class: 'mammal', value: "horse", name: "Horse" },
-            {class: 'bird', value: 'seagull', name: 'Seagull'},
-            {class: 'reptile', value: 'snake', name: 'Snake'},
-            {class: 'reptile', value: 'lizard', name: 'Lizard'},
-            {class: 'reptile', value: 'alligator', name: 'Alligator'},
-            {class: 'reptile', value: 'turtle', name: 'Turtle'}
-          ]);
-          console.log(response);
-          
-          jQuery('.submit_button').removeAttr("disabled").text('Filter');
-
-        }
-      })
-
-
-    }
-  }
-
-
-    );
 
 var $location = jQuery('#location-select').selectize({
     options: [
@@ -611,6 +543,81 @@ function initHeader() {
     largeHeader.style.height = height+'px';
 
 }
+
+
+// A selectizer module to contain all reusable functions
+var Selectizer = function () {
+  return {
+    loadOptions: function (query, callback) {
+      // Save this into a variable. Need to use this inside the Ajax block
+      var selectize = this;
+
+      // The Ajax call
+      jQuery.ajax({
+        type : "post",
+        dataType : "json",
+        url : myAjax.ajaxurl,
+        data: {
+          action: "get_selectize_options",
+          tax: query
+        },
+        error: function() {
+          callback();
+        },
+        success: function(data) {
+
+          console.log(data);
+
+          callback(data.options);
+
+          // *** This is the most important step ***
+          // Add item once the Ajax is successful only for intialization
+          if (selectize.settings.initItem === true && selectize.settings.dataId) {
+            selectize.addItem(selectize.settings.dataId);
+            // And turn off the intialization flag
+            selectize.settings.initItem = false;
+          }
+        }
+      });
+    },
+
+    // Usual stuff
+    renderOptions: function (data, escape) {
+      return '<div>' +
+                '<img src="' + escape(data.image) + '" alt="' + data.name + '">' +
+                '<span class="title">' +
+                    '<span class="name">' + escape(data.name) + '</span>' +
+                '</span>' +
+                '<span class="code">' + escape(data.code) + '</span>' +
+                '<span class="detail">' + escape(data.detail) + '</span>' +
+            '</div>';
+    }
+  };
+}();
+
+
+// The function that runs at form initialization
+var initForm = function () {
+
+  // Selectize
+  jQuery('#location-select').selectize({
+      valueField: 'id',
+      labelField: 'code',
+      searchField: ['code', 'name'],
+      create: false,
+
+      // Render
+      //render: { option: Selectizer.renderOptions },
+
+      initItem: true,
+
+      // Need to preload, so that Selectize will go get the option
+      preload: true,
+
+      // Load
+      load: Selectizer.loadOptions
+  });
+};
 
 
 

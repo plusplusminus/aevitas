@@ -120,9 +120,9 @@ function child_sections($sections){
 }
 
 function sergio($str) {
-	echo '<pre>';
-	print_r($str);
-	echo '</pre>';
+    echo '<pre>';
+    print_r($str);
+    echo '</pre>';
 }
 
 register_nav_menus(
@@ -374,11 +374,15 @@ function get_tax_opts($tax,$tax_name) {
                  
             // OPTGROUP FOR PARENTS
             if (count($children) > 0 ) {
+
                 $optgroups[] = array('value'=>$term->slug,'label'=> $term->name);
+
 
                      $list_of_terms .= '<optgroup label="'. $term->name .'">';
                      if ($term->count > 0)
+
                      $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$term->term_id.'" '.$select.'>'. $term->name .'</option>';
+
                 } else
                 $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$term->term_id.'" '.$select.'>'. $term->name .'</option>';
             $i++;
@@ -386,7 +390,9 @@ function get_tax_opts($tax,$tax_name) {
              
             // now the CHILDREN.
             foreach($children as $child) {
+
                 $options[] = array('value'=>$child->term_id,'label'=> $child->name,'class'=>$term->slug);
+
                  $select = ($current_selected == $cterm->slug) ? "selected" : "";
                  $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$child->term_id.'" '.$select.'>'. $child->name.' </option>';
                   
@@ -402,12 +408,23 @@ function get_tax_opts($tax,$tax_name) {
      
     $list_of_terms .= '</select>';
 
+     echo '<pre>';
+     print_r($options);
+     print_r($optgroups);
+     echo '<pre>';
+    echo $list_of_terms;
+
+
 }
 
 
-function get_tax_opts_ajax($tax,$tax_name="Select...") {
+add_action("wp_ajax_get_selectize_options", "get_tax_opts_ajax");
+add_action("wp_ajax_nopriv_get_selectize_options", "get_tax_opts_ajax");
+
+
+function get_tax_opts_ajax($tax) {
     // Set your custom taxonomy
-    $taxonomy = $tax;
+    $taxonomy = $_POST['tax'];
      
     // the current selected taxonomy slug ( would come from a QUERY VAR)
     $current_selected = "";
@@ -435,7 +452,7 @@ function get_tax_opts_ajax($tax,$tax_name="Select...") {
             // OPTGROUP FOR PARENTS
             if (count($children) > 0 ) {
                 $optgroups[] = array('value'=>$term->slug,'label'=> $term->name);
-            }
+            } else $options[] = array('value'=>$term->term_id,'label'=> $term->name);
              
              
             // now the CHILDREN.
@@ -450,7 +467,9 @@ function get_tax_opts_ajax($tax,$tax_name="Select...") {
      
     $array = array('opts'=>$options,'optgroups'=>$optgroups);
 
-    return $array;
+    wp_send_json($array);;
+
+    die();
 
 }
 
