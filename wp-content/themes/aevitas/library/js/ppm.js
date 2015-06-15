@@ -559,18 +559,15 @@ var Selectizer = function () {
         url : myAjax.ajaxurl,
         data: {
           action: "get_selectize_options",
-          tax: query
+          tax: this.settings.tax
         },
         error: function() {
           callback();
         },
         success: function(data) {
 
-          console.log(data);
-
           //callback(data.opts);
           jQuery.each(data.optgroups, function(index, value) {
-            console.log(value);
             selectize.addOptionGroup(value['value'], { text: value['text'] });
           });
 
@@ -605,7 +602,7 @@ var initForm = function () {
       optgroupField: 'class',
       labelField: 'text',
       searchField: ['text'],
-
+      tax:'location',
       // Render
       //render: { option: Selectizer.renderOptions },
 
@@ -629,7 +626,7 @@ var initForm = function () {
       optgroupField: 'class',
       labelField: 'text',
       searchField: ['text'],
-
+      tax: 'type',
       // Render
       //render: { option: Selectizer.renderOptions },
 
