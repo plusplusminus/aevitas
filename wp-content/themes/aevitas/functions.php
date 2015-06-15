@@ -391,7 +391,7 @@ function get_tax_opts_ajax($tax) {
     foreach($terms as $term){
              
         $select = ($current_selected == $term->slug) ? "selected" : "";
-                
+        $options[] = array('value'=>'','text'=> $taxonomy);
         if ($term->parent == 0 ) {
                  
             // get children of current parent.
