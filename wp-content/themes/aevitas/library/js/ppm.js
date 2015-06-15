@@ -2,6 +2,10 @@ jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
 
+  jQuery('.selectize').selectize({
+      sortField: 'text'
+  });
+
   var docElem = document.documentElement,
     header = document.querySelector( '.header' ),
     didScroll = false,
