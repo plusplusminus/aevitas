@@ -559,7 +559,7 @@ var Selectizer = function () {
         url : myAjax.ajaxurl,
         data: {
           action: "get_selectize_options",
-          tax: query
+          tax: 'location'
         },
         error: function() {
           callback();
