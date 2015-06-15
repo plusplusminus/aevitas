@@ -295,6 +295,17 @@ function get_facets() {
 
     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 
+
+        foreach ($results->facets as $key => $terms) {
+            foreach ($terms as $id => $count) {
+                $item = get_term_by('id', $id, $key);
+                $array[$key][] = array('value' => $id,'text'=>$item->term_name );
+            }
+        }
+
+        print_r($array);
+
+
         $return = array(
                 'message'   => 'Saved',
                 'data' => $facets,
@@ -341,7 +352,7 @@ function change_testimonials_to_reviews($args) {
 }
 
 
-function get_tax_opts($tax,$tax_name) {
+function get_tax_opts($tax) {
     // Set your custom taxonomy
     $taxonomy = $tax;
      
