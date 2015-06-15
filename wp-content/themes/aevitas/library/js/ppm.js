@@ -548,9 +548,9 @@ function initHeader() {
 // A selectizer module to contain all reusable functions
 var Selectizer = function () {
   return {
-    loadOptions: function (sel,query, callback) {
+    loadOptions: function (query, callback) {
       // Save this into a variable. Need to use this inside the Ajax block
-      var selectize = sel;
+      var selectize = this;
 
       // The Ajax call
       jQuery.ajax({
@@ -621,7 +621,7 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions(this,'location')
+      load: Selectizer.loadOptions('location')
   });
 
   
