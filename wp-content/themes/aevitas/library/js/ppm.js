@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
       onChange: function(value) {
         console.log(this);
 
-        cosole.log(this.getItem(value));
+        console.log(this.getItem(value));
 
       }
   });
