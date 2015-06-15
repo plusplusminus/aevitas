@@ -12,6 +12,8 @@ jQuery(document).ready(function(){
 
 
         console.log(facets);
+
+        jQuery(this).disable();
       }
   });
 
