@@ -578,6 +578,15 @@ var Selectizer = function () {
       });
     },
 
+    changeOptions: function(value) {
+
+      var selectize = this;
+      
+      facets.push({tax:selectize.settings.tax,id:value});
+      console.log(facets);
+
+    },
+
     // Usual stuff
     renderOptions: function (data, escape) {
       return '<div>' +
@@ -762,7 +771,9 @@ var initForm = function () {
       preload: true,
 
       // Load
-      load: Selectizer.loadOptions
+      load: Selectizer.loadOptions,
+
+      onChange: Selectizer.changeOptions
   });
 
   
