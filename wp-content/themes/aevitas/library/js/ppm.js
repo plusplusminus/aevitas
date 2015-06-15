@@ -7,6 +7,7 @@ jQuery(document).ready(function(){
       render:       {
         item: function(data) {
           return "<div data-value='"+data.value+"' data-tax='"+data.taxonomy+"' class='item'>"+data.label+" </div>";
+        },
       },
       onChange: function(value) {
         console.log(this);
