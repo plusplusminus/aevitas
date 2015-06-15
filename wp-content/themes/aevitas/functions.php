@@ -341,4 +341,63 @@ function change_testimonials_to_reviews($args) {
 }
 
 
+function get_tax_opts($tax) {
+    // Set your custom taxonomy
+    $taxonomy = $tax;
+     
+    // the current selected taxonomy slug ( would come from a QUERY VAR)
+    $current_selected = "location";
+     
+    // Get all terms of the chosen taxonomy
+    $terms = get_terms($taxonomy, array('orderby' => 'name'));
+     
+    // our content variable
+    $list_of_terms .= '<select class="selectize" id="$taxonomy" name="$taxonomy">';
+     
+    foreach($terms as $term){
+             
+        $select = ($current_selected == $term->slug) ? "selected" : "";
+                
+        if ($term->parent == 0 ) {
+                 
+            // get children of current parent.
+            $tchildren = get_term_children($term->term_id, $taxonomy);
+             
+            $children = array();
+            foreach ($tchildren as $child) {
+                $cterm = get_term_by( 'id', $child, $taxonomy );
+                $children[$cterm->name] = $cterm;
+            }
+            ksort($children);
+                 
+            // OPTGROUP FOR PARENTS
+            if (count($children) > 0 ) {
+                     $list_of_terms .= '<optgroup label="'. $term->name .'">';
+                     if ($term->count > 0)
+                     $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</option>';
+                } else
+                $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</option>';
+            $i++;
+             
+             
+            // now the CHILDREN.
+            foreach($children as $child) {
+                 $select = ($current_selected == $cterm->slug) ? "selected" : "";
+                 $list_of_terms .= '<option value="'.$child->slug.'" '.$select.'>'. $child->name.' ('.$child->count.')</option>';
+                  
+            } //end foreach
+             
+            if (count($children) > 0 ) {
+                $list_of_terms .= "</optgroup>";
+            }
+     
+        }
+            
+    }
+     
+    $list_of_terms .= '</select>';
+     
+    echo $list_of_terms;
+}
+
 ?>
