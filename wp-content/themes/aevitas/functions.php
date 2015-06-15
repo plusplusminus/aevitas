@@ -374,7 +374,7 @@ function get_tax_opts($tax) {
             if (count($children) > 0 ) {
                      $list_of_terms .= '<optgroup label="'. $term->name .'">';
                      if ($term->count > 0)
-                     $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</option>';
+                     $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</option>';
                 } else
                 $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</option>';
             $i++;

@@ -7,12 +7,12 @@ global $cpt;
 ?>
 
 <?php 
-  $taxonomies[0] = array('name'=>'Type','description'=>"Select Type",'terms'=>get_terms( 'type' ),'slug'=>'type');
+  $taxonomies[0] = array('name'=>'Type','description'=>"Select Type",'terms'=>get_terms( 'type' ),'slug'=>'type','opts'=>true);
   $taxonomies[1] = array('name'=>'Location','description'=>"Select Location",'terms'=>get_terms( 'location' ),'slug'=>'location','opts'=>true);
   $taxonomies[2] = array('name'=>'Venue','description'=>"Select Venue",'terms'=>get_terms( 'venue' ),'slug'=>'venue','opts'=>true);
-  $taxonomies[3] = array('name'=>'Setting','description'=>"Select Setting",'terms'=>get_terms( 'setting' ),'slug'=>'setting');
-  $taxonomies[4] = array('name'=>'Style','description'=>"Select Style",'terms'=>get_terms( 'style' ),'slug'=>'style');
-  $taxonomies[5] = array('name'=>'Culture/Religion','description'=>"Select Culture/Religion",'terms'=>get_terms( 'culture' ),'slug'=>'culture');
+  $taxonomies[3] = array('name'=>'Setting','description'=>"Select Setting",'terms'=>get_terms( 'setting' ),'slug'=>'setting','opts'=>true);
+  $taxonomies[4] = array('name'=>'Style','description'=>"Select Style",'terms'=>get_terms( 'style' ),'slug'=>'style','opts'=>true);
+  $taxonomies[5] = array('name'=>'Culture/Religion','description'=>"Select Culture/Religion",'terms'=>get_terms( 'culture' ),'slug'=>'culture','opts'=>true);
 ?>
 <section class="section_work">
 	<div class="container">
