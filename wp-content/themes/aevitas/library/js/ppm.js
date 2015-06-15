@@ -6,7 +6,9 @@ jQuery(document).ready(function(){
       sortField: 'text',
       onChange: function(value) {
         console.log(this);
-        alert(value);
+
+        cosole.log(this.getItem(value));
+
       }
   });
 
