@@ -603,8 +603,8 @@ var initForm = function () {
   jQuery('#location-select').selectize({
       create: false,
       optgroupField: 'class',
-      labelField: 'name',
-      searchField: ['name'],
+      labelField: 'text',
+      searchField: ['text'],
 
       // Render
       //render: { option: Selectizer.renderOptions },
