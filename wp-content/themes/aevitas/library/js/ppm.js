@@ -9,7 +9,9 @@ jQuery(document).ready(function(){
         jQuery('.submit_button').attr('disabled','disabled').text('Loading');
 
         facets.push({id:value});
-        
+
+
+        console.log(facets);
       }
   });
 
