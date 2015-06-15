@@ -21,7 +21,7 @@ query_posts( $query_args );
 					$key = get_post_meta($post->ID,'_ppm_header_image_id',true);
 					$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
 				?>
-				<div class="item css-slider-hover">
+				<div class="item_gallery css-slider-hover">
 					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					<div class="item_caption">
 						<h2 class="item_caption--title"><span><?php the_title();?></span></h2>
@@ -38,7 +38,7 @@ query_posts( $query_args );
 			    				</li>
 			    			<?php endif; ?>
 		    			</ul>
-		    			
+
 					</div>
 					<a class="item_caption--link" href="<?php the_permalink();?>">&nbsp;</a>
 				</div>
