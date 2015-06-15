@@ -352,7 +352,7 @@ function get_tax_opts($tax,$tax_name) {
     $terms = get_terms($taxonomy, array('orderby' => 'name'));
      
     // our content variable
-    $list_of_terms .= '<select class="selectize" id="$taxonomy" name="$taxonomy">';
+    $list_of_terms .= '<select class="selectize" id="'.$taxonomy.'-select" name="$taxonomy">';
     $list_of_terms .= '<option value="" selected="selected">'.$tax_name.'</option>';
     foreach($terms as $term){
              

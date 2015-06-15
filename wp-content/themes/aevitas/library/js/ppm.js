@@ -2,6 +2,16 @@ jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
 
+  var $type = $('#type-select').selectize(options);
+
+  var $location = $('#location-select').selectize(options);
+
+  var $venue = $('#venue-select').selectize(options);
+
+  var $setting = $('#setting-select').selectize(options);
+
+
+
   jQuery('.selectize').selectize({
       sortField: 'text',
       onChange: function(value) {
@@ -12,6 +22,8 @@ jQuery(document).ready(function(){
 
 
         console.log(facets);
+
+        console.log($setting);
 
         jQuery.ajax({
           type : "post",
