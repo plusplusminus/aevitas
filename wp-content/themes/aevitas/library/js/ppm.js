@@ -576,6 +576,8 @@ var Selectizer = function () {
           selectize.refreshOptions();
           callback(data.opts);
 
+          
+
         }
       });
     },
@@ -584,7 +586,7 @@ var Selectizer = function () {
 
       var selectize = this;
 
-      jQuery('.submit_button').disabled();
+      jQuery('.submit_button').attr('disabled','disabled').text('Loading');
       
       facets.push({tax:selectize.settings.tax,id:value});
       
