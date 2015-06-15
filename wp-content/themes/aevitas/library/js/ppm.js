@@ -5,10 +5,11 @@ jQuery(document).ready(function(){
   jQuery('.selectize').selectize({
       sortField: 'text',
       onChange: function(value) {
-        console.log(this);
+        jQuery(this).attr('disabled','disabled');
+        jQuery('.submit_button').attr('disabled','disabled').text('Loading');
 
-        console.log(this.getItem(value));
-
+        facets.push({id:value});
+        
       }
   });
 
