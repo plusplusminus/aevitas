@@ -374,17 +374,18 @@ function get_tax_opts($tax,$tax_name) {
             if (count($children) > 0 ) {
                      $list_of_terms .= '<optgroup label="'. $term->name .'">';
                      if ($term->count > 0)
-                     $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>'. $term->name .'</option>';
+
+                     $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$term->slug.'" '.$select.'>'. $term->name .'</option>';
 
                 } else
-                $list_of_terms .= '<option value="'.$term->slug.'" '.$select.'>'. $term->name .'</option>';
+                $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$term->slug.'" '.$select.'>'. $term->name .'</option>';
             $i++;
              
              
             // now the CHILDREN.
             foreach($children as $child) {
                  $select = ($current_selected == $cterm->slug) ? "selected" : "";
-                 $list_of_terms .= '<option value="'.$child->slug.'" '.$select.'>'. $child->name.' </option>';
+                 $list_of_terms .= '<option data-taxonomy="'.$taxonomy.'" value="'.$child->slug.'" '.$select.'>'. $child->name.' </option>';
                   
             } //end foreach
              
