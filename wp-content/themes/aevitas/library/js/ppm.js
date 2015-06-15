@@ -10,8 +10,12 @@ jQuery(document).ready(function(){
       
       facets.push({tax:'type',id:value});
       console.log($location);
-      
+
       $location[0].selectize.clearOptions();
+      $venue[0].selectize.clearOptions();
+      $setting[0].selectize.clearOptions();
+
+
 
       jQuery.ajax({
         type : "post",
@@ -21,7 +25,20 @@ jQuery(document).ready(function(){
         success: function(response) {
           var taxomonies = JSON.parse(items);  
           var html = '';
-
+          $location[0].selectize.addOption([
+            {class: 'mammal', value: "dog", name: "Dog" },
+            {class: 'mammal', value: "cat", name: "Cat" },
+            {class: 'mammal', value: "horse", name: "Horse" },
+            {class: 'mammal', value: "kangaroo", name: "Kangaroo" },
+            {class: 'bird', value: 'duck', name: 'Duck'},
+            {class: 'bird', value: 'chicken', name: 'Chicken'},
+            {class: 'bird', value: 'ostrich', name: 'Ostrich'},
+            {class: 'bird', value: 'seagull', name: 'Seagull'},
+            {class: 'reptile', value: 'snake', name: 'Snake'},
+            {class: 'reptile', value: 'lizard', name: 'Lizard'},
+            {class: 'reptile', value: 'alligator', name: 'Alligator'},
+            {class: 'reptile', value: 'turtle', name: 'Turtle'}
+          ]);
           console.log(response);
           
           jQuery('.submit_button').removeAttr("disabled").text('Filter');
