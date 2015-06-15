@@ -33,11 +33,9 @@ global $cpt;
 					if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
 						if ($taxonomy['opts']==true) {
-							echo '<pre>';
-								$arr = get_tax_opts_ajax($taxonomy['slug'],$taxonomy['name']);
-
-								print_r($arr);
-							echo '</pre>';
+							echo '<li>';
+								get_tax_opts($taxonomy['slug']);
+							echo '</li>';
 						} else {
 							echo '<li>';
 								echo '<div class="btn-group">';
