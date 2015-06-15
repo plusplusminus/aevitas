@@ -346,7 +346,7 @@ function get_tax_opts($tax) {
     $taxonomy = $tax;
      
     // the current selected taxonomy slug ( would come from a QUERY VAR)
-    $current_selected = "location";
+    $current_selected = "";
      
     // Get all terms of the chosen taxonomy
     $terms = get_terms($taxonomy, array('orderby' => 'name'));
