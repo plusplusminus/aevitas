@@ -304,9 +304,6 @@ function get_facets() {
 
         }
 
-        print_r($array);
-
-
         $return = array(
                 'message'   => 'Saved',
                 'data' => $array,
