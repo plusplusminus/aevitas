@@ -583,23 +583,31 @@ var Selectizer = function () {
     changeOptions: function(value) {
 
       var selectize = this;
+
+      jQuery('.submit_button').disabled();
       
       facets.push({tax:selectize.settings.tax,id:value});
+      
       console.log(facets);
+
+      jQuery.ajax({
+        type : "post",
+        dataType : "json",
+        url : myAjax.ajaxurl,
+        data : {action: "get_faceted_search",facets:facets},
+        success: function(response) {
+          var taxomonies = JSON.parse(items);  
+          var html = '';
+          
+          console.log(response);
+          
+          jQuery('.submit_button').removeAttr("disabled").text('Filter');
+
+        }
+      })
 
     },
 
-    // Usual stuff
-    renderOptions: function (data, escape) {
-      return '<div>' +
-                '<img src="' + escape(data.image) + '" alt="' + data.name + '">' +
-                '<span class="title">' +
-                    '<span class="name">' + escape(data.name) + '</span>' +
-                '</span>' +
-                '<span class="code">' + escape(data.code) + '</span>' +
-                '<span class="detail">' + escape(data.detail) + '</span>' +
-            '</div>';
-    }
   };
 }();
 
