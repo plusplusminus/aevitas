@@ -296,9 +296,14 @@ function get_facets() {
     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 
 
-        foreach ($results->facets as $key => $value) {
-            $array[$key] = array('value'=>$value)
+        foreach ($results->facets as $key => $terms) {
+            foreach ($terms as $id => $count) {
+                $item = get_term_by('id', $id, $key);
+                $array[$key][] = array('value' => $id,'text'=>$item->term_name );
+            }
         }
+
+        print_r($array);
 
 
         $return = array(
