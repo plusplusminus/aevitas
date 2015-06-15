@@ -53,18 +53,13 @@ jQuery(document).ready(function(){
           var taxomonies = JSON.parse(items);  
           var html = '';
           $location[0].selectize.addOption([
-            {class: 'mammal', value: "dog", label: "Dog" },
-            {class: 'mammal', value: "cat", label: "Cat" },
-            {class: 'mammal', value: "horse", label: "Horse" },
-            {class: 'mammal', value: "kangaroo", label: "Kangaroo" },
-            {class: 'bird', value: 'duck', label: 'Duck'},
-            {class: 'bird', value: 'chicken', label: 'Chicken'},
-            {class: 'bird', value: 'ostrich', label: 'Ostrich'},
-            {class: 'bird', value: 'seagull', label: 'Seagull'},
-            {class: 'reptile', value: 'snake', label: 'Snake'},
-            {class: 'reptile', value: 'lizard', label: 'Lizard'},
-            {class: 'reptile', value: 'alligator', label: 'Alligator'},
-            {class: 'reptile', value: 'turtle', label: 'Turtle'}
+            {class: 'mammal', value: "cat", name: "Cat" },
+            {class: 'mammal', value: "horse", name: "Horse" },
+            {class: 'bird', value: 'seagull', name: 'Seagull'},
+            {class: 'reptile', value: 'snake', name: 'Snake'},
+            {class: 'reptile', value: 'lizard', name: 'Lizard'},
+            {class: 'reptile', value: 'alligator', name: 'Alligator'},
+            {class: 'reptile', value: 'turtle', name: 'Turtle'}
           ]);
           console.log(response);
           
