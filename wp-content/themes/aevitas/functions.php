@@ -369,6 +369,8 @@ function get_tax_opts($tax,$tax_name) {
                 $children[$cterm->name] = $cterm;
             }
             ksort($children);
+
+            print_r($children);
                  
             // OPTGROUP FOR PARENTS
             if (count($children) > 0 ) {
