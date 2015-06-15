@@ -3,7 +3,10 @@ jQuery(document).ready(function(){
   cbpBGSlideshow.init()
 
   jQuery('.selectize').selectize({
-      sortField: 'text'
+      sortField: 'text',
+      onChange: function(value) {
+        alert(value);
+      }
   });
 
   var docElem = document.documentElement,
@@ -365,8 +368,6 @@ function ajaxSearch(facetItems) {
     success: function(response) {
       var taxomonies = JSON.parse(items);  
       var html = '';
-
-      console.log(taxomonies);
 
       _.forEach(response.result.facets, function(n, key) {
         html = '';
