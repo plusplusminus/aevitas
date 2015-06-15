@@ -366,10 +366,12 @@ function ajaxSearch(facetItems) {
       var taxomonies = JSON.parse(items);  
       var html = '';
 
+      console.log(taxomonies);
+
       _.forEach(response.result.facets, function(n, key) {
         html = '';
         _.forEach(n,function(k,count){
-          html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
+         // html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
         })
         jQuery('#'+key).html(html);
       });

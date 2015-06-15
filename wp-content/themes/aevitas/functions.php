@@ -341,7 +341,7 @@ function change_testimonials_to_reviews($args) {
 }
 
 
-function get_tax_opts($tax) {
+function get_tax_opts($tax,tax_name) {
     // Set your custom taxonomy
     $taxonomy = $tax;
      
@@ -353,7 +353,7 @@ function get_tax_opts($tax) {
      
     // our content variable
     $list_of_terms .= '<select class="selectize" id="$taxonomy" name="$taxonomy">';
-     
+    $list_of_terms .= '<option value="" selected="selected">'.$tax_name.'</option>';
     foreach($terms as $term){
              
         $select = ($current_selected == $term->slug) ? "selected" : "";
