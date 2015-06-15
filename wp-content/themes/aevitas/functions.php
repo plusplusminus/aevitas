@@ -341,7 +341,7 @@ function change_testimonials_to_reviews($args) {
 }
 
 
-function get_tax_opts($tax,tax_name) {
+function get_tax_opts($tax,$tax_name) {
     // Set your custom taxonomy
     $taxonomy = $tax;
      
