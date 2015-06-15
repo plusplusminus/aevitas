@@ -571,7 +571,7 @@ var Selectizer = function () {
           //callback(data.opts);
           jQuery.each(data.optgroups, function(index, value) {
             console.log(value);
-            selectize.addOptionGroup(value['value'], { title: value['text'] });
+            selectize.addOptionGroup(value['value'], { text: value['text'] });
           });
 
           selectize.refreshOptions();
