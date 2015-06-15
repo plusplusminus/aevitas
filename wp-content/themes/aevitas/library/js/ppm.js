@@ -576,7 +576,7 @@ var Selectizer = function () {
           selectize.refreshOptions();
           callback(data.opts);
 
-          
+
 
         }
       });
@@ -600,8 +600,28 @@ var Selectizer = function () {
         success: function(response) {
           var taxomonies = JSON.parse(items);  
           var html = '';
+
+          $location[0].selectize.clearOptions();
+          $location[0].selectize.addOption(response.location);
+
+          $style[0].selectize.clearOptions();
+          $style[0].selectize.addOption(response.style);
+
+          $venue[0].selectize.clearOptions();
+          $venue[0].selectize.addOption(response.venue);
+
+          $setting[0].selectize.clearOptions();
+          $setting[0].selectize.addOption(response.setting);
+
+          $type[0].selectize.clearOptions();
+          $type[0].selectize.addOption(response.type);
+
+          $culture[0].selectize.clearOptions();
+          $culture[0].selectize.addOption(response.culture);
+
+
           
-          console.log(response);
+          
           
           jQuery('.submit_button').removeAttr("disabled").text('Filter');
 
@@ -618,7 +638,7 @@ var Selectizer = function () {
 var initForm = function () {
 
   // Selectize
-  jQuery('#location-select').selectize({
+  $location = jQuery('#location-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -644,7 +664,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  jQuery('#type-select').selectize({
+  $type = jQuery('#type-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -670,7 +690,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  jQuery('#setting-select').selectize({
+  $setting = jQuery('#setting-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -696,7 +716,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  jQuery('#venue-select').selectize({
+  $venue = jQuery('#venue-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -722,7 +742,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  jQuery('#style-select').selectize({
+  $ = jQuery('#style-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -748,33 +768,8 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  jQuery('#style-select').selectize({
-      create: false,
-      optgroupField: 'class',
-      labelField: 'text',
-      searchField: ['text'],
-      tax: 'style',
-      // Render
-      //render: { option: Selectizer.renderOptions },
 
-      render: {
-        optgroup_header: function(data, escape) {
-          return '<div class="optgroup-header">' + escape(data.text) + '</div>';
-        }
-      },
-
-      initItem: true,
-
-      // Need to preload, so that Selectize will go get the option
-      preload: true,
-
-      // Load
-      load: Selectizer.loadOptions,
-
-      onChange: Selectizer.changeOptions
-  });
-
-  jQuery('#culture-select').selectize({
+  $culture = jQuery('#culture-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
