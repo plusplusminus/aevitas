@@ -384,7 +384,7 @@ function ajaxSearch(facetItems) {
 var cbpBGSlideshow = (function() {
 
   var $slideshow = jQuery( '.owl-slider' ),
-    $items = jQuery( '.owl-slider' ).find( '.item' ),
+    $items = jQuery( '.owl-slider' ).find( '.item_gallery' ),
     itemsCount = $items.length;
 
   function init( config ) {
