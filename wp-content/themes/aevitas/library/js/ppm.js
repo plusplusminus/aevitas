@@ -10,7 +10,8 @@ jQuery(document).ready(function(){
       
       facets.push({tax:'type',id:value});
       console.log($location);
-      $location[0].clearOptions();
+      
+      $location[0].selectize.clearOptions();
 
       jQuery.ajax({
         type : "post",
