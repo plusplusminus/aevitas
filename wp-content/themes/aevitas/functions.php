@@ -120,9 +120,9 @@ function child_sections($sections){
 }
 
 function sergio($str) {
-	echo '<pre>';
-	print_r($str);
-	echo '</pre>';
+    echo '<pre>';
+    print_r($str);
+    echo '</pre>';
 }
 
 register_nav_menus(
