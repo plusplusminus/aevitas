@@ -742,7 +742,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions
   });
 
-  $ = jQuery('#style-select').selectize({
+  $style = jQuery('#style-select').selectize({
       create: false,
       optgroupField: 'class',
       labelField: 'text',
