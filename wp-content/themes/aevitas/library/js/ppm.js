@@ -2,7 +2,38 @@ jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
 
-  var $type = jQuery('#type-select').selectize();
+  var $type = jQuery('#type-select').selectize({
+    onChange: function(value) {
+      jQuery('.submit_button').attr('disabled','disabled').text('Loading');
+
+      this.disable();
+      
+      facets.push({tax:'type',id:value});
+
+      $location.clearOptions();
+
+      jQuery.ajax({
+        type : "post",
+        dataType : "json",
+        url : myAjax.ajaxurl,
+        data : {action: "get_faceted_search",facets:facets},
+        success: function(response) {
+          var taxomonies = JSON.parse(items);  
+          var html = '';
+
+          console.log(response);
+          
+          jQuery('.submit_button').removeAttr("disabled").text('Filter');
+
+        }
+      })
+
+
+    }
+  }
+
+
+    );
 
   var $location = jQuery('#location-select').selectize();
 
@@ -20,9 +51,6 @@ jQuery(document).ready(function(){
 
         facets.push({tax:'type',id:value});
 
-
-        console.log(facets);
-
         console.log($setting);
 
         jQuery.ajax({
@@ -34,19 +62,7 @@ jQuery(document).ready(function(){
             var taxomonies = JSON.parse(items);  
             var html = '';
 
-            _.forEach(response.result.facets, function(n, key) {
-              html = '';
-              _.forEach(n,function(k,count){
-                html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
-              })
-              jQuery('#'+key).html(html);
-            });
-
-            jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
-
-            var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+button.text()+' <span class="fa fa-times"></span></button>';
-
-            filters.append(html);
+            console.log(response);
 
             jQuery('.submit_button').removeAttr("disabled").text('Filter');
 
