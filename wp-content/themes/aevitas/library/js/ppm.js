@@ -3,7 +3,8 @@ jQuery(window).load(function(){
 });
 
 jQuery(document).ready(function(){
-
+  jQuery(".wp-caption").removeAttr('style');
+  
   initForm();
 
   var docElem = document.documentElement,
