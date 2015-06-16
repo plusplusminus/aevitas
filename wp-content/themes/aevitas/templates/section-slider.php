@@ -15,7 +15,7 @@ query_posts( $query_args );
 
 
 <?php if ( have_posts() ) : ?>
-	<div class="owl-slider owl-carousel owl-theme">
+	<div class="home-slider owl-slider owl-carousel owl-theme">
 		<?php while ( have_posts() ) : the_post(); ?>
 				<?php
 					$key = get_post_meta($post->ID,'_ppm_header_image_id',true);

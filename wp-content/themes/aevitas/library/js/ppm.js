@@ -4,127 +4,7 @@ jQuery(window).load(function(){
 
 jQuery(document).ready(function(){
 
-  
-
   initForm();
-
-
-
-
-var $location = jQuery('#location-select').selectize({
-    options: [
-      {class: 'mammal', value: "dog", name: "Dog" },
-      {class: 'mammal', value: "cat", name: "Cat" },
-      {class: 'mammal', value: "horse", name: "Horse" },
-      {class: 'mammal', value: "kangaroo", name: "Kangaroo" },
-      {class: 'bird', value: 'duck', name: 'Duck'},
-      {class: 'bird', value: 'chicken', name: 'Chicken'},
-      {class: 'bird', value: 'ostrich', name: 'Ostrich'},
-      {class: 'bird', value: 'seagull', name: 'Seagull'},
-      {class: 'reptile', value: 'snake', name: 'Snake'},
-      {class: 'reptile', value: 'lizard', name: 'Lizard'},
-      {class: 'reptile', value: 'alligator', name: 'Alligator'},
-      {class: 'reptile', value: 'turtle', name: 'Turtle'}
-    ],
-    optgroups: [
-      {value: 'mammal', label: 'Mammal', label_scientific: 'Mammalia'},
-      {value: 'bird', label: 'Bird', label_scientific: 'Aves'},
-      {value: 'reptile', label: 'Reptile', label_scientific: 'Reptilia'}
-    ],
-    optgroupField: 'class',
-    labelField: 'name',
-    searchField: ['name'],
-    render: {
-      optgroup_header: function(data, escape) {
-        return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
-      }
-    },
-    onChange: function(value) {
-      jQuery('.submit_button').attr('disabled','disabled').text('Loading');
-
-      this.disable();
-      
-      facets.push({tax:'type',id:value});
-      console.log($location);
-
-      $location[0].selectize.clearOptions();
-      $venue[0].selectize.clearOptions();
-      $setting[0].selectize.clearOptions();
-
-
-
-      jQuery.ajax({
-        type : "post",
-        dataType : "json",
-        url : myAjax.ajaxurl,
-        data : {action: "get_faceted_search",facets:facets},
-        success: function(response) {
-          var taxomonies = JSON.parse(items);  
-          var html = '';
-          $location[0].selectize.addOption([
-            {class: 'mammal', value: "dog", label: "Dog" },
-            {class: 'mammal', value: "cat", label: "Cat" },
-            {class: 'mammal', value: "horse", label: "Horse" },
-            {class: 'mammal', value: "kangaroo", label: "Kangaroo" },
-            {class: 'bird', value: 'duck', label: 'Duck'},
-            {class: 'bird', value: 'chicken', label: 'Chicken'},
-            {class: 'bird', value: 'ostrich', label: 'Ostrich'},
-            {class: 'bird', value: 'seagull', label: 'Seagull'},
-            {class: 'reptile', value: 'snake', label: 'Snake'},
-            {class: 'reptile', value: 'lizard', label: 'Lizard'},
-            {class: 'reptile', value: 'alligator', label: 'Alligator'},
-            {class: 'reptile', value: 'turtle', label: 'Turtle'}
-          ]);
-          console.log(response);
-          
-          jQuery('.submit_button').removeAttr("disabled").text('Filter');
-
-        }
-      })
-
-
-    }
-  }
-
-
-    );
-
-
-  var $venue = jQuery('#venue-select').selectize();
-
-  var $setting = jQuery('#setting-select').selectize();
-
-
-
-  jQuery('.selectiz1e').selectize({
-      sortField: 'text',
-      onChange: function(value) {
-        jQuery(this).attr('disabled','disabled');
-        jQuery('.submit_button').attr('disabled','disabled').text('Loading');
-
-        facets.push({tax:'type',id:value});
-
-        console.log($setting);
-
-        jQuery.ajax({
-          type : "post",
-          dataType : "json",
-          url : myAjax.ajaxurl,
-          data : {action: "get_faceted_search",facets:facets},
-          success: function(response) {
-            var taxomonies = JSON.parse(items);  
-            var html = '';
-
-            console.log(response);
-
-            jQuery('.submit_button').removeAttr("disabled").text('Filter');
-
-          }
-        })
-
-        this.disable();
-      }
-  });
 
   var docElem = document.documentElement,
     header = document.querySelector( '.header' ),
@@ -243,9 +123,7 @@ var $location = jQuery('#location-select').selectize({
 
   jQuery(document).on('click','.js-expand',function(e) {
     e.preventDefault();
-
     jQuery(document).toggleFullScreen();
-
   });
  
   // Custom Navigation Events
@@ -503,13 +381,11 @@ function ajaxSearch(facetItems) {
 
 var cbpBGSlideshow = (function() {
 
-  var $slideshow = jQuery( '.owl-slider' ),
-    $items = jQuery( '.owl-slider' ).find( '.item_gallery' ),
+  var $slideshow = jQuery( '.home-slider' ),
+    $items = jQuery( '.home-slider' ).find( '.item_gallery' ),
     itemsCount = $items.length;
 
   function init( config ) {
-
-    console.log( $items);
 
     // preload the images
     $slideshow.imagesLoaded( function() {
