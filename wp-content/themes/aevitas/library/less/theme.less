@@ -425,6 +425,11 @@ hr.section_break_blank {
 	.hover_link();
 }
 
+.slick-slider{
+	.home &{
+		margin-bottom: 0px;
+	}
+}
 .slick-dots {
 	left: 0;
 	right: 0;
@@ -681,9 +686,13 @@ hr.section_break_blank {
 }
 
 .work_filter {
-	border-top: 1px solid @gray-light;
+	border-top: none;
 	margin-bottom: 0px;
 	padding-top: 40px;
+	.page-template-template-blog &{
+		border-top: 1px solid @gray-light;
+		margin-bottom: 40px;
+	}
 	.css-dropdown {
 		.menu-btn();
 
@@ -849,8 +858,6 @@ hr.section_break_blank {
 
 .section_page {
 	.section_spacing();
-
-	margin-top: 90px;
 }
 
 .page_content {
@@ -886,7 +893,7 @@ hr.section_break_blank {
 
 .portfolio_row {
 	.make-row();
-	margin-bottom: 45px;
+	margin-bottom: 0px;
 	.portfolio_article {
 		.make-md-column(6);
 		margin-bottom: 30px;
@@ -998,6 +1005,10 @@ hr.section_break_blank {
 	img {
 		margin: auto;
 	}
+}
+
+.ias-trigger{
+	margin-top: 30px;
 }
 
 .grid_footer--btn {
