@@ -488,11 +488,26 @@ var Selectizer = function () {
 
           $location[0].selectize.clearOptions();
           $location[0].selectize.addOption(response.data.location);
-          $location[0].selectize.setValue(loc,"true");
+          $location[0].selectize.setValue(loc,false);
 
 
-         
-          
+          $style[0].selectize.clearOptions();
+          $style[0].selectize.addOption(response.data.style);
+
+          $venue[0].selectize.clearOptions();
+          $venue[0].selectize.addOption(response.data.venue);
+
+          $setting[0].selectize.clearOptions();
+          $setting[0].selectize.addOption(response.data.setting);
+
+          $type[0].selectize.clearOptions();
+          $type[0].selectize.addOption(response.data.type);
+
+          $culture[0].selectize.clearOptions();
+          $culture[0].selectize.addOption(response.data.culture);
+
+
+        
           
           jQuery('.submit_button').removeAttr("disabled").text('Filter');
 
