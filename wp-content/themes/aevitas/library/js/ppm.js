@@ -4,7 +4,7 @@ jQuery(window).load(function(){
 
 jQuery(document).ready(function(){
   jQuery(".wp-caption").removeAttr('style');
-  
+
   initForm();
 
   var docElem = document.documentElement,
@@ -484,8 +484,13 @@ var Selectizer = function () {
           var taxomonies = JSON.parse(items);  
           var html = '';
 
+          var loc = $location[0].selectize.getValue();
+          console.log(loc);
           $location[0].selectize.clearOptions();
+
           $location[0].selectize.addOption(response.data.location);
+          $location[0].selectize.setValue(loc,"true");
+
 
           $style[0].selectize.clearOptions();
           $style[0].selectize.addOption(response.data.style);

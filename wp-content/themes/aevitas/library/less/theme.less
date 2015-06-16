@@ -1219,7 +1219,7 @@ hr.section_break_blank {
 
 .wp-caption {
 	position: relative;
-	> p {
+	> .wp-caption-text {
 		position: absolute;
 		bottom: 0;
 		left:0;
@@ -1227,6 +1227,14 @@ hr.section_break_blank {
 		padding: 20px;
 		color: #fff;
 		background: rgba(53,58,61,0.79);
+		margin-bottom: 0!important;
+		opacity: 0;
+		.transition(.8s);
+	}
+	&:hover {
+		> .wp-caption-text {
+			opacity: 1;
+		}
 	}
 }
 
