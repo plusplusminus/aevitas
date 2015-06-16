@@ -698,7 +698,7 @@ class tpbCustomPostTypes {
 	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
 	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
 	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
-	    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
+	    //$taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
 	 
 
 	    foreach ($taxonomies as $taxonomy) {
@@ -719,7 +719,7 @@ class tpbCustomPostTypes {
 print_r($params);
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
-
+print_r($swiftype_result);
 		$related_posts = array();
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
