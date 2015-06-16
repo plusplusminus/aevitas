@@ -23,19 +23,6 @@ query_posts( $query_args );
 				    		<figcaption class="details_content">
 				    			<div class="content_inner">
 				    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-				    				<ul class="content_meta">
-				    					<li class="meta_item">
-				    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-												<?php echo get_the_time(get_option('date_format')) ?>
-											</time>
-										</li>
-										<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-										<?php if (!empty($location)) : ?>
-											<li class="meta_item">
-												<?php _e($location,'aevitas'); ?>
-						    				</li>
-						    			<?php endif; ?>
-									</ul>
 								</div>
 							</figcaption>
 							<a class="details_article--link js-gallery-init" data-id="<?php echo $post->ID; ?>" href="<?php the_permalink();?>">&nbsp;</a>
