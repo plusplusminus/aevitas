@@ -44,8 +44,8 @@ query_posts( $query_args );
 		</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<hr class="section_break"/>
 	</div>	
+	<hr class="section_break"/>	
 </section> <?php // end #wrapper ?>
 
 <div class="modal fade" id="inquireModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
