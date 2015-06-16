@@ -44,10 +44,11 @@ query_posts( $query_args );
 						</figure>
 					</article>
 				<?php endwhile; ?>
+				<div class="clearfix"></div>
+				<nav class="blog_nav">
+					<button class="blog_nav--btn">View All</button>
+				</nav>
 			</div>
-			<nav class="blog_nav">
-				<button class="blog_nav--btn">View All</button>
-			</nav>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>

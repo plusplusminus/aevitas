@@ -10,10 +10,8 @@
 
 	<?php get_template_part('templates/inspiration/archive'); ?>
 
-	<?php get_template_part('templates/inspiration/content'); ?>
+	<?php // get_template_part('templates/inspiration/content'); ?>
 
 	<?php get_template_part('templates/section','info'); ?>
-
-
 
 <?php get_footer(); ?>

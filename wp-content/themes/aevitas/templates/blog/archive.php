@@ -45,6 +45,7 @@ query_posts( $query_args );
 						</figure>
 					</article>
 				<?php endwhile; ?>
+				
 				<nav class="wp-prev-next hide">
 					<ul class="clearfix">
 						<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
