@@ -698,11 +698,12 @@ class tpbCustomPostTypes {
 	    $taxonomies[3] = array('name'=>'Culture/Religion','slug'=>'culture' );
 
 	    foreach ($taxonomies as $taxonomy) {
-
+	    	print_r($taxonomy);
+	    	
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
 
 	    	print_r($terms);
-	    	
+
 	    	$stack = array_merge($stack,array_values($terms));
 	    }
 
