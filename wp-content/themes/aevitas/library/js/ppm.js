@@ -531,7 +531,7 @@ var initForm = function () {
       optgroupField: 'class',
       labelField: 'text',
       searchField: ['text'],
-      tax:'location',,
+      tax:'location',
       // Render
       //render: { option: Selectizer.renderOptions },
 
