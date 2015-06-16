@@ -297,7 +297,6 @@ function get_facets() {
 
 
         foreach ($results["facets"] as $key => $terms) {
-            $array[$key][] = array('value' => '','text'=>$key );
             foreach ($terms as $id => $count) {
                 $item = get_term_by('id', $id, $key);
                 $array[$key][] = array('value' => $id,'text'=>$item->name );
