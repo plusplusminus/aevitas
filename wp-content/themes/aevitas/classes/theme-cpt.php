@@ -713,6 +713,8 @@ class tpbCustomPostTypes {
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
+		print_r($swiftype_result);
+
 		$related_posts = array();
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
