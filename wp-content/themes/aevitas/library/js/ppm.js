@@ -487,11 +487,11 @@ var Selectizer = function () {
           var html = '';
           var loc = $location[0].selectize.getValue();
 
-          $location[0].selectize.clear();
+          
           $location[0].selectize.clearOptions();
 
-          $location[0].selectize.addOption(response.data.location);
           $location[0].selectize.setValue(loc,true);
+          $location[0].selectize.addOption(response.data.location);
 
                         
 
