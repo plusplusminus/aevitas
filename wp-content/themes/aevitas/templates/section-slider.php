@@ -25,20 +25,6 @@ query_posts( $query_args );
 					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					<div class="item_caption">
 						<h2 class="item_caption--title"><span><?php the_title();?></span></h2>
-						<ul class="content_meta">
-							<li class="meta_item">
-	    						<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">
-									<?php echo get_the_time(get_option('date_format')) ?>
-								</time>
-							</li>
-							<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
-							<?php if (!empty($location)) : ?>
-								<li class="meta_item">
-									<?php _e($location,'aevitas'); ?>
-			    				</li>
-			    			<?php endif; ?>
-		    			</ul>
-
 					</div>
 					<a class="item_caption--link" href="<?php the_permalink();?>">&nbsp;</a>
 				</div>

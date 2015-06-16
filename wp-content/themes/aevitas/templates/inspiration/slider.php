@@ -14,11 +14,11 @@ query_posts( $query_args );
 ?>
 
 <section class="section_gallery">  
-
+	<div class="container">
 		<?php if ( have_posts() ) : ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				<div class="slide">
+				<div class="slider">
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix css-hover-vertical'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="gallery_image">
@@ -42,5 +42,5 @@ query_posts( $query_args );
 			<?php endwhile; ?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-			
+	</div>		
 </section> <?php // end #wrapper ?>
