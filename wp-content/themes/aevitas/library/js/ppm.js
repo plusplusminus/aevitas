@@ -467,6 +467,8 @@ var Selectizer = function () {
 
     changeOptions: function(value) {
 
+      if (value != "") {
+
       var selectize = this;
 
       selectize.disable();
@@ -515,6 +517,9 @@ var Selectizer = function () {
 
         }
       })
+    } else {
+      return;
+    } 
 
     },
 
