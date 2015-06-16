@@ -490,7 +490,7 @@ var Selectizer = function () {
 
           $location[0].selectize.clearOptions();
           $location[0].selectize.addOption(response.data.location);
-          $location[0].selectize.addItems(loc);
+          $location[0].selectize.addItems(loc,true);
 
           $style[0].selectize.clearOptions();
           $style[0].selectize.addOption(response.data.style);
