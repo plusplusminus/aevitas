@@ -202,6 +202,131 @@ b.current,e=d.title,c=a.type;f.isFunction(e)&&(e=e.call(d.element,d));if(q(e)&&"
 e=f(this),c=this.selector||"",k=function(g){var h=f(this).blur(),j=d,k,l;!g.ctrlKey&&(!g.altKey&&!g.shiftKey&&!g.metaKey)&&!h.is(".fancybox-wrap")&&(k=a.groupAttr||"data-fancybox-group",l=h.attr(k),l||(k="rel",l=h.get(0)[k]),l&&(""!==l&&"nofollow"!==l)&&(h=c.length?f(c):e,h=h.filter("["+k+'="'+l+'"]'),j=h.index(this)),a.index=j,!1!==b.open(h,a)&&g.preventDefault())};a=a||{};d=a.index||0;!c||!1===a.live?e.unbind("click.fb-start").bind("click.fb-start",k):p.undelegate(c,"click.fb-start").delegate(c+
 ":not('.fancybox-item, .fancybox-nav')","click.fb-start",k);this.filter("[data-fancybox-start=1]").trigger("click");return this};p.ready(function(){var a,d;f.scrollbarWidth===v&&(f.scrollbarWidth=function(){var a=f('<div style="width:50px;height:50px;overflow:auto"><div/></div>').appendTo("body"),b=a.children(),b=b.innerWidth()-b.height(99).innerWidth();a.remove();return b});if(f.support.fixedPosition===v){a=f.support;d=f('<div style="position:fixed;top:20px;"></div>').appendTo("body");var e=20===
 d[0].offsetTop||15===d[0].offsetTop;d.remove();a.fixedPosition=e}f.extend(b.defaults,{scrollbarWidth:f.scrollbarWidth(),fixed:f.support.fixedPosition,parent:f("body")});a=f(r).width();J.addClass("fancybox-lock-test");d=f(r).width();J.removeClass("fancybox-lock-test");f("<style type='text/css'>.fancybox-margin{margin-right:"+(d-a)+"px;}</style>").appendTo("head")})})(window,document,jQuery);
+
+ /*!
+ * Buttons helper for fancyBox
+ * version: 1.0.5 (Mon, 15 Oct 2012)
+ * @requires fancyBox v2.0 or later
+ *
+ * Usage:
+ *     $(".fancybox").fancybox({
+ *         helpers : {
+ *             buttons: {
+ *                 position : 'top'
+ *             }
+ *         }
+ *     });
+ *
+ */
+(function ($) {
+  //Shortcut for fancyBox object
+  var F = $.fancybox;
+
+  //Add helper object
+  F.helpers.buttons = {
+    defaults : {
+      skipSingle : false, // disables if gallery contains single image
+      position   : 'top', // 'top' or 'bottom'
+      tpl        : '<div id="fancybox-buttons"><ul><li><a class="btnPrev" title="Previous" href="javascript:;"></a></li><li><a class="btnPlay" title="Start slideshow" href="javascript:;"></a></li><li><a class="btnNext" title="Next" href="javascript:;"></a></li><li><a class="btnToggle" title="Toggle size" href="javascript:;"></a></li><li><a class="btnClose" title="Close" href="javascript:;"></a></li></ul></div>'
+    },
+
+    list : null,
+    buttons: null,
+
+    beforeLoad: function (opts, obj) {
+      //Remove self if gallery do not have at least two items
+
+      if (opts.skipSingle && obj.group.length < 2) {
+        obj.helpers.buttons = false;
+        obj.closeBtn = true;
+
+        return;
+      }
+
+      //Increase top margin to give space for buttons
+      obj.margin[ opts.position === 'bottom' ? 2 : 0 ] += 30;
+    },
+
+    onPlayStart: function () {
+      if (this.buttons) {
+        this.buttons.play.attr('title', 'Pause slideshow').addClass('btnPlayOn');
+      }
+    },
+
+    onPlayEnd: function () {
+      if (this.buttons) {
+        this.buttons.play.attr('title', 'Start slideshow').removeClass('btnPlayOn');
+      }
+    },
+
+    afterShow: function (opts, obj) {
+      var buttons = this.buttons;
+
+      if (!buttons) {
+        this.list = $(opts.tpl).addClass(opts.position).appendTo('body');
+
+        buttons = {
+          prev   : this.list.find('.btnPrev').click( F.prev ),
+          next   : this.list.find('.btnNext').click( F.next ),
+          play   : this.list.find('.btnPlay').click( F.play ),
+          toggle : this.list.find('.btnToggle').click( F.toggle ),
+          close  : this.list.find('.btnClose').click( F.close )
+        }
+      }
+
+      //Prev
+      if (obj.index > 0 || obj.loop) {
+        buttons.prev.removeClass('btnDisabled');
+      } else {
+        buttons.prev.addClass('btnDisabled');
+      }
+
+      //Next / Play
+      if (obj.loop || obj.index < obj.group.length - 1) {
+        buttons.next.removeClass('btnDisabled');
+        buttons.play.removeClass('btnDisabled');
+
+      } else {
+        buttons.next.addClass('btnDisabled');
+        buttons.play.addClass('btnDisabled');
+      }
+
+      this.buttons = buttons;
+
+      this.onUpdate(opts, obj);
+    },
+
+    onUpdate: function (opts, obj) {
+      var toggle;
+
+      if (!this.buttons) {
+        return;
+      }
+
+      toggle = this.buttons.toggle.removeClass('btnDisabled btnToggleOn');
+
+      //Size toggle button
+      if (obj.canShrink) {
+        toggle.addClass('btnToggleOn');
+
+      } else if (!obj.canExpand) {
+        toggle.addClass('btnDisabled');
+      }
+    },
+
+    beforeClose: function () {
+      if (this.list) {
+        this.list.remove();
+      }
+
+      this.list    = null;
+      this.buttons = null;
+    }
+  };
+
+}(jQuery));
+
+
 /*!
  * imagesLoaded PACKAGED v3.1.8
  * JavaScript is all like "You images are done yet or what?"
