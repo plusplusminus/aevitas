@@ -692,14 +692,11 @@ class tpbCustomPostTypes {
 
 		$stack = array();
 
+	    $taxonomies[4] = array('name'=>'Location','slug'=>'location' );
+	    $taxonomies[3] = array('name'=>'Venue','slug'=>'venue' );
+	    $taxonomies[2] = array('name'=>'Setting','slug'=>'setting' );
+	    $taxonomies[1] = array('name'=>'Style','slug'=>'style' );
 
-
-	    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
-	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
-	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
-	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
-	    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
-	 
 
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
@@ -709,17 +706,15 @@ class tpbCustomPostTypes {
 
 	    $params['filters[posts][terms]'] = $stack;
 
-		$params['per_page'] = 100;
+		$params['per_page'] = 30;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
 		$params['functional_boosts[posts]'] = array('terms' => "logarithmic");
     	$params['search_fields[posts]'] = array( 'terms^3' );
 
-print_r($params);
-
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
-print_r($swiftype_result);
+
 		$related_posts = array();
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
@@ -728,7 +723,7 @@ print_r($swiftype_result);
 			if ( $post && $post->ID == $id ) continue;
 			$related_posts[] = $id;
 		}
-
+		shuffle($related_posts);
 		return $related_posts;
 	
 	}
