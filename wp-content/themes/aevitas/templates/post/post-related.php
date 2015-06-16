@@ -21,6 +21,7 @@ query_posts( $query_args );
 ?>
 
 <section class="section_blog">  
+	<div class="container">
 		<div class="section_blog--heading">
 			<h2 class="section_blog--title">You Might Also Enjoy These</h2>
 		</div>
@@ -44,5 +45,5 @@ query_posts( $query_args );
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>
-
+	</div>
 </section> <?php // end #wrapper ?>
