@@ -717,7 +717,7 @@ class tpbCustomPostTypes {
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
-		print_r($swiftype_result);
+		print_r($params);
 
 		$related_posts = array();
 
