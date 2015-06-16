@@ -706,7 +706,7 @@ class tpbCustomPostTypes {
 
 	    $params['filters[posts][terms]'] = $stack;
 
-		$params['per_page'] = 10;
+		$params['per_page'] = 30;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
@@ -724,7 +724,7 @@ class tpbCustomPostTypes {
 			$related_posts[] = $id;
 		}
 
-		return $related_posts;
+		return shuffle($related_posts);
 	
 	}
 	
