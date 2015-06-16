@@ -484,22 +484,27 @@ var Selectizer = function () {
           var taxomonies = JSON.parse(items);  
           var html = '';
 
-          //$location[0].selectize.clearOptions();
-          $location[0].selectize.addOption(response.data.location);
+          var loc = $location[0].selectize.getValue();
+          console.log(loc);
+          $location[0].selectize.clearOptions();
 
-          //$style[0].selectize.clearOptions();
+          $location[0].selectize.addOption(response.data.location);
+          $location[0].selectize.setValue(loc);
+
+
+          $style[0].selectize.clearOptions();
           $style[0].selectize.addOption(response.data.style);
 
-          //$venue[0].selectize.clearOptions();
+          $venue[0].selectize.clearOptions();
           $venue[0].selectize.addOption(response.data.venue);
 
-          //$setting[0].selectize.clearOptions();
+          $setting[0].selectize.clearOptions();
           $setting[0].selectize.addOption(response.data.setting);
 
-          //$type[0].selectize.clearOptions();
+          $type[0].selectize.clearOptions();
           $type[0].selectize.addOption(response.data.type);
 
-          //$culture[0].selectize.clearOptions();
+          $culture[0].selectize.clearOptions();
           $culture[0].selectize.addOption(response.data.culture);
 
 
@@ -526,7 +531,7 @@ var initForm = function () {
       optgroupField: 'class',
       labelField: 'text',
       searchField: ['text'],
-      tax:'location',
+      tax:'location',,
       // Render
       //render: { option: Selectizer.renderOptions },
 
