@@ -1210,7 +1210,7 @@
 		 */
 		setValue: function(value, silent) {
 			var events = silent ? [] : ['change'];
-	
+	console.log(events);
 			debounce_events(this, events, function() {
 				this.clear(silent);
 				this.addItems(value, silent);
