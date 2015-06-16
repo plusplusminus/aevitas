@@ -91,7 +91,7 @@ jQuery(document).ready(function(){
           }
       },
       tpl : {
-        closeBtn : '<button type="button" class="fancy-box-close"></button>',
+        closeBtn : '<button type="button" class="fancy-box-close"><span class="fa fa-times"></span></a></button>',
         next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>',
         prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>'
       }
@@ -393,7 +393,7 @@ var cbpBGSlideshow = (function() {
 
       width =  window.innerWidth;
 
-      var $itemP = jQuery( '.owl-item' ).css('height',height);
+      var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
       
 
       if( Modernizr.backgroundsize ) {
