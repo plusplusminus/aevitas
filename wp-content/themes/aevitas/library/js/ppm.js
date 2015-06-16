@@ -76,12 +76,12 @@ jQuery(document).ready(function(){
               title = this.title;
              
                // Add tweet button
-              this.title += '<div class="fancy_social"><a target="blank" href="https://twitter.com/intent/tweet?text='+title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a>';
-              this.title += '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a>';
-              this.title += '<a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a>';
-              this.title += '<a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a>';
-              this.title += '<a href="#" class="download-share-button js-expand"><span class="fa fa-expand"></span></a>';
-              this.title += '</div>';
+              this.title += '<ul class="fancy_social list-inline"><li><a target="blank" href="https://twitter.com/intent/tweet?text='+title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a></li>';
+              this.title += '<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a></li>';
+              this.title += '<li><a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a></li>';
+              this.title += '<li><a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a></li>';
+              this.title += '<li><a href="#" class="download-share-button js-expand"><span class="fa fa-expand"></span></a>';
+              this.title += '</ul>';
           }
       },
       afterLoad  : function () {
