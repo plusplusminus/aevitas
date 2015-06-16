@@ -12,7 +12,7 @@
     ?>
 
 	<header class="social_header">
-		<span class="social_header--title">Share this post</span>
+		<h2 class="social_header--title">Share this post</h2>
 	</header>
 	<div class="social_options">
 		<ul class="social_buttons">
@@ -33,4 +33,6 @@
 			</li>
 		</ul>
 	</div>
+	<hr class="section_break"/>
+	<div class="clearfix"></div>
 </div>

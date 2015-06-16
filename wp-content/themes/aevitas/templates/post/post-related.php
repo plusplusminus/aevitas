@@ -45,5 +45,6 @@ query_posts( $query_args );
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<hr class="section_break"/>
+		<div class="clearfix"></div>
 	</div>
 </section> <?php // end #wrapper ?>
