@@ -709,6 +709,9 @@ class tpbCustomPostTypes {
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
+		$params['functional_boosts[posts]'] = array('terms' => "logarithmic");
+
+
     	$params['search_fields[posts]'] = array( 'terms^3' );
 
 
