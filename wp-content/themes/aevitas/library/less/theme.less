@@ -265,6 +265,17 @@ hr.section_break {
 	&.css-header-shrink {
 		background: rgba(255,255,255,1);
 	}
+
+	.logo {
+		img {
+			max-width: 240px;
+			float:left;
+			@media(min-width:@screen-sm-min) {
+				max-width: 100%;
+				float: none;
+			}
+		}
+	}
 }
 
 .navbar {
@@ -382,6 +393,10 @@ hr.section_break {
 
 .section_testimonial {
 	.section_spacing();
+	display:none;
+	@media(min-width:@screen-md-min) {
+		display: block;
+	}
 }
 
 .section_review--heading {
@@ -591,6 +606,9 @@ hr.section_break {
 /* Work */
 .section_work {
 	.section_spacing(60px);
+	.home & .section_break {
+		display: none;
+	}
 }
 
 .section_work--title {
