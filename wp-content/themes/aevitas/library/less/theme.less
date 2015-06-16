@@ -533,8 +533,6 @@ hr.section_break_blank {
 
 .blog_row {
 	.make-row();
-	margin-bottom: 45px;
-	.home &{
 		margin-bottom: 0px;
 	}
 	.blog_article {
@@ -665,12 +663,6 @@ hr.section_break_blank {
 
 /* Work */
 .section_work {
-	& .section_break {
-		display: none;
-	}
-	.home & .section_break {
-		display: block;
-	}
 }
 
 .section_work--title {
@@ -688,7 +680,7 @@ hr.section_break_blank {
 .work_filter {
 	border-top: none;
 	margin-bottom: 0px;
-	padding-top: 40px;
+	padding-top: 0px;
 	.page-template-template-blog &{
 		border-top: 1px solid @gray-light;
 		margin-bottom: 40px;
@@ -814,6 +806,16 @@ hr.section_break_blank {
 .section_info--title {
 	margin-bottom: 35px;
 }
+
+.section_info{
+	.section_break{
+		display: none;
+		.page-template-template-helpful & {
+			display: block;
+		}
+	}
+}
+
 .section_inquire {
 	margin: 35px 0;
 	text-align: center;
@@ -1042,7 +1044,7 @@ hr.section_break_blank {
 
 .story_row {
 	.make-row();
-	margin-bottom: 45px;
+	margin-bottom: 30px;
 	.story_article {
 		.make-md-column(6);
 		margin-bottom: 30px;
