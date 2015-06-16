@@ -59,6 +59,15 @@ jQuery(document).ready(function(){
       closeEffect : 'none',
       padding: 0,
       margin:10,
+      helpers : {
+        title : {
+          type: 'outside'
+        },
+        thumbs  : {
+          width : 50,
+          height  : 50
+        }
+      },
       afterLoad  : function () {
           jQuery.extend(this, {
               aspectRatio : false,
