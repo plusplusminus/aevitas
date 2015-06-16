@@ -1,6 +1,10 @@
+jQuery(window).load(function(){
+  cbpBGSlideshow.init()
+});
+
 jQuery(document).ready(function(){
 
-  cbpBGSlideshow.init()
+  
 
   initForm();
 
@@ -510,6 +514,9 @@ var cbpBGSlideshow = (function() {
     // preload the images
     $slideshow.imagesLoaded( function() {
       height = window.innerHeight;
+
+      width =  window.innerWidth;
+
       var $itemP = jQuery( '.owl-item' ).css('height',height);
       
 
