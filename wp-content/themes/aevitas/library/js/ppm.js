@@ -512,7 +512,7 @@ var Selectizer = function () {
           $culture[0].selectize.addOption(response.data.culture);
           $culture[0].selectize.setValue(culture,true);
 
-          var setting = $culture[0].selectize.getValue();
+          var setting = $setting[0].selectize.getValue();
           $setting[0].selectize.clearOptions();
           $setting[0].selectize.addOption(response.data.setting);
           $setting[0].selectize.setValue(setting,true);
