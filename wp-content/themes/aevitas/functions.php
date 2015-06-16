@@ -244,10 +244,7 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
 
     $attachment = get_post( $id );
 
-    $image = '<a class="fancybox" title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><figure class="entry_image"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" />';
-    if (!empty($caption)) 
-        $image .= '<figcaption class="entry_image--caption>'.wpautop($caption).'</figcaption>';
-    $image .= '</figure></a>';
+    $image = '<a class="fancybox" title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" /></a>';
   
   return $image;
 }
