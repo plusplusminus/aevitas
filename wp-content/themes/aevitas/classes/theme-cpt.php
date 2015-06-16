@@ -711,6 +711,8 @@ class tpbCustomPostTypes {
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
+		print_r($params);
+
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
 		print_r($swiftype_result);
