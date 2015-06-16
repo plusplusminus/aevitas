@@ -693,13 +693,13 @@ class tpbCustomPostTypes {
 		$stack = array();
 
 
-		$taxonomies[0] = array('name'=>'Type','slug'=>'type' );
+
 	    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
 	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
 	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
 	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
 	    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
-	    $taxonomies[6] = array('name'=>'Category','slug'=>'category' );
+	 
 
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
