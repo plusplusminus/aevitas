@@ -699,18 +699,18 @@ class tpbCustomPostTypes {
 
 	    foreach ($taxonomies as $taxonomy) {
 	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-
-	    	$params['filters[posts]['.$taxonomy['slug'].']'] = $terms;
+	    	$stack = array_merge($stack,array_values($terms));
 	    }
 
 
-	    //$params['filters[posts][terms]'] = $stack;
+	    $params['filters[posts][terms]'] = $stack;
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
 		$params['fetch_fields[posts]'] = array("external_id");
 
-		print_r($params);
+    	$params['search_fields[posts]'] = array( 'terms^3' );
+
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
