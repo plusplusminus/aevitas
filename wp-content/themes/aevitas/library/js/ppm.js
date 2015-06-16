@@ -54,29 +54,26 @@ jQuery(document).ready(function(){
   })
 
   jQuery(".fancybox").fancybox({
-    beforeShow: function () {
-        if (this.title) {
-
-          console.log(this);
-            // New line
-
-            title = this.title;
-           
-             // Add tweet button
-            this.title += '<div class="fancy_social"><a target="blank" href="https://twitter.com/intent/tweet?text='+title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a>';
-            this.title += '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a>';
-            this.title += '<a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a>';
-            this.title += '<a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a>';
-            this.title += '<a href="#" class="download-share-button js-expand"><span class="fa fa-expand"></span></a>';
-            this.title += '</div>';
-        }
-    },
-    tpl : {
-      closeBtn : '<button type="button" class="fancy-box-close"><span class="fa fa-times"></span></a></button>',
-      next     : '<div id="slider-next"><a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a></div>',
-      prev     : '<div id="slider-prev"><a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>'
-    }
-  });
+      fsBtn:true,
+      openEffect  : 'none',
+      closeEffect : 'none',
+      padding: 0,
+      margin:10,
+      afterLoad  : function () {
+          jQuery.extend(this, {
+              aspectRatio : false,
+              type    : 'html',
+              width   : '100%',
+              height  : '100%',
+              content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
+          });
+      },
+      tpl : {
+        closeBtn : '<a title="Close" class="fancybox-item fancybox-close btn btn-sm btn-default" href="javascript:;"><span class="fa fa-times"></span></a>',
+        next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a>',
+        prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a>'
+      }
+    });
 
   var ias = jQuery.ias({
     container:  '.blog_row',
