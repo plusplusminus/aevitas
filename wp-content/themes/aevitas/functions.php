@@ -429,4 +429,26 @@ function get_tax_opts_ajax($tax) {
 
 }
 
+function swiftype_search_params_filter( $params ) {
+    // set the fields to search and their boosts
+    $params['search_fields[posts]'] = array( 'title^3', 'tags^2', 'author^2', 'body', 'excerpt' );
+
+    return $params;
+}
+
+add_filter( 'swiftype_search_params', 'swiftype_search_params_filter', 8, 1 );
+
+function exclude_swiftype_documents( $document, $post ) {
+    $excluded_post_types = array('page','testimonial');
+    $post_type = get_post_type( $post );
+
+    if ( in_array( $post_type, $excluded_post_types ) ) {
+        return NULL;
+    }
+
+    return $document;
+}
+
+add_filter( 'swiftype_document_builder', 'exclude_swiftype_documents', 10, 2 );
+
 ?>
