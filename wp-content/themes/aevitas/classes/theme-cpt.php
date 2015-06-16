@@ -723,8 +723,8 @@ class tpbCustomPostTypes {
 			if ( $post && $post->ID == $id ) continue;
 			$related_posts[] = $id;
 		}
-
-		return shuffle($related_posts);
+		shuffle($related_posts);
+		return $related_posts;
 	
 	}
 	
