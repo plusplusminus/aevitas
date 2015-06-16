@@ -485,6 +485,7 @@ var Selectizer = function () {
         success: function(response) {
           var taxomonies = JSON.parse(items);  
           var html = '';
+          var loc = $location[0].selectize.getValue();
 
           $location[0].selectize.clear();
           $location[0].selectize.clearOptions();
