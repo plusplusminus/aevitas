@@ -1210,6 +1210,14 @@ hr.section_break_blank {
 		padding: 20px;
 		color: #fff;
 		background: rgba(53,58,61,0.79);
+		margin-bottom: 0;
+		opacity: 0;
+		.transition(.8s);
+	}
+	&:hover {
+		> p {
+			opacity: 1;
+		}
 	}
 }
 
