@@ -1469,7 +1469,10 @@ input[type="submit"].aev-search-submit {
 
 .aev-icon-search {
     z-index: 90;
-
+    font-family: @font-family-sans-serif;
+    color: @gray;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
 }
 
 .aev-search.aev-search-open .aev-icon-search {
@@ -1502,6 +1505,7 @@ input[type="text"].tt-hint {
     border: none;
     background: #fff;
     font-family: inherit;
+    font-weight: 300;
     opacity: 0;
     font-size: @font-size-small;
     .transition(.8s);
