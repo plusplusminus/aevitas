@@ -59,6 +59,7 @@ jQuery(document).ready(function(){
       closeEffect : 'none',
       padding: 0,
       margin:10,
+      closeBtn : false,
       helpers : {
         buttons:{},
         thumbs  : {
