@@ -488,8 +488,7 @@ var Selectizer = function () {
 
           $location[0].selectize.clear();
           $location[0].selectize.clearOptions();
-          $location[0].renderCache['value'] = {}; 
-          $location[0].renderCache['text'] = {};
+
           $location[0].selectize.addOption(response.data.location);
           $location[0].selectize.setValue(loc,true);
 
