@@ -692,8 +692,6 @@ class tpbCustomPostTypes {
 
 		$stack = array();
 
-
-		$taxonomies[0] = array('name'=>'Type','slug'=>'type' );
 	    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
 	    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
 	    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
