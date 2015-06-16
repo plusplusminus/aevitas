@@ -1677,7 +1677,9 @@ input[type="text"].tt-hint {
 	.item_caption--title {
 		.heading-typo();
 		text-align: center;
-		font-size: 40px;
+		@media(min-width:@screen-sm-min) {
+			font-size: 40px;
+		}
 
 	}
 
