@@ -60,9 +60,7 @@ jQuery(document).ready(function(){
       padding: 0,
       margin:10,
       helpers : {
-        title : {
-          type: 'outside'
-        },
+        buttons:{},
         thumbs  : {
           width : 50,
           height  : 50
