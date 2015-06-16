@@ -18,14 +18,15 @@
 						?>
 						<div class="item">
 							<figure class="slide_image">
-								<a class="fancybox" title="<? _e($attachment->post_title); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery">
-									<img alt="<? _e($attachment->post_title); ?>" src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
-								</a>
+			
+								<img alt="<? _e($attachment->post_title); ?>" src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
+								
 								<?php if (!empty($attachment->post_excerpt)) : ?>
 									<figcaption class="slide_image--caption">
 											<h3 class="image_title"><? _e($attachment->post_excerpt); ?></h3>
 									</figcaption>
 								<?php endif; ?>
+								<a class="css-full-screen-link fancybox" title="<? _e($attachment->post_title); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery"><span class="fa fa-expand"></span></a>
 							</figure>
 						</div>
 
