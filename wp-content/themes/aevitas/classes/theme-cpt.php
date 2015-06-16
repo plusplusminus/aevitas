@@ -702,6 +702,8 @@ class tpbCustomPostTypes {
 	    	$stack = array_merge($stack,array_values($terms));
 	    }
 
+	    print_r($stack);
+
 
 	    $params['filters[posts][terms]'] = $stack;
 
