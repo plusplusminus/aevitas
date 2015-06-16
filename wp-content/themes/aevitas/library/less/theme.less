@@ -265,6 +265,13 @@ hr.section_break {
 	border-bottom: 1px solid @gray-light;
 }
 
+hr.section_break_blank {
+	padding-bottom: 25px;
+	padding-top: 25px;
+	border-top:none;
+	border-bottom: none;
+}
+
 /* Body */
 
 .header {
@@ -383,6 +390,10 @@ hr.section_break {
 	}
 }
 
+/* Home */
+.home-slider{
+	.section_spacing(20px)
+}
 
 /* Gallery */
 
@@ -518,6 +529,9 @@ hr.section_break {
 .blog_row {
 	.make-row();
 	margin-bottom: 45px;
+	.home &{
+		margin-bottom: 0px;
+	}
 	.blog_article {
 		.make-md-column(4);
 	}
@@ -534,6 +548,9 @@ hr.section_break {
 .blog_image {
 	position: relative;
 	margin-bottom: 30px;
+	.home &{
+		margin-bottom: 0px;
+	}
 }
 
 .blog_content {
@@ -643,9 +660,11 @@ hr.section_break {
 
 /* Work */
 .section_work {
-	.section_spacing(60px);
-	.home & .section_break {
+	& .section_break {
 		display: none;
+	}
+	.home & .section_break {
+		display: block;
 	}
 }
 
@@ -663,7 +682,8 @@ hr.section_break {
 
 .work_filter {
 	border-top: 1px solid @gray-light;
-	margin-bottom: 40px;
+	margin-bottom: 0px;
+	padding-top: 40px;
 	.css-dropdown {
 		.menu-btn();
 
@@ -764,7 +784,7 @@ hr.section_break {
 /* Info Section */
 
 .section_info {
-	.section_spacing();	
+	.section_spacing(60px;);	
 }
 
 .section_info--title {
@@ -1545,7 +1565,11 @@ input[type="text"].tt-hint {
  *  Owl Carousel CSS3 Transitions 
  *  v1.3.2
  */
-
+.owl-controls{
+	.home &{
+		margin-top: 0px;
+	}
+}
 .owl-origin {
 	-webkit-perspective: 1200px;
 	-webkit-perspective-origin-x : 50%;

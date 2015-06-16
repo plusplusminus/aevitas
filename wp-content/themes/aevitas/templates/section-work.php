@@ -16,7 +16,6 @@ global $cpt;
 ?>
 <section class="section_work">
 	<div class="container">
-		<hr class="section_break"/>
 		<div class="section_work--heading">
 			<h2 class="section_work--title">View More Work</h2>
 		</div>
