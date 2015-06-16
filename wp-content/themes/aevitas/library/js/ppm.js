@@ -471,8 +471,6 @@ var Selectizer = function () {
 
       var selectize = this;
 
-      selectize.disable();
-
       jQuery('.submit_button').attr('disabled','disabled').text('Loading');
       
       facets.push({tax:selectize.settings.tax,id:value});
@@ -489,10 +487,7 @@ var Selectizer = function () {
           var html = '';
           var loc = $location[0].selectize.getValue();
 
-          
           $location[0].selectize.clearOptions();
-
-          
           $location[0].selectize.addOption(response.data.location);
           $location[0].selectize.setValue(loc,true);
 
@@ -502,17 +497,27 @@ var Selectizer = function () {
           $style[0].selectize.addOption(response.data.style);
           $style[0].selectize.setValue(style,true);
 
+          var venue = $venue[0].selectize.getValue();
           $venue[0].selectize.clearOptions();
           $venue[0].selectize.addOption(response.data.venue);
+          $venue[0].selectize.setValue(venue,true);
 
-          $setting[0].selectize.clearOptions();
-          $setting[0].selectize.addOption(response.data.setting);
-
+          var type = $type[0].selectize.getValue();
           $type[0].selectize.clearOptions();
           $type[0].selectize.addOption(response.data.type);
+          $type[0].selectize.setValue(type,true);
 
+          var culture = $culture[0].selectize.getValue();
           $culture[0].selectize.clearOptions();
           $culture[0].selectize.addOption(response.data.culture);
+          $culture[0].selectize.setValue(culture,true);
+
+          var setting = $culture[0].selectize.getValue();
+          $setting[0].selectize.clearOptions();
+          $setting[0].selectize.addOption(response.data.setting);
+          $setting[0].selectize.setValue(setting,true);
+
+          
         
           
           jQuery('.submit_button').removeAttr("disabled").text('Filter');
