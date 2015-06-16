@@ -23,7 +23,7 @@
 						    	<figure class="testimonial_image">
 						    		<?php the_post_thumbnail('review',array('class'=>'img-responsive')); ?>
 						    		<figcaption class="testimonial_content">
-						    			<div class="content_inner">
+						    			<div class="content_inner--testimonial">
 						    				<blockquote class="testimonial_content--blockquote" itemprop="reviewBody">
 												<?php the_content(); ?>
 											</blockquote>
