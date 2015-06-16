@@ -432,7 +432,7 @@ function get_tax_opts_ajax($tax) {
 function swiftype_search_params_filter( $params ) {
     // set the fields to search and their boosts
     $params['search_fields[posts]'] = array( 'title^3', 'tags^2', 'author^2', 'body', 'excerpt' );
-
+    $params['filters[posts][object_type]'] = array( 'post', 'storytelling','portfolio','details','inspiration' );
     return $params;
 }
 
@@ -450,14 +450,5 @@ function exclude_swiftype_documents( $document, $post ) {
 }
 
 add_filter( 'swiftype_document_builder', 'exclude_swiftype_documents', 10, 2 );
-
-function swiftype_search_params_filter( $params ) {
-    // set the types to allow
-    $params['filters[posts][object_type]'] = array( 'post', 'storytelling','portfolio','details','inspiration' );
-
-    return $params;
-}
-
-add_filter( 'swiftype_search_params', 'swiftype_search_params_filter', 8, 1 );
 
 ?>
