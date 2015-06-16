@@ -451,4 +451,6 @@ function exclude_swiftype_documents( $document, $post ) {
 
 add_filter( 'swiftype_document_builder', 'exclude_swiftype_documents', 10, 2 );
 
+
+
 ?>

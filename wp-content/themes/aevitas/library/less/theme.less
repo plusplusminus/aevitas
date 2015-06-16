@@ -1214,6 +1214,19 @@ hr.section_break_blank {
 	}
 }
 
+.wp-caption {
+	position: relative;
+	> p {
+		position: absolute;
+		bottom: 0;
+		left:0;
+		right: 0;
+		padding: 20px;
+		color: #fff;
+		background: rgba(53,58,61,0.79);
+	}
+}
+
 .post_video--heading {
 	text-align: center;
   	margin-bottom: 50px;
@@ -1236,11 +1249,7 @@ hr.section_break_blank {
 
 .post_entry {
 	text-align: justify;
-	> * {
-		max-width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	
 	img {
 		margin-bottom: 25px;
 		+ img {
@@ -1249,9 +1258,7 @@ hr.section_break_blank {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.wp-caption {
-		min-width: 100%;
-	}
+
 }
 
 .post_providers {
