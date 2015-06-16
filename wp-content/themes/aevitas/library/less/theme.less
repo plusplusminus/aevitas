@@ -666,8 +666,11 @@ hr.section_break_blank {
 	.page-template-template-helpful &{
 		.section_spacing(60px;);
 	}
-	.page-template-template-helpful & .section_break{
-		display: none;
+	.page-template-template-helpful &,
+	.single &{
+		.section_break{
+			display: none;
+		}
 	}
 }
 
@@ -1263,24 +1266,27 @@ hr.section_break_blank {
 
 .post_providers {
 	text-align: center;
-	padding-bottom: 60px;
+	padding-bottom: 55px;
 	margin-bottom: 55px;
 	border-bottom: 1px solid @gray-light;
-	.sp-title {
-		.section_title();
-	}
-	.sp-list {
-		.meta-typo(13px);
+	#sp-container {
+		margin: 21px 0px 0px 0px;
+		.sp-title {
+			.section_title();
+			padding-bottom: 50px;
+		}
+		.sp-list {
+			.meta-typo(13px);
+			.list-unstyled();
+			margin-bottom: 0px;
+			.sp-list-item {
+				padding: 5px 0;
+				> a {
+					color: #52575a;
 
-		.list-unstyled();
-
-		.sp-list-item {
-			padding: 5px 0;
-			> a {
-				color: #52575a;
-
-				&:hover {
-					color: @gray;
+					&:hover {
+						color: @gray;
+					}
 				}
 			}
 		}
@@ -1354,6 +1360,7 @@ hr.section_break_blank {
 
 .comments_header--title {
 	.section_title();
+	font-size: @font-size-h2;
 }
 
 
