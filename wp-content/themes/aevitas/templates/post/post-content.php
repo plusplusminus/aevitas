@@ -6,8 +6,8 @@
 				<div class="post_content">
 					<div class="post_entry">
 						<?php the_content(); ?>
+						<hr class="section_break"/>
 					</div>
-					<hr class="section_break"/>
 					<div class="clearfix"></div>
 					<?php get_template_part('templates/post/post','providers'); ?>
 					<?php get_template_part('templates/post/post','social'); ?>
