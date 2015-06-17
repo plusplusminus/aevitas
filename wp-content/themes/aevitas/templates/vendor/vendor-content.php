@@ -19,7 +19,7 @@
 			
 			<?php $media = get_post_meta($post->ID,'_ppm_gallery',true); ?>
 			<?php if (!empty($media)) : ?>
-				<aside class="child_slider">
+				<aside class="child_slider clearfix">
 					<div class="slider">
 					<?php foreach ($media as $key => $image) {
 
@@ -42,11 +42,11 @@
 
 					<?php } ?>
 					</div>
+					<hr class="section_break"/>
 				</aside>
 			<?php endif; ?>
-			<hr class="section_break"/>
 
-			<?php get_template_part('templates/video'); ?>
+			<?php get_template_part('templates/vendor/vendor','extra'); ?>
 
 			<?php get_template_part('templates/vendor/vendor','related'); ?>
 

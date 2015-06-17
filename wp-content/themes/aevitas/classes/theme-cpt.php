@@ -363,18 +363,19 @@ class tpbCustomPostTypes {
 		) );
 
 		$vendor_meta->add_field( array(
-		    'name'    => 'Video Heading',
-		    'desc'    => 'Enter the video vendor heading',
+		    'name'    => 'Extra Section Heading',
+		    'desc'    => 'Enter the extra vendor heading',
 		    'id'      => $prefix . 'video_heading',
 		    'type'    => 'text'
 		) );
 
-		$vendor_meta->add_field(array(
-			'name' => 'oEmbed',
-			'desc' => 'Enter a youtube, twitter, or instagram URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.',
-			'id' => $prefix . 'video_embed',
-			'type' => 'oembed',
-		));
+		$vendor_meta->add_field( array(
+		    'name'    => 'Extra Info',
+		    'desc'    => 'field description (optional)',
+		    'id'      => $prefix. 'extra_info',
+		    'type'    => 'wysiwyg',
+		    'options' => array(),
+		) );
 
 
 		$faq_meta = new_cmb2_box( array(
@@ -454,6 +455,8 @@ class tpbCustomPostTypes {
 		        'url' => false,
 		    ),
 		) );
+
+
 
 
 
