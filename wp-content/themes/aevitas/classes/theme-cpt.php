@@ -623,16 +623,15 @@ class tpbCustomPostTypes {
 
 		$stack = array();
 
-		foreach ($facets as $key => $facet) {
-			$params['filters[posts]['.$key.']'][] = $facet;
+		foreach ($facets as $facet) {
+			$params['filters[posts]['.$facet['tax'].']'][] = $facet['id'];
 		}
 
-		$params['facets[posts]'] = array('type','location','venue','setting','style','culture','inspiration');
+		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
 		
-		print_r($params);
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
@@ -671,26 +670,20 @@ class tpbCustomPostTypes {
 
 		$stack = array();
 
-		foreach ($facets as $facet) {
-			$params['filters[posts]['.$facet['tax'].']'][] = $facet['id'];
+		foreach ($facets as $key => $facet) {
+			$params['filters[posts]['.$key.']'][] = $facet;
 		}
 
-		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
+		$params['facets[posts]'] = array('type','location','venue','setting','style','culture','inspiration');
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
 		
+		print_r($params);
 
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
-		foreach ( $swiftype_result['records']['posts'] as $rel ) {
-			
-			$id = $rel['external_id'];
-			if ( $post && $post->ID == $id ) continue;
-			$related_posts[] = $id;
-		}
-
-		return $related_posts;
+		return $swiftype_result['info']['posts'];
 	
 	}
 
