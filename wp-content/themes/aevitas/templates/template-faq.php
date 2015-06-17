@@ -10,10 +10,6 @@
 
 	<?php get_template_part('templates/faq/faqs'); ?>
 
-
-
-	<?php get_template_part('templates/helpful/page'); ?>
-
 	<?php get_template_part('templates/section','info'); ?>
 
 
