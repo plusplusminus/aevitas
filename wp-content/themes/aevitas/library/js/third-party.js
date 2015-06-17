@@ -274,6 +274,9 @@ d[0].offsetTop||15===d[0].offsetTop;d.remove();a.fixedPosition=e}f.extend(b.defa
         }
       }
 
+      console.log(this.href);
+      console.log(this.title);
+
       //Prev
       if (obj.index > 0 || obj.loop) {
         buttons.prev.removeClass('btnDisabled');
