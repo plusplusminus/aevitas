@@ -671,7 +671,8 @@ class tpbCustomPostTypes {
 		$stack = array();
 
 		foreach ($facets as $key => $facet) {
-			$params['filters[posts]['.$key.']'][] = $facet;
+			if(!empty($facet))
+				$params['filters[posts]['.$key.']'][] = $facet;
 		}
 
 		//$params['facets[posts]'] = array('type','location','venue','setting','style','culture','inspiration');
