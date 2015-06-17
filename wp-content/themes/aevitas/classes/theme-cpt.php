@@ -102,7 +102,7 @@ class tpbCustomPostTypes {
 					'capability_type' 	=> 'post',
 					'menu_icon' 		=> 'dashicons-awards',
 					'hierarchical' 		=> false,
-					'has_archive' 		=> false,
+					'has_archive' 		=> true,
 					'rewrite' 			=> array(	"slug" => "tips-and-inspiration"	), // Permalinks
 					'query_var' 		=> "inspiration", // This goes to the WP_Query schema
 					'supports' 			=> array(	'title',																
