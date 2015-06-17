@@ -109,28 +109,28 @@ jQuery(document).ready(function(){
     e.preventDefault()
     console.log($fancy);
 
-    $fancy.fancybox.prev()
+    $.fancybox.prev()
 
   })
 
   jQuery(document).on('click','.js-next',function(e){
     e.preventDefault()
 console.log($fancy);
-    $fancy.fancybox.next()
+    $.fancybox.next()
     
   })
 
   jQuery(document).on('click','.js-play',function(e){
     e.preventDefault()
 console.log($fancy);
-    $fancy.fancybox.play()
+    $.fancybox.play()
     
   })
 
   jQuery(document).on('click','.js-close',function(e){
     e.preventDefault()
 console.log($fancy);
-    $fancy.fancybox.close()
+    $.fancybox.close()
     
   })
 
