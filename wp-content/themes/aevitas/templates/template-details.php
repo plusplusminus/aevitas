@@ -10,6 +10,8 @@
 
 	<?php get_template_part('templates/details/archive'); ?>
 
+	<?php get_template_part('templates/details/details','related'); ?>
+
 	<?php get_template_part('templates/section','work'); ?>
 
 	<?php get_template_part('templates/section','info'); ?>

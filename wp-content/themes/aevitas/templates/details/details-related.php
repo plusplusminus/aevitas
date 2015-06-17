@@ -2,7 +2,7 @@
 // Exclude categories on the homepage.
 
 $query_args = array(
-	'post_type' => 'post', 
+	'post_type' => array('post','inpiration'), 
 	'posts_per_page' => 3,
 	'tag'=>'details'
 );
