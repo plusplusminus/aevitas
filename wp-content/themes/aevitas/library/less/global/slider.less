@@ -260,6 +260,13 @@
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
     filter: alpha(opacity=50);
     opacity: .5;
+    > span {
+          position: absolute;
+          top: 50%;
+          z-index: 5;
+          display: inline-block;
+          margin-top: -10px;
+    }
 }
 
 .owl-theme {
@@ -267,13 +274,7 @@
         color: #52575a;
         left: 55px;
         font-size: 4em;
-        > span {
-              position: absolute;
-              top: 50%;
-              z-index: 5;
-              display: inline-block;
-              margin-top: -10px;
-        }
+
     }
     .owl-controls .owl-buttons div.owl-next{
         color: #52575a;
