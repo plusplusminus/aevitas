@@ -107,29 +107,30 @@ jQuery(document).ready(function(){
 
   jQuery(document).on('click','.js-prev',function(e){
     e.preventDefault()
+    console.log($fancy);
 
-    $fancy.prev()
+    $fancy.fancybox.prev()
 
   })
 
   jQuery(document).on('click','.js-next',function(e){
     e.preventDefault()
-
-    $fancy.next()
+console.log($fancy);
+    $fancy.fancybox.next()
     
   })
 
   jQuery(document).on('click','.js-play',function(e){
     e.preventDefault()
-
-    $fancy.play()
+console.log($fancy);
+    $fancy.fancybox.play()
     
   })
 
   jQuery(document).on('click','.js-close',function(e){
     e.preventDefault()
-
-    $fancy.close()
+console.log($fancy);
+    $fancy.fancybox.close()
     
   })
 
