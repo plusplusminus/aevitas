@@ -49,8 +49,8 @@ function theme_slug_widgets_init() {
         'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
         'before_widget' => '<div id="%1$s" class="section_instagram widget %2$s"><div class="container">',
     'after_widget'  => '</div></div>',
-    'before_title'  => '<h2 class="section_instagram--title">',
-    'after_title'   => '</h2>',
+    'before_title'  => '<div class="section_instagram--heading"><h2 class="section_instagram--title">',
+    'after_title'   => '</h2></div>',
     ) );
 }
 
