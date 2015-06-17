@@ -257,7 +257,7 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
 
     $attachment = get_post( $id );
 
-    $image = '<a class="fancybox" title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" /></a>';
+    $image = '<a class="fancybox" data-title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" /></a>';
   
   return $image;
 }
