@@ -4,11 +4,10 @@
 
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="post_content">
-					<div class="post_entry">
+					<div class="post_entry clearfix">
 						<?php the_content(); ?>
 						<hr class="section_break"/>
 					</div>
-					<div class="clearfix"></div>
 					<?php get_template_part('templates/post/post','providers'); ?>
 					<?php get_template_part('templates/post/post','social'); ?>
 					<?php get_template_part('templates/post/post','related'); ?>
