@@ -424,6 +424,7 @@ var cbpBGSlideshow = (function() {
       var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
       
     } );
+  }
     
 
   return { init : init,reinit: reinit };
