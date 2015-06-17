@@ -118,7 +118,7 @@ jQuery(document).ready(function(){
 
   jQuery(document).on('click','.js-play',function(e){
     e.preventDefault()
-    jQuery( this ).find('span').toggleClass( "start" );
+    jQuery( 'body' ).toggleClass( "slideshow-start" );
     jQuery.fancybox.play()
     
   })
