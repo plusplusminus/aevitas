@@ -675,7 +675,7 @@ class tpbCustomPostTypes {
 				$params['filters[posts]['.$key.']'][] = $facet;
 		}
 
-		$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
+		//$params['facets[posts]'] = array('type','location','venue','setting','style','culture');
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
@@ -683,7 +683,7 @@ class tpbCustomPostTypes {
 		print_r($params);
 echo '</pre>';
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
-
+print_r($swiftype_result);
 		return $swiftype_result['info']['posts'];
 	
 	}
