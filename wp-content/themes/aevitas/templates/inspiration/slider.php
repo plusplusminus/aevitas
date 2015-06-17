@@ -24,6 +24,9 @@ query_posts( $query_args );
 					    	<figure class="gallery_image">
 					    		<?php
 									$key = get_post_meta($post->ID,'_ppm_slider_image_id',true);
+									if (empty($key)) {
+										$key = get_post_meta($post->ID,'_ppm_header_image_id',true);
+									}
 									$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
 								?>
 								<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
