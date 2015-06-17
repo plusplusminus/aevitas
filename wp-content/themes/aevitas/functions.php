@@ -464,6 +464,19 @@ function exclude_swiftype_documents( $document, $post ) {
 
 add_filter( 'swiftype_document_builder', 'exclude_swiftype_documents', 10, 2 );
 
+function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
+    global $wp_embed;
+
+    $post_id = $post_id ? $post_id : get_the_id();
+
+    $content = get_post_meta( $post_id, $meta_key, 1 );
+    $content = $wp_embed->autoembed( $content );
+    $content = $wp_embed->run_shortcode( $content );
+    $content = do_shortcode( $content );
+    $content = wpautop( $content );
+
+    return $content;
+}
 
 
 ?>
