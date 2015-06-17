@@ -20,6 +20,7 @@ global $post;
 <section class="section_search">
 	<div class="container">
 		<div class="work_filter">
+		<form action="<?php echo home_url();?>/search" method="POST">
 			<ul class="work_filter--blog filter_list">
 				<?php foreach ($taxonomies as $taxonomy) {
 						if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
@@ -40,6 +41,7 @@ global $post;
 				?>
 			</ul>
 			<div class="clearfix"></div>
+		</form>
 		</div>
 	</div>
 </section>
