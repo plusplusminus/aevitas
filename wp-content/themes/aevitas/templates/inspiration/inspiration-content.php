@@ -15,6 +15,5 @@
 			<?php endwhile; ?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<hr class="section_break"/>
 	</div>			
 </article><?php // end #wrapper ?>
