@@ -674,7 +674,7 @@ class tpbCustomPostTypes {
 			$params['filters[posts]['.$key.']'][] = $facet;
 		}
 
-		$params['facets[posts]'] = array('type','location','venue','setting','style','culture','inspiration');
+		//$params['facets[posts]'] = array('type','location','venue','setting','style','culture','inspiration');
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
