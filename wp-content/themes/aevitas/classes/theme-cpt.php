@@ -40,7 +40,8 @@ class tpbCustomPostTypes {
 	    p2p_register_connection_type( array(
 	        'name' => 'page_to_posts',
 	        'from' => 'page',
-	        'to' => array('post','storytelling','inspiration')
+	        'to' => array('post','storytelling','inspiration'),
+	        'sortable' => 'any'
 	    ) );
 	}
 
