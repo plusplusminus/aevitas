@@ -35,7 +35,7 @@ global $post;
 					}
 
 				echo '<li>';
-				echo '<button type="submit" class="submit_button">Filter</button>';
+				echo '<button type="submit" class="submit_button">Search</button>';
 				echo '</li>';
 				?>
 			</ul>
