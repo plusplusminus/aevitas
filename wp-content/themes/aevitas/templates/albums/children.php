@@ -19,8 +19,8 @@ query_posts( $query_args );
 			<div class="child_row">
 				<?php while ( have_posts() ) : the_post(); ?>
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('child_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-				    	<header class="child_title">
-				    		<?php the_title(); ?>
+				    	<header class="child_article--heading">
+				    		<h2 class="child_article--title"><?php the_title(); ?></h2>
 				    	</header>
 
 				    	<?php get_template_part('templates/slider'); ?>
