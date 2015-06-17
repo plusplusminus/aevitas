@@ -41,7 +41,7 @@ query_posts( $query_args );
 							<?php endif; ?>
 						</div>
 
-						
+						<hr class="section_break"/>
 					</article>
 				<?php endwhile; ?>
 			</div>
