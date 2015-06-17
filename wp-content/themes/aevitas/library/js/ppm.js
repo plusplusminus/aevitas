@@ -64,6 +64,9 @@ jQuery(document).ready(function(){
       margin:10,
       closeBtn : false,
       helpers : {
+        title: {
+            type: 'outside'
+        },
         buttons:{},
         thumbs  : {
           width : 50,
@@ -71,9 +74,12 @@ jQuery(document).ready(function(){
         }
       },
       beforeShow: function () {
-              // New line
-
-        title = this.title;
+        
+        var alt = this.element.data('title');
+        
+        this.inner.find('img').attr('alt', alt);
+        
+        this.title = alt;
        
          // Add tweet button
         this.title += '<ul class="fancy_social list-inline"><li><a target="blank" href="https://twitter.com/intent/tweet?text='+title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a></li>';
