@@ -2,7 +2,7 @@
 
 $query_args = array(
 	'post_type' => 'inspiration', 
-	'numberposts' => 3
+	'posts_per_page' => 3
 );
 
 query_posts( $query_args );
