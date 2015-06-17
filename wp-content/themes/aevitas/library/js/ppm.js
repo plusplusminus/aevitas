@@ -413,7 +413,20 @@ var cbpBGSlideshow = (function() {
     
   }
 
-  return { init : init };
+  function reinit( config ) {
+
+    // preload the images
+    $slideshow.imagesLoaded( function() {
+      height = window.innerHeight;
+
+      width =  window.innerWidth;
+
+      var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+      
+    } );
+    
+
+  return { init : init,reinit: reinit };
 
 })();
 
@@ -432,10 +445,7 @@ function initHeader() {
 window.addEventListener('resize', resize);
 
 function resize() {
-  height = window.innerHeight;
-    largeHeader = document.querySelectorAll('.owl-item');
-
-    largeHeader.style.height = height+'px';
+  cbpBGSlideshow.reinit();
 }
 
 
