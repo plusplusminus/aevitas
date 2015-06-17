@@ -434,9 +434,20 @@ class tpbCustomPostTypes {
 
 
 		$image_meta->add_field( array(
-		    'name'    => 'Header/Slider Image',
+		    'name'    => 'Home Image',
 		    'desc'    => 'Upload an image or enter an URL.',
 		    'id'      => $prefix . 'header_image',
+		    'type'    => 'file',
+		    // Optionally hide the text input for the url:
+		    'options' => array(
+		        'url' => false,
+		    ),
+		) );
+
+		$image_meta->add_field( array(
+		    'name'    => 'Slider Image',
+		    'desc'    => 'Upload an image or enter an URL.',
+		    'id'      => $prefix . 'slider_image',
 		    'type'    => 'file',
 		    // Optionally hide the text input for the url:
 		    'options' => array(

@@ -22,7 +22,11 @@ query_posts( $query_args );
 					  	<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix css-hover-vertical'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 					    	
 					    	<figure class="gallery_image">
-					    		<?php the_post_thumbnail('slider',array('class'=>'img-responsive')); ?>
+					    		<?php
+									$key = get_post_meta($post->ID,'_ppm_slider_image_id',true);
+									$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
+								?>
+								<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					    		<figcaption class="gallery_content">
 					    			<div class="content_inner">
 					    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
