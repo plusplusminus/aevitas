@@ -24,6 +24,7 @@
 					<?php foreach ($media as $key => $image) {
 
 						$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
+						$attachment = get_post($key); 
 						?>
 						<div class="slide">
 							<figure class="slide_image">
@@ -33,6 +34,9 @@
 								<figcaption class="slide_image--caption">
 										<h3 class="image_title"><? _e($attachment->post_excerpt); ?></h3>
 								</figcaption>
+								<div class="slider_image--info">
+									<span class="fa fa-info-circle"></span>
+								</div>
 							<?php endif; ?>
 						</div>
 
