@@ -7,7 +7,7 @@
 		<?php $video_heading = get_post_meta($post->ID,'_ppm_video_heading',true); ?>
 		
 		<div class="post_video--heading">
-			<span class="post_video--title"><?php _e($video_heading,'aevitas');?></span>
+			<h2 class="post_video--title"><?php _e($video_heading,'aevitas');?></h2>
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
