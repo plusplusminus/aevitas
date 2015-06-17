@@ -86,7 +86,7 @@ jQuery(document).ready(function(){
         this.title += '<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a></li>';
         this.title += '<li><a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a></li>';
         this.title += '<li><a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a></li>';
-        this.title += '<li><a class="btnPrev" title="Previous" href="javascript:;"><span class="fa fa-twitter"></span></a></li><li><a class="btnPlay" title="Start slideshow" href="javascript:;"><span class="fa fa-twitter"></span></a></li><li><a class="btnNext" title="Next" href="javascript:;"><span class="fa fa-twitter"></span></a></li><li><a class="btnToggle" title="Toggle size" href="javascript:;"><span class="fa fa-twitter"></span></a></li><li><a class="btnClose" title="Close" href="javascript:;"><span class="fa fa-twitter"></span></a></li><</ul>';
+        this.title += '<li><a class="js-prev" title="Previous" href="javascript:;"><span class="fa fa-angle-left"></span></a></li><li><a class="js-play" title="Start slideshow" href="javascript:;"><span class="fa fa-play"></span></a></li><li><a class="js-next" title="Next" href="javascript:;"><span class="fa fa-angle-right"></span></a></li><li><a class="js-fullscreen" title="Toggle size" href="javascript:;"><span class="fa fa-expand"></span></a></li><li><a class="js-close" title="Close" href="javascript:;"><span class="fa fa-times"></span></a></li><</ul>';
         
       },
       afterLoad  : function () {
