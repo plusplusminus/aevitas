@@ -1320,8 +1320,12 @@ hr.section_break_blank {
 }
 
 .social_buttons {
-	display: block;
-	margin-bottom: 15px;
+	margin: 0;
+	padding: 0;
+	> li {
+		display: block;
+		margin-bottom: 15px;
+	}
 	@media(min-width:@screen-sm-min) {
 
 		.list-inline();
@@ -1335,9 +1339,12 @@ hr.section_break_blank {
 	padding-left:20px;
 	padding-right: 20px;
 
+	display: block;
+	width: 100%;
+	
 	@media(min-width:@screen-sm-min) {
-		display: block;
-		width: 100%;
+		display: inline-block;
+		width: auto;
 	}
 
 	.fa {
