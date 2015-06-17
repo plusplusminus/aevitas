@@ -285,9 +285,10 @@ hr.section_break_blank {
 	z-index: 1050;
 
 	background: rgba(255,255,255,1);
-
-	@media(min-width:@screen-sm-min) {
-		background: rgba(255,255,255,0.8);
+	.home & {
+		@media(min-width:@screen-sm-min) {
+			background: rgba(255,255,255,0.8);
+		}
 	}
 
 	overflow: hidden;
