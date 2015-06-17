@@ -678,7 +678,9 @@ var initForm = function () {
       // Load
       load: Selectizer.loadOptions,
 
-      onChange: Selectizer.changeOptions
+      onChange: Selectizer.changeOptions,
+
+      onDelete: Selectizer.deleteOption
   });
 
   $venue = jQuery('#venue-select').selectize({
