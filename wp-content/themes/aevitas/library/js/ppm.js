@@ -97,6 +97,9 @@ jQuery(document).ready(function(){
             content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
         });
     },
+    beforeClose :function() {
+      jQuery('body').removeClass('slideshow-start');
+    }
     tpl : {
       closeBtn : '<a title="Close" class="fancybox-item fancybox-close btn btn-sm btn-default" href="javascript:;"><span class="fa fa-times"></span></a>',
       next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a>',
@@ -125,6 +128,7 @@ jQuery(document).ready(function(){
 
   jQuery(document).on('click','.js-close',function(e){
     e.preventDefault()
+    jQuery('body').removeClass('slideshow-start');
     jQuery.fancybox.close()
     
   })
