@@ -99,7 +99,7 @@ jQuery(document).ready(function(){
     },
     beforeClose :function() {
       jQuery('body').removeClass('slideshow-start');
-    }
+    },
     tpl : {
       closeBtn : '<a title="Close" class="fancybox-item fancybox-close btn btn-sm btn-default" href="javascript:;"><span class="fa fa-times"></span></a>',
       next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a>',
