@@ -4,7 +4,7 @@
 
   	<?php get_template_part('templates/inspiration/inspiration','content'); ?>
 
-    <?php get_template_part('templates/post/post','related'); ?>
+    <?php get_template_part('templates/inspiration/inspiration','related'); ?>
 
     <?php get_template_part('templates/section','work'); ?>
 
