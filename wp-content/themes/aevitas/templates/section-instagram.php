@@ -1,7 +1,7 @@
 <?php global $tpb_options; ?>
 
 <section class="section_instagram">
-	<div class="container">
+	<div class="container-fluid">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
 		<div class="instagram_follow">
