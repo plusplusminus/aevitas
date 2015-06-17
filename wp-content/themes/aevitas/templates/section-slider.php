@@ -3,20 +3,18 @@
 <?php
 // Exclude categories on the homepage.
 
-$query_args = array(
-	'post_type' => array('post','storytelling','inspiration'), 
-	'tag'=>'featured',
-	'posts_per_page' => 10
-);
-
-query_posts( $query_args );
+$connected = new WP_Query( array(
+  'connected_type' => 'pages_to_posts',
+  'connected_items' => get_queried_object(),
+  'nopaging' => true,
+) );
 
 ?>
 
 
-<?php if ( have_posts() ) : ?>
+<?php if ( $connected->have_posts() ) : ?>
 	<div class="home-slider owl-slider owl-carousel owl-theme">
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 				<?php
 					$key = get_post_meta($post->ID,'_ppm_header_image_id',true);
 					$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
