@@ -1,5 +1,5 @@
 
-<?php
+<?php dynamic_sidebar( 'sidebar-1' ); 
 
 $page = get_page_by_title('Helpful Information');
 
