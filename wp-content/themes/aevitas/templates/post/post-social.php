@@ -1,4 +1,4 @@
-<div class="post_social">
+<div class="post_social clearfix">
 	<?php 
 
 	$url = get_permalink();
