@@ -280,9 +280,9 @@ function show_some_love_sc( $atts ){
 							}							
 						}
 					}
-					$str .= '<h3 class="sp-title">'.$sp_head.'</h3>';
+					$str .= '<h2 class="sp-title">'.$sp_head.'</h2>';
 					$str .= '<ul class="sp-list '.$listclass.'">'.$str2.'</ul>';
-					$str .= '</div>';
+					$str .= '<hr class="section_break"/></div>';
 					return $str;
 					}
 }

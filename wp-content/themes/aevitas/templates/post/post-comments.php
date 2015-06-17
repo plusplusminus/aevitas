@@ -1,6 +1,6 @@
 <div class="post_comments">
 	<header class="comments_header">
-		<span class="comments_header--title">Discussion</span>
+		<h2 class="comments_header--title">Discussion</h2>
 	</header>
 	<div class="comments_content">
 		<?php comments_template(); ?>
