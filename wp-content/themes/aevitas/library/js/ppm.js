@@ -181,90 +181,6 @@ jQuery(document).ready(function(){
   ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><button class="grid_footer--btn footer--btn">Load More <span class="icon icon-angle-down"></span></button></div>'}));
 
 
-  var facets = [];
-  jQuery( document ).on('click','.select-item',function(e) {
-    e.preventDefault();
-    var tax = jQuery(this).data('taxonomy'),
-      tax_id = jQuery(this).data('id'),
-      filters = jQuery('.filters'),
-      button = jQuery(this);
-
-    jQuery(this).attr('disabled','disabled');
-    jQuery('.submit_button').attr('disabled','disabled').text('Loading');
-
-    facets.push({tax:tax,id:tax_id});
-
-    jQuery.ajax({
-      type : "post",
-      dataType : "json",
-      url : myAjax.ajaxurl,
-      data : {action: "get_faceted_search",facets:facets},
-      success: function(response) {
-        var taxomonies = JSON.parse(items);  
-        var html = '';
-
-        _.forEach(response.result.facets, function(n, key) {
-          html = '';
-          _.forEach(n,function(k,count){
-            html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
-          })
-          jQuery('#'+key).html(html);
-        });
-
-        jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
-
-        var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+button.text()+' <span class="fa fa-times"></span></button>';
-
-        filters.append(html);
-
-        jQuery('.submit_button').removeAttr("disabled").text('Filter');
-
-      }
-    })
-
-  });
-
-  jQuery( document ).on('click','.js-remove',function(e) {
-      console.log(e);
-      var tax_id = jQuery(this).data('id');
-
-      facets = _.filter(facets,function(n){
-        return n.id != tax_id;
-      })
-
-      jQuery(this).remove();
-      jQuery('.submit_button').attr('disabled','disabled');
-
-      jQuery.ajax({
-        type : "post",
-        dataType : "json",
-        url : myAjax.ajaxurl,
-        data : {action: "get_faceted_search",facets:facets},
-        success: function(response) {
-          var taxomonies = JSON.parse(items);  
-          var html = '';
-
-          _.forEach(response.result.facets, function(n, key) {
-            html = '';
-            _.forEach(n,function(k,count){
-              html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
-            })
-            jQuery('#'+key).html(html);
-          });
-
-          jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
-
-          var html = '<button class="btn btn-default js-remove" data-id="'+tax_id+'">'+button.text()+' <span class="fa fa-times"></span></button>';
-
-          filters.append(html);
-
-          jQuery('.submit_button').removeAttr("disabled");
-
-        }
-      })
-
-  });
-
   jQuery('.slider').slick({
     dots: false,
     arrows: true,
@@ -386,30 +302,6 @@ jQuery(document).ready(function(){
 });
 
 
-function ajaxSearch(facetItems) {
-  jQuery.ajax({
-    type : "post",
-    dataType : "json",
-    url : myAjax.ajaxurl,
-    data : {action: "get_faceted_search",facets:facetItems},
-    success: function(response) {
-      var taxomonies = JSON.parse(items);  
-      var html = '';
-
-      _.forEach(response.result.facets, function(n, key) {
-        html = '';
-        _.forEach(n,function(k,count){
-         // html += '<li><a href="#" class="select-item" data-taxonomy="'+key+'" data-id="'+count+'">'+taxomonies[count].name+'</a></li>';
-        })
-        jQuery('#'+key).html(html);
-      });
-
-      jQuery('input[name="formdata"]').val(JSON.stringify(response.data));
-    }
-  })
-}
-
-
 
 var cbpBGSlideshow = (function() {
 
@@ -502,7 +394,6 @@ var Selectizer = function () {
           callback();
         },
         success: function(data) {
-
           //callback(data.opts);
           jQuery.each(data.optgroups, function(index, value) {
             selectize.addOptionGroup(value['value'], { text: value['text'] });
@@ -537,40 +428,52 @@ var Selectizer = function () {
         success: function(response) {
           var taxomonies = JSON.parse(items);  
           var html = '';
-          var loc = $location[0].selectize.getValue();
 
-          $location[0].selectize.clearOptions();
-          $location[0].selectize.addOption(response.data.location);
-          $location[0].selectize.setValue(loc,true);
 
-                        
-          var style = $style[0].selectize.getValue();
-          $style[0].selectize.clearOptions();
-          $style[0].selectize.addOption(response.data.style);
-          $style[0].selectize.setValue(style,true);
+          if (response.data.location) {
+            var loc = $location[0].selectize.getValue();
 
-          var venue = $venue[0].selectize.getValue();
-          $venue[0].selectize.clearOptions();
-          $venue[0].selectize.addOption(response.data.venue);
-          $venue[0].selectize.setValue(venue,true);
+            $location[0].selectize.clearOptions();
+            $location[0].selectize.addOption(response.data.location);
+            $location[0].selectize.setValue(loc,true);
+          }
 
-          var type = $type[0].selectize.getValue();
-          $type[0].selectize.clearOptions();
-          $type[0].selectize.addOption(response.data.type);
-          $type[0].selectize.setValue(type,true);
+          if (response.data.style) {         
+            var style = $style[0].selectize.getValue();
+            $style[0].selectize.clearOptions();
+            $style[0].selectize.addOption(response.data.style);
+            $style[0].selectize.setValue(style,true);
+          }
 
-          var culture = $culture[0].selectize.getValue();
-          $culture[0].selectize.clearOptions();
-          $culture[0].selectize.addOption(response.data.culture);
-          $culture[0].selectize.setValue(culture,true);
+          if (response.data.venue) {
+            var venue = $venue[0].selectize.getValue();
+            $venue[0].selectize.clearOptions();
+            $venue[0].selectize.addOption(response.data.venue);
+            $venue[0].selectize.setValue(venue,true);
+          }
 
-          var setting = $setting[0].selectize.getValue();
-          $setting[0].selectize.clearOptions();
-          $setting[0].selectize.addOption(response.data.setting);
-          $setting[0].selectize.setValue(setting,true);
+          if (response.data.type) {
+            var type = $type[0].selectize.getValue();
+            $type[0].selectize.clearOptions();
+            $type[0].selectize.addOption(response.data.type);
+            $type[0].selectize.setValue(type,true);
+          }
 
-          
-        
+          if (response.data.culture) {
+
+            var culture = $culture[0].selectize.getValue();
+            $culture[0].selectize.clearOptions();
+            $culture[0].selectize.addOption(response.data.culture);
+            $culture[0].selectize.setValue(culture,true);
+          }
+
+          if (response.data.venue) {
+            var setting = $setting[0].selectize.getValue();
+            $setting[0].selectize.clearOptions();
+            $setting[0].selectize.addOption(response.data.setting);
+            $setting[0].selectize.setValue(setting,true);
+          }
+
           
           jQuery('.submit_button').removeAttr("disabled").text('Filter');
 
