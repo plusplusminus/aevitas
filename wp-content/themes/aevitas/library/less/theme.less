@@ -1005,62 +1005,7 @@ hr.section_break_blank {
 	.btn-standard();
 }
 
-/* Child Pages */
-.section_child {
-	margin-bottom: 35px;
-}
-.child_article--heading {
-	.section_heading();
 
-}
-
-.child_article--title {
-	.section_title();
-}
-
-.child_title { 
-
-	font-size: @font-size-large;
-	color: @title;
-	text-transform: uppercase;
-	margin-bottom: 35px;
-	.page-template-template-albums &{
-		font-size: 20px;
-	}
-	.text-center();
-} 
-
-.child_image {
-	margin-bottom: 40px;
-}
-
-.child_content {
-	.text-center();
-	max-width: 85%;
-	margin: auto;
-	> p {
-		.lead-text();
-		font-weight: 300;
-	}
-}
-
-.child_slider {
-	.section_spacing(35px);
-	.slide_image img{
-		max-height: 800px;
-		width:auto;
-	}
-	
-	.slick-prev:before, .slick-next:before {
-		color: @blue-gray;
-	}
-	.slick-prev:hover,
-	.slick-next:hover{
-		&::before{
-			color: #fff;
-		}
-	}
-}
 
 .slide_image {
 	padding: 0 2px;
@@ -1918,4 +1863,61 @@ input[type="text"].tt-hint {
 .instagram_follow {
 	text-align: center;
 	margin: 35px 0;
+}
+
+/* Child Pages */
+.section_child {
+	margin-bottom: 35px;
+}
+.child_article--heading {
+	.section_heading();
+
+}
+
+.child_article--title {
+	.section_title();
+}
+
+.child_title { 
+
+	font-size: @font-size-large;
+	color: @title;
+	text-transform: uppercase;
+	margin-bottom: 35px;
+	.page-template-template-albums &{
+		font-size: 20px;
+	}
+	.text-center();
+} 
+
+.child_image {
+	margin-bottom: 40px;
+}
+
+.child_content {
+	.text-center();
+	max-width: 85%;
+	margin: auto;
+	> p {
+		.lead-text();
+		font-weight: 300;
+	}
+}
+
+.child_slider {
+	.section_spacing(35px);
+	.slide_image img{
+		max-height: 800px;
+		width:auto;
+	}
+	
+	.slick-prev:before, .slick-next:before {
+		color: @blue-gray;
+	}
+	.slick-prev:hover,
+	.slick-next:hover{
+		&::before{
+			color: #fff;
+		}
+	}
 }
