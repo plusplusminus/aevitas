@@ -11,7 +11,7 @@
 // Exclude categories on the homepage.
 
 $query_args = array(
-  'post_type' => array('post','storytelling'), 
+  'post_type' => array('post','storytelling','inspiration'), 
   'post__in'=>$results,
   'orderby' => 'post__in',
   'posts_per_page'=>-1
