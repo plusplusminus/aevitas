@@ -680,6 +680,8 @@ class tpbCustomPostTypes {
 		$params['per_page'] = 12;
 		$params['page'] = 1;
 
+		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
+
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
 			$id = $rel['external_id'];
 			$search_posts[] = $id;
