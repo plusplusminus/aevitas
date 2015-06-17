@@ -5,6 +5,7 @@
 	global $cpt; 
 	$search = $_POST['search'] ? $_POST['search'] : array();
 	$results = $cpt->search_posts($search);
+	print_r($results);
 ?>
 
 <?php
