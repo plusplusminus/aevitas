@@ -20,7 +20,7 @@ global $post;
 <section class="section_search">
 	<div class="container">
 		<div class="work_filter">
-			<ul class="filter_list">
+			<ul class="work_filter--blog filter_list">
 				<?php foreach ($taxonomies as $taxonomy) {
 						if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
@@ -36,7 +36,7 @@ global $post;
 
 				echo '<li>';
 				echo '<button type="submit" class="submit_button">Filter</button>';
-				echo '<li>';
+				echo '</li>';
 				?>
 			</ul>
 			<div class="clearfix"></div>
