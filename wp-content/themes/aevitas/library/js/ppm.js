@@ -7,6 +7,8 @@ jQuery(document).ready(function(){
 
   initForm();
 
+
+
   var docElem = document.documentElement,
     header = document.querySelector( '.header' ),
     didScroll = false,
@@ -425,6 +427,15 @@ function initHeader() {
 
     largeHeader.style.height = height+'px';
 
+}
+
+window.addEventListener('resize', resize);
+
+function resize() {
+    height = window.innerHeight;
+    if (largeHeader) {
+        largeHeader.style.height = height+'px';
+    } 
 }
 
 
