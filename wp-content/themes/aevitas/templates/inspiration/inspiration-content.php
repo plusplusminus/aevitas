@@ -8,7 +8,9 @@
 						<?php the_content(); ?>
 					</div>
 					<hr class="section_break"/>
+					<div class="clearfix"></div>
 					<?php get_template_part('templates/post/post','social'); ?>
+					<?php get_template_part('templates/inspiration/inspiration','related'); ?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
