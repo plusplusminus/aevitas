@@ -420,7 +420,7 @@ var cbpBGSlideshow = (function() {
 function initHeader() {
     width = window.innerWidth;
     height = window.innerHeight;
-    target = {x: width/2, y: height/2};
+
 
 
     largeHeader = document.querySelectorAll('.owl-item');
@@ -432,10 +432,10 @@ function initHeader() {
 window.addEventListener('resize', resize);
 
 function resize() {
-    height = window.innerHeight;
-    if (largeHeader) {
-        largeHeader.style.height = height+'px';
-    } 
+  height = window.innerHeight;
+    largeHeader = document.querySelectorAll('.owl-item');
+
+    largeHeader.style.height = height+'px';
 }
 
 
