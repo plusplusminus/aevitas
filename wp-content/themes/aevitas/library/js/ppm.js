@@ -436,6 +436,8 @@ var Selectizer = function () {
             $location[0].selectize.clearOptions();
             $location[0].selectize.addOption(response.data.location);
             $location[0].selectize.setValue(loc,true);
+          } else {
+
           }
 
           if (response.data.style) {         
@@ -443,6 +445,8 @@ var Selectizer = function () {
             $style[0].selectize.clearOptions();
             $style[0].selectize.addOption(response.data.style);
             $style[0].selectize.setValue(style,true);
+          } else {
+            $type[0].selectize.disable();
           }
 
           if (response.data.venue) {
@@ -450,6 +454,8 @@ var Selectizer = function () {
             $venue[0].selectize.clearOptions();
             $venue[0].selectize.addOption(response.data.venue);
             $venue[0].selectize.setValue(venue,true);
+          } else {
+            $type[0].selectize.disable();
           }
 
           if (response.data.type) {
@@ -457,6 +463,8 @@ var Selectizer = function () {
             $type[0].selectize.clearOptions();
             $type[0].selectize.addOption(response.data.type);
             $type[0].selectize.setValue(type,true);
+          } else {
+            $type[0].selectize.disable();
           }
 
           if (response.data.culture) {
@@ -465,6 +473,8 @@ var Selectizer = function () {
             $culture[0].selectize.clearOptions();
             $culture[0].selectize.addOption(response.data.culture);
             $culture[0].selectize.setValue(culture,true);
+          } else {
+            $type[0].selectize.disable();
           }
 
           if (response.data.venue) {
@@ -472,6 +482,8 @@ var Selectizer = function () {
             $setting[0].selectize.clearOptions();
             $setting[0].selectize.addOption(response.data.setting);
             $setting[0].selectize.setValue(setting,true);
+          } else {
+            $type[0].selectize.disable();
           }
 
           
