@@ -6,6 +6,7 @@
 
 
 require('classes/theme-cpt.php');
+require('classes/instagram.php');
 
 add_action( 'wp_enqueue_scripts', 'ppm_scripts_and_styles', 999 );
 
