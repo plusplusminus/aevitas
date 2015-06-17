@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
     }
   })
 
-  $fancy = jQuery(".fancybox").fancybox({
+  $fancybox = jQuery(".fancybox").fancybox({
     fsBtn:true,
     openEffect  : 'none',
     closeEffect : 'none',
@@ -86,7 +86,7 @@ jQuery(document).ready(function(){
       this.title += '<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a></li>';
       this.title += '<li><a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a></li>';
       this.title += '<li><a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a></li>';
-      this.title += '<li><a class="js-prev" title="Previous" href="javascript:;"><span class="fa fa-angle-left"></span></a></li><li><a class="js-play" title="Start slideshow" href="javascript:;"><span class="fa fa-play"></span></a></li><li><a class="js-next" title="Next" href="javascript:;"><span class="fa fa-angle-right"></span></a></li><li><a class="js-fullscreen" title="Toggle size" href="javascript:;"><span class="fa fa-expand"></span></a></li><li><a class="js-close" title="Close" href="javascript:;"><span class="fa fa-times"></span></a></li><</ul>';
+      this.title += '<li><a class="js-prev" title="Previous" href="javascript:;"><span class="fa fa-angle-left"></span></a></li><li><a class="js-play" title="Start slideshow" href="javascript:;"><span class="fa fa-play"></span></a></li><li><a class="js-next" title="Next" href="javascript:;"><span class="fa fa-angle-right"></span></a></li><li><a class="js-fullscreen" title="Toggle size" href="javascript:;"><span class="fa fa-expand"></span></a></li><li><a class="js-close" title="Close" href="javascript:;"><span class="fa fa-times"></span></a></li></ul>';
       
     },
     afterLoad  : function () {
@@ -107,30 +107,25 @@ jQuery(document).ready(function(){
 
   jQuery(document).on('click','.js-prev',function(e){
     e.preventDefault();
-   console.log($fancybox);
-
-    $.fancybox.prev()
+    jQuery.fancybox.prev()
 
   })
 
   jQuery(document).on('click','.js-next',function(e){
     e.preventDefault()
-console.log($fancybox);
-    $.fancybox.next()
+    jQuery.fancybox.next()
     
   })
 
   jQuery(document).on('click','.js-play',function(e){
     e.preventDefault()
-console.log($fancybox);
-    $.fancybox.play()
+    jQuery.fancybox.play()
     
   })
 
   jQuery(document).on('click','.js-close',function(e){
     e.preventDefault()
-console.log($fancybox);
-    $.fancybox.close()
+    jQuery.fancybox.close()
     
   })
 
