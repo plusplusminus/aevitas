@@ -425,10 +425,8 @@ var Selectizer = function () {
         dataType : "json",
         url : myAjax.ajaxurl,
         data : {action: "get_faceted_search",facets:facets},
-        success: function(response) {
-          var taxomonies = JSON.parse(items);  
+        success: function(response) { 
           var html = '';
-
 
           if (response.data.location) {
             var loc = $location[0].selectize.getValue();
