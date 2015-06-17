@@ -14,9 +14,11 @@
 
 	<?php get_template_part('templates/section','work'); ?>
 
-	<?php get_template_part('templates/section','instagram'); ?>
+	
 
 	<?php get_template_part('templates/section','review'); ?>
+
+	<?php get_template_part('templates/section','instagram'); ?>
 
 	<?php get_template_part('templates/section','info'); ?>
 
