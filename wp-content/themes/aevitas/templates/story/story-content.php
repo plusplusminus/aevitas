@@ -5,8 +5,9 @@
 				
 					<?php while ( have_posts() ) : the_post(); ?>
 						
-							<div class="post_entry">
+							<div class="post_entry clearfix">
 								<?php the_content(); ?>
+								<hr class="section_break"/>
 							</div>
 
 					<?php endwhile; ?>
@@ -14,7 +15,7 @@
 			<?php endif; ?>
 
 			<?php wp_reset_query(); ?>
-			<hr class="section_break"/>
+			
 			<?php get_template_part('templates/story/story','related'); ?>
 
 			<?php get_template_part('templates/post/post','social'); ?>
