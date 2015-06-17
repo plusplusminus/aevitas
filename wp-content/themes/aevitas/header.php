@@ -79,7 +79,7 @@
 										<div class="aev-search-input-wrap">
 											<input class="aev-search-input" placeholder="Search on Aevitas Weddings..." type="text" value="" name="s" id="s"/>
 										</div>
-										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search fa fa-search">Search</span>
+										<input class="aev-search-submit" type="submit" id="go" value=""><span class="aev-icon-search">Search</span>
 									</form>
 								</div>
 								<?php secondary_nav('secondary-nav','navbar-right secondary_nav'); ?>
