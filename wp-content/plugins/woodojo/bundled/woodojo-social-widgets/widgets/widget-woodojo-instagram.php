@@ -494,7 +494,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 		$html = '';
 
 		if ( is_object( $data ) && isset( $data->data ) && is_array( $data->data ) && ( count( $data->data ) > 0 ) ) {
-			$html .= '<ul class="instagram-photos align' . strtolower( $instance['float'] ) . '">' . "\n";
+			$html .= '<div class="row ' . strtolower( $instance['float'] ) . '">' . "\n";
 
 			$params = '';
 			$anchor_params = '';
@@ -508,7 +508,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 			$class = 'instagram-photo-link';
 
 			if ( $instance['enable_thickbox'] == true ) {
-				$class .= ' thickbox';
+				$class .= ' fancybox';
 				$anchor_params .= ' rel="instagram-thickbox-' . $this->number . '"';
 			}
 
@@ -522,17 +522,17 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 					$caption = sprintf( __( 'Instagram by %s', 'woodojo' ), $v->user->full_name );
 				}
 
-				$html .= '<li>' . "\n";
+				$html .= '<div class="col-md-4">' . "\n";
 				if ( $instance['link_to_fullsize'] == true ) {
-					$html .= '<a href="' . esc_url( $v->images->standard_resolution->url ) . '" title="' . esc_attr( $caption ) . '" class="' . esc_attr( $class ) . '"' . $anchor_params . '>' . "\n";
+					$html .= '<a href="' . esc_url( $v->images->standard_resolution->url ) . '" data-title="' . esc_attr( $caption ) . '" class="' . esc_attr( $class ) . '"' . $anchor_params . '>' . "\n";
 				}
-					$html .= '<img src="' . esc_url( $v->images->$size_token->url ) . '"' . $params . ' alt="' . esc_attr( $caption ) . '" />' . "\n";
+					$html .= '<img class="img-responsive" src="' . esc_url( $v->images->$size_token->url ) . '"' . $params . ' alt="' . esc_attr( $caption ) . '" />' . "\n";
 				if ( $instance['link_to_fullsize'] == true ) {
 					$html .= '</a>' . "\n";
 				}
-				$html .= '</li>' . "\n";
+				$html .= '</div>' . "\n";
 			}
-			$html .= '</ul>' . "\n";
+			$html .= '</div>' . "\n";
 		}
 
 		return $html;
