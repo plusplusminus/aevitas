@@ -361,7 +361,7 @@ function get_tax_opts($tax) {
     $terms = get_terms($taxonomy, array('orderby' => 'name'));
      
     // our content variable
-    $list_of_terms .= '<select placeholder="'.$taxonomy.'" class="selectize" id="'.$taxonomy.'-select" name="$taxonomy">';
+    $list_of_terms .= '<select placeholder="'.$taxonomy.'" class="selectize" id="'.$taxonomy.'-select" name="'.$taxonomy.'">';
     
      
     $list_of_terms .= '</select>';
