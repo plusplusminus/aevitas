@@ -56,54 +56,83 @@ jQuery(document).ready(function(){
     }
   })
 
-  jQuery(".fancybox").fancybox({
-      fsBtn:true,
-      openEffect  : 'none',
-      closeEffect : 'none',
-      padding: 0,
-      margin:10,
-      closeBtn : false,
-      helpers : {
-        title: {
-            type: 'outside'
-        },
-        buttons:{},
-        thumbs  : {
-          width : 50,
-          height  : 50
-        }
+  $fancy = jQuery(".fancybox").fancybox({
+    fsBtn:true,
+    openEffect  : 'none',
+    closeEffect : 'none',
+    padding: 0,
+    margin:10,
+    closeBtn : false,
+    helpers : {
+      title: {
+          type: 'outside'
       },
-      beforeShow: function () {
-        
-        var alt = this.element.data('title');
-        
-        this.inner.find('img').attr('alt', alt);
-        
-        this.title = alt;
-       
-         // Add tweet button
-        this.title += '<ul class="fancy_social list-inline"><li><a target="blank" href="https://twitter.com/intent/tweet?text='+this.title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a></li>';
-        this.title += '<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a></li>';
-        this.title += '<li><a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a></li>';
-        this.title += '<li><a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a></li>';
-        this.title += '<li><a class="js-prev" title="Previous" href="javascript:;"><span class="fa fa-angle-left"></span></a></li><li><a class="js-play" title="Start slideshow" href="javascript:;"><span class="fa fa-play"></span></a></li><li><a class="js-next" title="Next" href="javascript:;"><span class="fa fa-angle-right"></span></a></li><li><a class="js-fullscreen" title="Toggle size" href="javascript:;"><span class="fa fa-expand"></span></a></li><li><a class="js-close" title="Close" href="javascript:;"><span class="fa fa-times"></span></a></li><</ul>';
-        
-      },
-      afterLoad  : function () {
-          jQuery.extend(this, {
-              aspectRatio : false,
-              type    : 'html',
-              width   : '100%',
-              height  : '100%',
-              content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
-          });
-      },
-      tpl : {
-        closeBtn : '<a title="Close" class="fancybox-item fancybox-close btn btn-sm btn-default" href="javascript:;"><span class="fa fa-times"></span></a>',
-        next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a>',
-        prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a>'
+      buttons:{},
+      thumbs  : {
+        width : 50,
+        height  : 50
       }
-    });
+    },
+    beforeShow: function () {
+      
+      var alt = this.element.data('title');
+      
+      this.inner.find('img').attr('alt', alt);
+      
+      this.title = alt;
+     
+       // Add tweet button
+      this.title += '<ul class="fancy_social list-inline"><li><a target="blank" href="https://twitter.com/intent/tweet?text='+this.title+'&url='+this.href+'" class="twitter-share-button"><span class="fa fa-twitter"></span></a></li>';
+      this.title += '<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='+this.href+'" class="facebook-share-button"><span class="fa fa-facebook"></span></a></li>';
+      this.title += '<li><a target="_blank" href="http://www.pinterest.com/pin/create/button/?url={{url}}&media='+this.href+'" class="pinterest-share-button"><span class="fa fa-pinterest"></span></a></li>';
+      this.title += '<li><a target="_download" href="'+this.href+'" class="download-share-button"><span class="fa fa-download"></span></a></li>';
+      this.title += '<li><a class="js-prev" title="Previous" href="javascript:;"><span class="fa fa-angle-left"></span></a></li><li><a class="js-play" title="Start slideshow" href="javascript:;"><span class="fa fa-play"></span></a></li><li><a class="js-next" title="Next" href="javascript:;"><span class="fa fa-angle-right"></span></a></li><li><a class="js-fullscreen" title="Toggle size" href="javascript:;"><span class="fa fa-expand"></span></a></li><li><a class="js-close" title="Close" href="javascript:;"><span class="fa fa-times"></span></a></li><</ul>';
+      
+    },
+    afterLoad  : function () {
+        jQuery.extend(this, {
+            aspectRatio : false,
+            type    : 'html',
+            width   : '100%',
+            height  : '100%',
+            content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: contain; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
+        });
+    },
+    tpl : {
+      closeBtn : '<a title="Close" class="fancybox-item fancybox-close btn btn-sm btn-default" href="javascript:;"><span class="fa fa-times"></span></a>',
+      next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span class="fa fa-angle-right"></span></a>',
+      prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span class="fa fa-angle-left"></span></a>'
+    }
+  });
+
+  jQuery(document).on('click','.js-prev',function(e){
+    e.preventDefault()
+
+    $fancy.prev()
+
+  })
+
+  jQuery(document).on('click','.js-next',function(e){
+    e.preventDefault()
+
+    $fancy.next()
+    
+  })
+
+  jQuery(document).on('click','.js-play',function(e){
+    e.preventDefault()
+
+    $fancy.play()
+    
+  })
+
+  jQuery(document).on('click','.js-close',function(e){
+    e.preventDefault()
+
+    $fancy.close()
+    
+  })
+
 
   var ias = jQuery.ias({
     container:  '.blog_row',
