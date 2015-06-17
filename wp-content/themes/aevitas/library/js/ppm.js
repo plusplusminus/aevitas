@@ -67,11 +67,6 @@ jQuery(document).ready(function(){
       title: {
           type: 'outside'
       },
-      buttons:{},
-      thumbs  : {
-        width : 50,
-        height  : 50
-      }
     },
     beforeShow: function () {
       
