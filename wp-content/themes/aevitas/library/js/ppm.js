@@ -60,6 +60,8 @@ jQuery(document).ready(function(){
     fsBtn:true,
     openEffect  : 'none',
     closeEffect : 'none',
+    'nextEffect': 'fade',
+    'prevEffect': 'fade',
     padding: 0,
     margin:10,
     closeBtn : false,
