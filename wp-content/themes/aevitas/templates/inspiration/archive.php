@@ -1,6 +1,5 @@
 <?php
 
-
 $query_args = array(
 	'post_type' => 'inspiration', 
 	'numberposts' => 3
@@ -47,7 +46,7 @@ query_posts( $query_args );
 				<?php endwhile; ?>
 				<div class="clearfix"></div>
 				<nav class="blog_nav">
-					<button class="blog_nav--btn">View All</button>
+					<a class="blog_nav--btn" href="<?php echo get_post_type_archive_link( 'inspiration' ); ?>">View All</a>
 				</nav>
 			</div>
 		<?php endif; ?>
