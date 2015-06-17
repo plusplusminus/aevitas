@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
     'prevEffect': 'fade',
     padding: 0,
     margin:10,
-    closeBtn : false,
+    closeBtn : true,
     helpers : {
       title: {
           type: 'outside'
