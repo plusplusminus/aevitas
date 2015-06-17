@@ -28,13 +28,15 @@ global $post;
 								echo '<li>';
 									get_tax_opts($taxonomy['slug']);
 								echo '</li>';
-								echo '<li>';
-								echo '<button type="submit" class="submit_button">Filter</button>';
-								echo '<li>';
+
 
 							
 						}
 					}
+
+				echo '<li>';
+				echo '<button type="submit" class="submit_button">Filter</button>';
+				echo '<li>';
 				?>
 			</ul>
 			<div class="clearfix"></div>
