@@ -649,11 +649,11 @@ class tpbCustomPostTypes {
 		return $this->wordpress_search( $params );
 	}
 
-	public function related_posts() {
+	public function related_posts($post_type = '') {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'swiftype-search/swiftype.php' ) ) {
 			try {
-				return $this->swiftype_related_search();
+				return $this->swiftype_related_search($post_type);
 			} catch ( Exception $e ) {}
 		}
 		return $this->wordpress_search( $params );
@@ -679,7 +679,7 @@ class tpbCustomPostTypes {
 
 		$params['per_page'] = 12;
 		$params['page'] = 1;
-	
+
 		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 
 		foreach ( $swiftype_result['records']['posts'] as $rel ) {
@@ -690,7 +690,7 @@ class tpbCustomPostTypes {
 	
 	}
 
-	public function swiftype_related_search() {
+	public function swiftype_related_search($post_type) {
 		global $post;
 
 		$api_key     = get_option( 'swiftype_api_key' );
@@ -698,30 +698,41 @@ class tpbCustomPostTypes {
 		$client      = new SwiftypeClient();
 		$client->set_api_key( $api_key );
 
-		$stack = array();
 
-	    $taxonomies[4] = array('name'=>'Location','slug'=>'location' );
-	    $taxonomies[3] = array('name'=>'Venue','slug'=>'venue' );
-	    $taxonomies[2] = array('name'=>'Setting','slug'=>'setting' );
-	    $taxonomies[1] = array('name'=>'Style','slug'=>'style' );
+		if (empty($post_type)) {
+			$stack = array();
 
-
-	    foreach ($taxonomies as $taxonomy) {
-	    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-	    	$stack = array_merge($stack,array_values($terms));
-	    }
+		    $taxonomies[4] = array('name'=>'Location','slug'=>'location' );
+		    $taxonomies[3] = array('name'=>'Venue','slug'=>'venue' );
+		    $taxonomies[2] = array('name'=>'Setting','slug'=>'setting' );
+		    $taxonomies[1] = array('name'=>'Style','slug'=>'style' );
 
 
-	    $params['filters[posts][terms]'] = $stack;
+		    foreach ($taxonomies as $taxonomy) {
+		    	$terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
+		    	$stack = array_merge($stack,array_values($terms));
+		    }
 
-		$params['per_page'] = 30;
-		$params['page'] = 1;
-		$params['fetch_fields[posts]'] = array("external_id");
 
-		$params['functional_boosts[posts]'] = array('terms' => "logarithmic");
-    	$params['search_fields[posts]'] = array( 'terms^3' );
+		    $params['filters[posts][terms]'] = $stack;
 
-		$swiftype_result = $client->search($engine_slug, 'posts','', $params);
+			$params['per_page'] = 30;
+			$params['page'] = 1;
+			$params['fetch_fields[posts]'] = array("external_id");
+
+			$params['functional_boosts[posts]'] = array('terms' => "logarithmic");
+	    	$params['search_fields[posts]'] = array( 'terms^3' );
+
+			$swiftype_result = $client->search($engine_slug, 'posts','', $params);
+		} else {
+			$params['filters[posts][object_type]'] = $post_type;
+
+			$params['per_page'] = 30;
+			$params['page'] = 1;
+			$params['fetch_fields[posts]'] = array("external_id");
+
+			$swiftype_result = $client->search($engine_slug, 'posts',get_the_title($post->ID), $params);
+		}
 
 		$related_posts = array();
 
