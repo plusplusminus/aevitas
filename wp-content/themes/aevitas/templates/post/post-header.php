@@ -29,7 +29,7 @@
 										<span class="fa fa-info-circle"></span>
 									</div>
 								<?php endif; ?>
-								<a class="css-full-screen-link fancybox" title="<? _e($attachment->post_excerpt); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery"><span class="fa fa-expand"></span></a>
+								<a class="css-full-screen-link fancybox" data-title="<? _e($attachment->post_excerpt); ?>" href="<?php echo $image_attributes_full[0];?>" rel="gallery"><span class="fa fa-expand"></span></a>
 							</figure>
 						</div>
 
