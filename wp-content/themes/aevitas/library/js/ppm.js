@@ -106,8 +106,8 @@ jQuery(document).ready(function(){
   });
 
   jQuery(document).on('click','.js-prev',function(e){
-    e.preventDefault()
-    console.log($fancy);
+    e.preventDefault();
+   console.log($fancybox);
 
     $.fancybox.prev()
 
@@ -115,21 +115,21 @@ jQuery(document).ready(function(){
 
   jQuery(document).on('click','.js-next',function(e){
     e.preventDefault()
-console.log($fancy);
+console.log($fancybox);
     $.fancybox.next()
     
   })
 
   jQuery(document).on('click','.js-play',function(e){
     e.preventDefault()
-console.log($fancy);
+console.log($fancybox);
     $.fancybox.play()
     
   })
 
   jQuery(document).on('click','.js-close',function(e){
     e.preventDefault()
-console.log($fancy);
+console.log($fancybox);
     $.fancybox.close()
     
   })
