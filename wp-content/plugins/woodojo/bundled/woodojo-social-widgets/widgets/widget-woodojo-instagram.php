@@ -522,7 +522,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 					$caption = sprintf( __( 'Instagram by %s', 'woodojo' ), $v->user->full_name );
 				}
 
-				$html .= '<div class="col-md-4">' . "\n";
+				$html .= '<div class="col-md-2">' . "\n";
 				if ( $instance['link_to_fullsize'] == true ) {
 					$html .= '<a href="' . esc_url( $v->images->standard_resolution->url ) . '" data-title="' . esc_attr( $caption ) . '" class="' . esc_attr( $class ) . '"' . $anchor_params . '>' . "\n";
 				}
