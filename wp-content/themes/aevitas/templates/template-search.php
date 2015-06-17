@@ -3,7 +3,7 @@
 
 <?php
 	global $cpt; 
-	$search = $_POST['search'] : $_POST['search'] ? array();
+	$search = $_POST['search'] ? $_POST['search'] : array();
 	$results = $cpt->search_posts($search);
 ?>
 
