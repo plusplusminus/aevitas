@@ -36,6 +36,6 @@ query_posts( $query_args );
 			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
+		<hr class="section_break"/>
 	</div>	
-	<hr class="section_break"/>
 </section> <?php // end #wrapper ?>
