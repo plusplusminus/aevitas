@@ -47,9 +47,9 @@ function theme_slug_widgets_init() {
         'name' => __( 'Main Sidebar', 'theme-slug' ),
         'id' => 'sidebar-1',
         'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
-        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
+        'before_widget' => '<div id="%1$s" class="section_instagram widget %2$s"><div class="container">',
+    'after_widget'  => '</div></div>',
+    'before_title'  => '<h2 class="section_instagram--title">',
     'after_title'   => '</h2>',
     ) );
 }
