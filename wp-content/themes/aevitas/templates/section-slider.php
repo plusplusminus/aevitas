@@ -4,7 +4,7 @@
 // Exclude categories on the homepage.
 
 $connected = new WP_Query( array(
-  'connected_type' => 'pages_to_posts',
+  'connected_type' => 'page_to_posts',
   'connected_items' => get_queried_object(),
   'nopaging' => true,
 ) );
