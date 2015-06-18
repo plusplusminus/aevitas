@@ -1,9 +1,13 @@
 <?php
-// Exclude categories on the homepage.
+
+$paged = 1;
+if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
+if ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
+$paged = intval( $paged );
 
 $query_args = array(
-	'post_type' => 'storytelling', 
-	'posts_per_page' => 10
+	'post_type' => 'storytelling',
+	'paged' => $paged,
 );
 
 query_posts( $query_args );
@@ -13,7 +17,7 @@ query_posts( $query_args );
 <section class="section_storytelling">  
 	<div class="container">
 		<?php if ( have_posts() ) : ?>
-			<div class="story_row">
+			<div class="story_row js-infinite-cont">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php $array = array(); ?>
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('story_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
@@ -44,8 +48,11 @@ query_posts( $query_args );
 					</article>
 				<?php endwhile; ?>
 			</div>
-			<nav class="story_nav">
-				<button class="story_nav--btn">View All</button>
+			<nav class="wp-prev-next hide">
+				<ul class="clearfix">
+					<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+					<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+				</ul>
 			</nav>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>

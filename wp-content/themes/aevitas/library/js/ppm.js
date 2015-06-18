@@ -135,7 +135,7 @@ jQuery(document).ready(function(){
 
 
   var ias = jQuery.ias({
-    container:  '.blog_row',
+    container:  '.js-infinite-cont',
     item:       '.js-infinite',
     pagination: '.wp-prev-next',
     next:       '.prev-link > a'

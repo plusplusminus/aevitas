@@ -17,7 +17,7 @@ query_posts( $query_args );
 <section class="section_blog">  
 	<div class="container">
 		<?php if ( have_posts() ) : ?>
-			<div class="blog_row">
+			<div class="blog_row js-infinite-cont">
 				<?php while ( have_posts() ) : the_post(); ?>
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
