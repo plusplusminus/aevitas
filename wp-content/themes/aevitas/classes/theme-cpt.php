@@ -741,7 +741,7 @@ class tpbCustomPostTypes {
 			$params['page'] = 1;
 			$params['fetch_fields[posts]'] = array("external_id");
 
-			$swiftype_result = $client->search($engine_slug, 'posts',get_the_title($post->ID), $params);
+			$swiftype_result = $client->search($engine_slug, 'posts','', $params);
 		}
 
 		$related_posts = array();
