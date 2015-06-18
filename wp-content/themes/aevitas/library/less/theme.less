@@ -1649,7 +1649,17 @@ input[type="text"].tt-hint {
 }
 
 .owl-item.loading {
-	min-height: 800px;
+	min-height: 274px;
+
+	@media(min-width:@screen-sm-min) {
+		min-height: 489px;
+	}
+	@media(min-width:@screen-md-min) {
+		min-height: 623px;
+	}
+	@media(min-width:@screen-lg-min) {
+		min-height: 800px;
+	}
 	background: url('../images/loader.gif') center center no-repeat;
 	.slide_image {
 		background: transparent;
