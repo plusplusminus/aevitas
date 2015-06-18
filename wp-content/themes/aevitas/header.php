@@ -64,11 +64,12 @@
 								echo '<a class="logo" href="' . esc_url( $site_url ) . '" title="' . esc_attr( $site_description ) . '"><img class="img-responsive" src="'.$logo_url.'" alt="'.esc_attr($site_name).'"/></a>' . "\n";
 								} // End IF Statement */
 								?>
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						    </div>
+						    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 								<i class="fa fa-bars"></i>
 								Menu
-								</button>
-						    </div>
+							</button>
+							<div class="clearfix"></div>
 						</div>
 						<div class="col-md-9">
 						    <div class="navbar-collapse collapse navbar-responsive-collapse">
