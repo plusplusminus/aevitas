@@ -1,8 +1,14 @@
 <?php
 
+$paged = 1;
+if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
+if ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
+$paged = intval( $paged );
+
 $query_args = array(
-	'post_type' => 'inspiration', 
-	'posts_per_page' => 12
+	'post_type' => 'inspiration',
+	'paged' => $paged,
+	'posts_per_page'=>12
 );
 
 query_posts( $query_args );
@@ -15,9 +21,9 @@ query_posts( $query_args );
 			<h2 class="section_blog--title">View Latest Tips & Inspiration</h2>
 		</div>
 		<?php if ( have_posts() ) : ?>
-			<div class="blog_row">
+			<div class="blog_row js-infinite-cont">
 				<?php while ( have_posts() ) : the_post(); ?>
-				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
 				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
@@ -45,8 +51,11 @@ query_posts( $query_args );
 					</article>
 				<?php endwhile; ?>
 				<div class="clearfix"></div>
-				<nav class="blog_nav">
-					<a class="blog_nav--btn" href="<?php echo get_post_type_archive_link( 'inspiration' ); ?>">View All</a>
+				<nav class="wp-prev-next hide">
+					<ul class="clearfix">
+						<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+						<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+					</ul>
 				</nav>
 			</div>
 		<?php endif; ?>
