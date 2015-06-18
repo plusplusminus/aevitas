@@ -19,7 +19,7 @@
 						<div class="item">
 							<figure class="slide_image">
 			
-								<img alt="<? _e($attachment->post_title); ?>" src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
+								<img alt="<? _e($attachment->post_title); ?>" data-src="<?php echo $image_attributes_large[0];?>" class="lazyOwl img-responsive"/>
 								
 								<?php if (!empty($attachment->post_excerpt)) : ?>
 									<figcaption class="slide_image--caption">
