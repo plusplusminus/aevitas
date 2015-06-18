@@ -9,10 +9,8 @@
 		<div class="post_video--heading">
 			<h2 class="post_video--title"><?php _e($video_heading,'aevitas');?></h2>
 		</div>
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<?php echo ppm_get_wysiwyg_output( '_ppm_extra_info', $post->ID ); ?>
-			</div>
+		<div class="post_entry">
+			<?php echo ppm_get_wysiwyg_output( '_ppm_extra_info', $post->ID ); ?>
 		</div>
 		<hr class="section_break"/>
 	</aside>
