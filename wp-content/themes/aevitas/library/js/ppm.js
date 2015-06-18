@@ -150,6 +150,7 @@ jQuery(document).ready(function(){
     singleItem:true,
     pagination: false,
     transitionStyle : "fade",
+    lazyLoad: true,
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
       var current = this.currentItem;
