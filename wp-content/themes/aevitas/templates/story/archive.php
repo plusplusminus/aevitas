@@ -8,6 +8,7 @@ $paged = intval( $paged );
 $query_args = array(
 	'post_type' => 'storytelling',
 	'paged' => $paged,
+	'posts_per_page'=>6
 );
 
 query_posts( $query_args );
