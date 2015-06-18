@@ -352,7 +352,7 @@ hr.section_break_blank {
 				background: transparent;
 			}
 		}
-		@media(min-width:@screen-sm-min) {
+		@media(min-width:@screen-md-min) {
 			&:first-child {
 				padding-left: 0px;
 			}
@@ -877,12 +877,7 @@ hr.section_break_blank {
 	.make-row();
 	.info_article {
 		.make-md-column(4);
-	}
-
-	.css-parent-page & {
-		.info_article {
-			.make-md-column(4);
-		}
+		.make-sm-column(6);
 	}
 }
 
