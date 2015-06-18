@@ -417,12 +417,17 @@ hr.section_break_blank {
 	.vertical(25px);
 
 	.content_inner--title {
-		font-size: 30px;
+
+		font-size: @font-size-large;
+
+		@media(min-width:@screen-md-min) {
+			font-size: 30px;
 
 
-		> span {
-			border-bottom: 1px solid @gray;
-			padding-bottom: 8px;
+			> span {
+				border-bottom: 1px solid @gray;
+				padding-bottom: 8px;
+			}
 		}
 
 
