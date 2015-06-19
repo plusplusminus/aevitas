@@ -1,12 +1,8 @@
 jQuery(window).load(function(){
-  
+  cbpBGSlideshow.init()
 });
 
 jQuery(document).ready(function(){
-
-
-  cbpBGSlideshow.init()
-
   jQuery(".wp-caption").removeAttr('style');
 
   initForm();
@@ -157,7 +153,6 @@ jQuery(document).ready(function(){
     lazyLoad: false,
     afterInit: function() {
       height = window.innerHeight;
-      console.log(height);
       jQuery( '.home-slider .owl-item' ).css('height',height);
     },
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
@@ -332,18 +327,16 @@ var cbpBGSlideshow = (function() {
   function init( config ) {
 
     // preload the images
-    $slideshow.find('img').on('load',function() {
-      $item = jQuery(this);
+    $slideshow.imagesLoaded( function() {
+
       if( Modernizr.backgroundsize ) {
-        var $item = jQuery( this ),
-        $itemparent = $item.parent().parent();
+        $slideshow.find( 'img' ).hide();
+        $items.each( function() {
+          var $item = jQuery( this );
+          $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
+          $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
 
-        $item.hide();
-
-        $itemparent.css( 'background-image', 'url(' + $item.attr( 'src' ) + ')' );
-        $itemparent.css( 'background-position', $itemparent.data( 'x' ) + ' ' + $itemparent.data( 'y' ));
-        $itemparent.find('.item_gallery').removeClass('loader');
-      
+        } );
       }
       else {
         $slideshow.find( 'img' ).show();
