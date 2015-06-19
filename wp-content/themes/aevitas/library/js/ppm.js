@@ -335,10 +335,14 @@ var cbpBGSlideshow = (function() {
     $slideshow.find('img').on('load',function() {
       $item = jQuery(this);
       if( Modernizr.backgroundsize ) {
-        var $item = jQuery( this );
-        $this.hide();
-        $item.parent().parent().css( 'background-image', 'url(' + $item.attr( 'src' ) + ')' );
-        $item.parent().parent().css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
+        var $item = jQuery( this ),
+        var $itemparent = $item.parent().parent();
+
+        $item.hide();
+
+        $itemparent.css( 'background-image', 'url(' + $item.attr( 'src' ) + ')' );
+        $itemparent.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
+        $itemparent.removeClass('loader');
       
       }
       else {
