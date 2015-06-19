@@ -22,7 +22,7 @@ $connected = new WP_Query( array(
 					$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
 				?>
 				<div class="item_gallery css-slider-hover" data-x="<?php if (!empty($x)) echo $x; else 'center';?>" data-y="<?php if (!empty($y)) echo $y; else 'center';?>">
-					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
+					<img data-src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					<div class="item_caption">
 						<h2 class="item_caption--title"><span><?php the_title();?></span></h2>
 					</div>
