@@ -1,5 +1,7 @@
 jQuery(window).load(function(){
-  
+  height = window.innerHeight;
+  console.log(height);
+  jQuery( '.home-slider .owl-item' ).css('height',height);
 });
 
 jQuery(document).ready(function(){
@@ -324,10 +326,6 @@ var cbpBGSlideshow = (function() {
     itemsCount = $items.length;
 
   function init( config ) {
-
-    height = window.innerHeight;
-    console.log(height);
-    jQuery( '.home-slider .owl-item' ).css('height',height);
 
     // preload the images
     $slideshow.find('img').on('load',function() {
