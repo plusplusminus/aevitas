@@ -20,7 +20,7 @@ function ppm_scripts_and_styles() {
         wp_register_script( 'photoswipe-ui', get_stylesheet_directory_uri() . '/library/vendors/photoswipe/dist/photoswipe-ui-default.min.js', array('jquery'), '1.0.8',true);
 
         wp_register_script( 'slick', get_stylesheet_directory_uri() . '/library/vendors/slick.js/slick/slick.min.js', array('jquery'), '1.0.8',true);
-        wp_register_script( 'selectize', get_stylesheet_directory_uri() . '/library/vendors/selectize/dist/js/standalone/selectize.js', array('jquery'), '1.0.8',true);
+        wp_register_script( 'selectize', get_stylesheet_directory_uri() . '/library/vendors/selectize/dist/js/standalone/selectize.js', array('jquery'), '1.0.9',true);
         
         wp_register_script( 'third-party', get_stylesheet_directory_uri() . '/library/js/third-party.js', array('jquery'), '1.0.8',true);
         
