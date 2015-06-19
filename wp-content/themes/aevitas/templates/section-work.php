@@ -33,7 +33,7 @@ global $cpt;
 
 							if ($taxonomy['opts']==true) {
 								echo '<li>';
-									get_tax_opts($taxonomy['slug']);
+									get_tax_opts($taxonomy['slug'],$taxonomy['name']);
 								echo '</li>';
 							}
 						}
