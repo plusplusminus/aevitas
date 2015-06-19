@@ -616,6 +616,7 @@ var initForm = function () {
 
   // Selectize
   $location = jQuery('#location-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -644,6 +645,7 @@ var initForm = function () {
   });
 
   $type = jQuery('#type-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -672,6 +674,7 @@ var initForm = function () {
   });
 
   $setting = jQuery('#setting-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -700,6 +703,7 @@ var initForm = function () {
   });
 
   $venue = jQuery('#venue-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -728,6 +732,7 @@ var initForm = function () {
   });
 
   $style = jQuery('#style-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
@@ -757,6 +762,7 @@ var initForm = function () {
 
 
   $culture = jQuery('#culture-select').selectize({
+      plugins: ['remove_button'],
       create: false,
       optgroupField: 'class',
       labelField: 'text',
