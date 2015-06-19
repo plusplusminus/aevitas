@@ -453,6 +453,34 @@ class tpbCustomPostTypes {
 		) );
 
 		$image_meta->add_field( array(
+		    'name'             => 'Y Position',
+		    'desc'             => 'Select an option',
+		    'id'               => $prefix.'header_y_axis',
+		    'type'             => 'select',
+		    'show_option_none' => true,
+		    'default'          => 'none',
+		    'options'          => array(
+		        'top' => __( 'Top', 'cmb' ),
+		        'center'   => __( 'Center', 'cmb' ),
+		        'bottom'     => __( 'Bottom', 'cmb' ),
+		    ),
+		) );
+
+		$image_meta->add_field( array(
+		    'name'             => 'X Position',
+		    'desc'             => 'Select an option',
+		    'id'               => $prefix.'header_x_axis',
+		    'type'             => 'select',
+		    'show_option_none' => true,
+		    'default'          => 'none',
+		    'options'          => array(
+		        'left' => __( 'Left', 'cmb' ),
+		        'right'   => __( 'Right', 'cmb' ),
+		        'center'     => __( 'Center', 'cmb' ),
+		    ),
+		) );
+
+		$image_meta->add_field( array(
 		    'name'    => 'Slider Image',
 		    'desc'    => 'Upload an image or enter an URL.',
 		    'id'      => $prefix . 'slider_image',
