@@ -328,7 +328,7 @@ var cbpBGSlideshow = (function() {
 
     // preload the images
     $slideshow.find('img').on('load',function() {
-
+      $item = jQuery(this);
       if( Modernizr.backgroundsize ) {
         var $item = jQuery( this );
         $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
