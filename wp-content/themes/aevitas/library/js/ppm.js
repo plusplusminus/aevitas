@@ -1,8 +1,11 @@
 jQuery(window).load(function(){
-  cbpBGSlideshow.init()
+  
 });
 
 jQuery(document).ready(function(){
+
+  cbpBGSlideshow.init()
+  
   jQuery(".wp-caption").removeAttr('style');
 
   initForm();
