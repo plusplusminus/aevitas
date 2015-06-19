@@ -33,10 +33,11 @@ query_posts( $query_args );
 								</ul>
 
 							</figcaption>
-							<a class="details_article--link js-gallery-init" data-id="<?php echo $post->ID; ?>" href="<?php the_permalink();?>">&nbsp;</a>
+							<a rel="gallery-'.$post->ID.'" class="details_article--link fancybox" data-id="<?php echo $post->ID; ?>" href="<?php the_permalink();?>">&nbsp;</a>
 
 							<?php $media = get_post_meta($post->ID,'_ppm_gallery',true); ?>
 							<?php if (!empty($media)) : ?>
+								<div class="hide">
 								<?php foreach ($media as $key => $image) {
 
 									$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
@@ -55,8 +56,10 @@ query_posts( $query_args );
 										)
 									);
 
+									echo '<a rel="gallery-'.$post->ID.'" href="'.$image_attributes_full[0].'" class="fancybox"></a>';
+
 								} ?>
-								<meta name="gallery-<?php echo $post->ID; ?>" content='<?php echo json_encode($array); ?>'>
+								</div>
 							<?php endif; ?>
 						</figure>
 					</article>
