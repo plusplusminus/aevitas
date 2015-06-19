@@ -21,7 +21,7 @@ $connected = new WP_Query( array(
 					$y = get_post_meta($post->ID,'_ppm_header_y_axis',true);
 					$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
 				?>
-				<div class="item_gallery css-slider-hover" data-x="<?php if (!empty($x)) echo $x; else 'center';?>" data-y="<?php if (!empty($y)) echo $y; else 'center';?>">
+				<div class="loading item_gallery css-slider-hover" data-x="<?php if (!empty($x)) echo $x; else 'center';?>" data-y="<?php if (!empty($y)) echo $y; else 'center';?>">
 					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					<div class="item_caption">
 						<h2 class="item_caption--title"><span><?php the_title();?></span></h2>
