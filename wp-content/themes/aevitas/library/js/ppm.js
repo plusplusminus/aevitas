@@ -1,10 +1,9 @@
 jQuery(window).load(function(){
-  height = window.innerHeight;
-  console.log(height);
-  jQuery( '.home-slider .owl-item' ).css('height',height);
+  
 });
 
 jQuery(document).ready(function(){
+
 
   cbpBGSlideshow.init()
 
@@ -156,6 +155,11 @@ jQuery(document).ready(function(){
     pagination: false,
     transitionStyle : "fade",
     lazyLoad: false,
+    afterInit: function() {
+      height = window.innerHeight;
+      console.log(height);
+      jQuery( '.home-slider .owl-item' ).css('height',height);
+    },
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
       var current = this.currentItem;
