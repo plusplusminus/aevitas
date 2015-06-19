@@ -341,7 +341,7 @@ var cbpBGSlideshow = (function() {
         $item.hide();
 
         $itemparent.css( 'background-image', 'url(' + $item.attr( 'src' ) + ')' );
-        $itemparent.css( 'background-position', $itemparent.( 'x' ) + ' ' + $itemparent.( 'y' ));
+        $itemparent.css( 'background-position', $itemparent.data( 'x' ) + ' ' + $itemparent.data( 'y' ));
         $itemparent.find('.item_gallery').removeClass('loader');
       
       }
