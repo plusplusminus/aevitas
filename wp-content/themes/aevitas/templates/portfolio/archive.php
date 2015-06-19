@@ -33,7 +33,13 @@ query_posts( $query_args );
 								</ul>
 
 							</figcaption>
-							<a rel="gallery-<?php echo $post->ID;?>" class="fancybox" data-id="<?php echo $post->ID; ?>" href="http://clients.plusplusminus.co.za/aevitas/wp-content/uploads/2015/05/01-majestic-halls-wedding-photographer-jewish-ceremony-photos-585x390.jpg">&nbsp; 312213123</a>
+							<?php
+								$thumb_id = get_post_thumbnail_id();
+								$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
+							?>
+
+
+							<a rel="gallery-<?php echo $post->ID;?>" class="fancybox" data-id="<?php echo $post->ID; ?>" href="<?php echo $thumb_url[0];?>">&nbsp;</a>
 
 							<?php $media = get_post_meta($post->ID,'_ppm_gallery',true); ?>
 							<?php if (!empty($media)) : ?>
@@ -42,18 +48,6 @@ query_posts( $query_args );
 
 									$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
 									$image_attributes_full = wp_get_attachment_image_src( $key,'full' );
-
-									$array[] = array(
-										'mediumImage' => array( 
-											'src' => $image_attributes_large[0],
-											'w' => $image_attributes_large[1],
-											'h' => $image_attributes_large[2]
-										),
-										'originalImage' => array( 
-											'src' => $image_attributes_full[0],
-											'w' => $image_attributes_full[1],
-											'h' => $image_attributes_full[2] 
-										)
 									);
 
 									echo '<a rel="gallery-'.$post->ID.'" href="'.$image_attributes_full[0].'" class="fancybox"></a>';
