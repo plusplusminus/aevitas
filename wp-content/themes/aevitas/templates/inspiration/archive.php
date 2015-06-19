@@ -26,7 +26,7 @@ query_posts( $query_args );
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
-				    		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
+				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
 				    		<figcaption class="blog_content">
 				    			<div class="content_inner">
 				    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
