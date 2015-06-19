@@ -5,7 +5,7 @@ jQuery(window).load(function(){
 jQuery(document).ready(function(){
 
   cbpBGSlideshow.init()
-  
+
   jQuery(".wp-caption").removeAttr('style');
 
   initForm();
@@ -326,15 +326,16 @@ var cbpBGSlideshow = (function() {
   function init( config ) {
 
     height = window.innerHeight;
-
-    var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+    console.log(height);
+    jQuery( '.home-slider .owl-item' ).css('height',height);
 
     // preload the images
     $slideshow.find('img').on('load',function() {
+      console.log(this);
       $item = jQuery(this);
       if( Modernizr.backgroundsize ) {
         var $item = jQuery( this );
-        $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
+        $item.css( 'background-image', 'url(' + $item( 'img' ).attr( 'src' ) + ')' );
         $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
       
       }
