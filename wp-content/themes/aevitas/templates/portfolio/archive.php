@@ -18,9 +18,9 @@ query_posts( $query_args );
 					<?php $array = array(); ?>
 				  	<article id="post-<?php the_ID(); ?>" <?php post_class('portfolio_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
-				    	<figure class="portfolio_image">
+				    	<figure class="portfoli1o_image">
 				    		<?php the_post_thumbnail('grid-6',array('class'=>'img-responsive')); ?>
-				    		<figcaption class="portfolio_content">
+				    		<figcaption class="po1rtfolio_content">
 
 			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
 			    				<ul class="content_meta">
@@ -33,7 +33,7 @@ query_posts( $query_args );
 								</ul>
 
 							</figcaption>
-							<a rel="gallery-<?php echo $post->ID;?>" class="fancybox" data-id="<?php echo $post->ID; ?>" href="<?php the_permalink();?>">&nbsp; 312213123</a>
+							<a rel="gallery-<?php echo $post->ID;?>" class="fancybox" data-id="<?php echo $post->ID; ?>" href="http://clients.plusplusminus.co.za/aevitas/wp-content/uploads/2015/05/01-majestic-halls-wedding-photographer-jewish-ceremony-photos-585x390.jpg">&nbsp; 312213123</a>
 
 							<?php $media = get_post_meta($post->ID,'_ppm_gallery',true); ?>
 							<?php if (!empty($media)) : ?>
