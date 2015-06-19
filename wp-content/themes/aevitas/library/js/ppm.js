@@ -337,7 +337,7 @@ var cbpBGSlideshow = (function() {
       if( Modernizr.backgroundsize ) {
         var $item = jQuery( this );
 
-        $this.hide();
+        $item.hide();
 
         $item.parent().parent().css( 'background-image', 'url(' + $item.attr( 'src' ) + ')' );
         $item.parent().parent().css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
