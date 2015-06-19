@@ -44,7 +44,7 @@ query_posts( $query_args );
 							<?php if (!empty($media)) : ?>
 								<div class="hide">
 								<?php foreach ($media as $key => $image) {
-
+									if ($key == $thumb_id ) continue;
 									$image_attributes_full = wp_get_attachment_image_src( $key,'full' );
 
 									echo '<a rel="gallery-'.$post->ID.'" href="'.$image_attributes_full[0].'" class="fancybox"></a>';
