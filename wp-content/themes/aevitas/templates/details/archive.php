@@ -21,37 +21,37 @@ query_posts( $query_args );
 				    	<figure class="details_image">
 				    		<?php the_post_thumbnail('grid-6',array('class'=>'img-responsive')); ?>
 				    		<figcaption class="details_content">
-				    			<div class="content_inner">
-				    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
-								</div>
+
+			    				<h3 class="content_inner--title"><span><?php the_title(); ?></span></h3>
+			    				<ul class="content_meta">
+									<?php $location = get_post_meta($post->ID,'_ppm_venue_title',true); ?>
+									<?php if (!empty($location)) : ?>
+										<li class="meta_item">
+											<?php _e($location,'aevitas'); ?>
+					    				</li>
+					    			<?php endif; ?>
+								</ul>
+
 							</figcaption>
-							<a class="details_article--link js-gallery-init" data-id="<?php echo $post->ID; ?>" href="<?php the_permalink();?>">&nbsp;</a>
+							<?php
+								$thumb_id = get_post_thumbnail_id();
+								$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
+							?>
+
+							<a rel="gallery-<?php echo $post->ID;?>" class="details_article--link fancybox" data-id="<?php echo $post->ID; ?>" href="<?php echo $thumb_url[0];?>">&nbsp;</a>
 
 							<?php $media = get_post_meta($post->ID,'_ppm_gallery',true); ?>
-
 							<?php if (!empty($media)) : ?>
+								<div class="hide">
 								<?php foreach ($media as $key => $image) {
 
-									$image_attributes_large = wp_get_attachment_image_src( $key,'large' );
 									$image_attributes_full = wp_get_attachment_image_src( $key,'full' );
 
-									$array[] = array(
-										'mediumImage' => array( 
-											'src' => $image_attributes_large[0],
-											'w' => $image_attributes_large[1],
-											'h' => $image_attributes_large[2]
-										),
-										'originalImage' => array( 
-											'src' => $image_attributes_full[0],
-											'w' => $image_attributes_full[1],
-											'h' => $image_attributes_full[2] 
-										)
-									);
+									echo '<a rel="gallery-'.$post->ID.'" href="'.$image_attributes_full[0].'" class="fancybox"></a>';
 
 								} ?>
-								<meta name="gallery-<?php echo $post->ID; ?>" content='<?php echo json_encode($array); ?>'>
+								</div>
 							<?php endif; ?>
-							
 						</figure>
 					</article>
 				<?php endwhile; ?>
