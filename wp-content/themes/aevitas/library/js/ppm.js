@@ -150,7 +150,7 @@ jQuery(document).ready(function(){
     singleItem:true,
     pagination: false,
     transitionStyle : "fade",
-    lazyLoad: true,
+    lazyLoad: false,
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
       var current = this.currentItem;
@@ -180,6 +180,11 @@ jQuery(document).ready(function(){
   jQuery(".js-stop").click(function(){
     owl.trigger('owl.stop');
   })
+
+  jQuery('.owl-item img').on('load',function(e) {
+    e.preventDefault();
+    console.log(this);
+  });
 
   // Add a text when there are no more pages left to load
   ias.extension(new IASPagingExtension());

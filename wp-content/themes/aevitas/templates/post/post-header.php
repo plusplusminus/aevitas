@@ -16,10 +16,10 @@
 						$image_attributes_full = wp_get_attachment_image_src( $key,'full' );
 						$attachment = get_post($key); 
 						?>
-						<div class="item">
+						<div class="item loading">
 							<figure class="slide_image">
 			
-								<img alt="<? _e($attachment->post_title); ?>" data-src="<?php echo $image_attributes_large[0];?>" class="lazyOwl img-responsive"/>
+								<img alt="<? _e($attachment->post_title); ?>" src="<?php echo $image_attributes_large[0];?>" class="lazyOwl img-responsive"/>
 								
 								<?php if (!empty($attachment->post_excerpt)) : ?>
 									<figcaption class="slide_image--caption">
