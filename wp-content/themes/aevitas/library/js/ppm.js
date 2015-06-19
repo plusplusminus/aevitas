@@ -183,7 +183,7 @@ jQuery(document).ready(function(){
 
   jQuery('.owl-item img').on('load',function(e) {
     e.preventDefault();
-    console.log(this);
+    jQuery(this).css('opacity':1);
   });
 
   // Add a text when there are no more pages left to load
