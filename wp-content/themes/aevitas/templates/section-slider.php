@@ -17,9 +17,11 @@ $connected = new WP_Query( array(
 		<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 				<?php
 					$key = get_post_meta($post->ID,'_ppm_header_image_id',true);
+					$x = get_post_meta($post->ID,'_ppm_header_x_axis',true);
+					$y = get_post_meta($post->ID,'_ppm_header_y_axis',true);
 					$image_attributes_large = wp_get_attachment_image_src( $key,'full' );
 				?>
-				<div class="item_gallery css-slider-hover">
+				<div class="item_gallery css-slider-hover" data-x="<?php (!empty($x)) ? $x : 'center';?>" data-x="<?php (!empty($y)) ? $y : 'center';?>">
 					<img src="<?php echo $image_attributes_large[0];?>" class="img-responsive"/>
 					<div class="item_caption">
 						<h2 class="item_caption--title"><span><?php the_title();?></span></h2>
