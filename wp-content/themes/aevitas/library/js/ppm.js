@@ -322,23 +322,18 @@ var cbpBGSlideshow = (function() {
 
   function init( config ) {
 
+    height = window.innerHeight;
+
+    var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+
     // preload the images
-    $slideshow.imagesLoaded( function() {
-      height = window.innerHeight;
-
-      width =  window.innerWidth;
-
-      var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
-      
+    $slideshow.find('img').on('load',function() {
 
       if( Modernizr.backgroundsize ) {
-        $slideshow.find( 'img' ).hide();
-        $items.each( function() {
-          var $item = jQuery( this );
-          $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
-          $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
-
-        } );
+        var $item = jQuery( this );
+        $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
+        $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
+      
       }
       else {
         $slideshow.find( 'img' ).show();
