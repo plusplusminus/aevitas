@@ -72,7 +72,12 @@ jQuery(document).ready(function(){
     },
     beforeShow: function () {
       
-      var alt = this.element.data('title');
+      var alt = ''
+
+      if (this.element.data('title'))
+      {
+        alt = this.element.data('title');
+      }
       
       this.inner.find('img').attr('alt', alt);
       
