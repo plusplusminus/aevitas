@@ -331,7 +331,7 @@ var cbpBGSlideshow = (function() {
         $items.each( function() {
           var $item = jQuery( this );
           $item.css( 'background-image', 'url(' + $item.find( 'img' ).data( 'src' ) + ')' );
-          $item.css( 'background-position', $item.find( 'img' ).data( 'x' ) + ' ' + $item.find( 'img' ).data( 'y' ));
+          $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
 
         } );
       }
