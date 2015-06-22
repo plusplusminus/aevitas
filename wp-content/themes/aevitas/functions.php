@@ -493,6 +493,14 @@ function get_search_opts($taxonomy) {
             $select = ($current_selected == $term->slug) ? "selected" : "";
                     
             if ($term->parent == 0 ) {
+
+                // The $term is an object, so we don't need to specify the $taxonomy.
+                $term_link = get_term_link( $term );
+               
+                // If there was an error, continue to the next term.
+                if ( is_wp_error( $term_link ) ) {
+                    continue;
+                }
                      
                 // get children of current parent.
                 $tchildren = get_term_children($term->term_id, $taxonomy['slug']);
@@ -507,16 +515,23 @@ function get_search_opts($taxonomy) {
                 // OPTGROUP FOR PARENTS
                 if (count($children) > 0 ) {
                          if ($term->count > 0)
-                         $list_of_terms .= '<li class="h2" value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</li>';
+                         $list_of_terms .= '<li class="optgroup-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .' ('.$term->count.')</a></li>';
                     } else
-                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</li>';
+                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">'. $term->name .' ('.$term->count.')</a></li>';
                 $i++;
                  
                  
                 // now the CHILDREN.
                 foreach($children as $child) {
+                    // The $term is an object, so we don't need to specify the $taxonomy.
+                    $cterm_link = get_term_link( $child );
+
+                    // If there was an error, continue to the next term.
+                    if ( is_wp_error( $term_link ) ) {
+                    continue;
+                    }
                      $select = ($current_selected == $cterm->slug) ? "selected" : "";
-                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'>'. $child->name.' ('.$child->count.')</li>';
+                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'><a href="'.$cterm_link.'">'. $child->name.' ('.$child->count.')</a></li>';
                       
                 } //end foreach
                  
@@ -535,7 +550,7 @@ function get_search_opts($taxonomy) {
         echo '</div>';
 
     } else {
-        $list_of_terms .= '<div class="btn-group">'
+        $list_of_terms .= '<div class="btn-group">';
 
         $list_of_terms .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 '.$taxonomy['name'].' <span class="caret"></span>
