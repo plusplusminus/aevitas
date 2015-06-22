@@ -328,6 +328,7 @@ function get_facets() {
                     
                     if (empty($tchildren))
                         $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'order'=>$term->term_order);
+                    else $options[$key][] = array('value'=>$term->term_id,'text'=> 'All '.$term->name,'order'=>$term->term_order,'class'=>$term->slug);
                 }
                 
             }
