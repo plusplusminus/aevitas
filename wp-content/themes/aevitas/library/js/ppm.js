@@ -600,7 +600,7 @@ var Selectizer = function () {
 
             var settings = {};
 
-            settings = _.sortBy(response.data.setting, 'order');
+            settings = _.sortBy(response.data.setting, 'order.int');
 
             console.log(settings);
 
