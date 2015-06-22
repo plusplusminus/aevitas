@@ -482,7 +482,7 @@ function get_search_opts($taxonomy) {
  
 $terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
 // our content variable
-$list_of_terms .= '<div classn="btn-group">';
+$list_of_terms .= '<div class="btn-group">';
  
 foreach($terms as $term){
          
@@ -502,7 +502,7 @@ foreach($terms as $term){
              
         // OPTGROUP FOR PARENTS
         if (count($children) > 0 ) {
-                 $list_of_terms .= '<ul label="'. $term->name .'">';
+                 $list_of_terms .= '<ul class="dropdown-menu" label="'. $term->name .'">';
                  if ($term->count > 0)
                  $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</li>';
             } else
