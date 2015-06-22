@@ -1655,16 +1655,19 @@ input[type="text"].tt-hint {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  position: absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  height: 100%;
-  width:100%;
-  img {
-  	display: none;
-  }
+
+  @media (min-width:@screen-md-min) {
+	  position: absolute;
+	  left:0;
+	  right:0;
+	  top:0;
+	  bottom:0;
+	  height: 100%;
+	  width:100%;
+	  img {
+	  	display: none;
+	  }
+	}
 }
 
 /* 
