@@ -315,30 +315,11 @@ function get_facets() {
                 $term = get_term_by('id', $id, $key);
 
                 echo '<div class="hide"><pre>';print_r($term);echo '</pre></div>';
-                if ($term->parent == 0 ) {
-                 
-                    // get children of current parent.
-                    $tchildren = get_term_children($term->term_id, $key);
-                     
-                    $children = array();
-                    foreach ($tchildren as $child) {
-                        $cterm = get_term_by( 'id', $child, $key );
-                        $children[$cterm->name] = $cterm;
-                    }
-                    ksort($children);
+                if ($term->parent != 0 ) {
 
+                    $pterm = get_term_by('id', $term->parent, $key);
                          
-                    // OPTGROUP FOR PARENTS
-                    if (count($children) > 0 ) {
-                        $optgroups[$key][] = array('value'=>$term->slug,'text'=> $term->name);
-                    } else $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name);
-                     
-                     
-                    // now the CHILDREN.
-                    foreach($children as $child) {
-                    //    $options[$key][] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
-                              
-                    } //end foreach
+                    $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'class'=>$pterm->slug);
          
                 }
                 
