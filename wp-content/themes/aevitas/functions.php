@@ -338,6 +338,7 @@ function get_facets() {
                     } //end foreach
          
                 }
+            }
 
         }
 
