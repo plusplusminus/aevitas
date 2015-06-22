@@ -523,7 +523,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 					$caption = sprintf( __( 'Instagram by %s', 'woodojo' ), $v->user->full_name );
 				}
 
-				$html .= '<div class="col-md-2">' . "\n";
+				$html .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">' . "\n";
 					$html .= '<figure class="blog_image">
 								<img class="img-responsive" src="' . esc_url( $v->images->$size_token->url ) . '"' . $params . ' alt="' . esc_attr( $caption ) . '" />';
 					$html .= '<div class="instacount text-center"><p><span class="fa fa-heart"></span>	'.$v->likes->count.'</p><p><span class="fa fa-comment"></span>	'.$v->comments->count.'</p></div>';
