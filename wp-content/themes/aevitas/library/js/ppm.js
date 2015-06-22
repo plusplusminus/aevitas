@@ -337,7 +337,10 @@ var cbpBGSlideshow = (function() {
 
       width =  window.innerWidth;
 
-      var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+
+      if (width > 960) {
+        var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+      }
       
 
       if( Modernizr.backgroundsize ) {
@@ -363,7 +366,6 @@ var cbpBGSlideshow = (function() {
     // preload the images
     $slideshow.imagesLoaded( function() {
       height = window.innerHeight;
-
       width =  window.innerWidth;
 
       var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
