@@ -798,7 +798,10 @@ var initForm = function () {
   });
 
 
-  var handler = function() { console.log("!@#12312") };
+  var handler = function() { 
+    Selectizer.deleteOption();
+  };
+  
   $location[0].selectize.on('remove_button', handler);
   
 };
