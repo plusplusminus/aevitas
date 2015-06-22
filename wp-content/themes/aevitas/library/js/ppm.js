@@ -464,13 +464,13 @@ var Selectizer = function () {
           if (response.data.style) {         
             $style[0].selectize.enable();
 
-            var style = {};
+            var styleArray = {};
 
-            style = _.sortBy(response.data.style, 'text');
+            styleArray = _.sortBy(response.data.style, 'text');
 
             var style = $style[0].selectize.getValue();
             $style[0].selectize.clearOptions();
-            $style[0].selectize.addOption(response.data.style);
+            $style[0].selectize.addOption(styleArray);
             $style[0].selectize.setValue(style,true);
             $style[0].selectize.refreshOptions(false);
           } else {
@@ -480,13 +480,13 @@ var Selectizer = function () {
           if (response.data.venue) {
             $venue[0].selectize.enable();
 
-            var venue = {};
+            var venueArray = {};
 
-            venue = _.sortBy(response.data.venue, 'text');
+            venueArray = _.sortBy(response.data.venue, 'text');
 
             var venue = $venue[0].selectize.getValue();
             $venue[0].selectize.clearOptions();
-            $venue[0].selectize.addOption(venue);
+            $venue[0].selectize.addOption(venueArray);
             $venue[0].selectize.setValue(venue,true);
             $venue[0].selectize.refreshOptions(false);
           } else {
@@ -509,13 +509,13 @@ var Selectizer = function () {
 
             $culture[0].selectize.enable();
 
-            var culture = {};
+            var cultureArray = {};
 
-            culture = _.sortBy(response.data.culture, 'text');
+            cultureArray = _.sortBy(response.data.culture, 'text');
 
             var culture = $culture[0].selectize.getValue();
             $culture[0].selectize.clearOptions();
-            $culture[0].selectize.addOption(culture);
+            $culture[0].selectize.addOption(cultureArray);
             $culture[0].selectize.setValue(culture,true);
             $culture[0].selectize.refreshOptions(false);
           } else {
@@ -525,13 +525,13 @@ var Selectizer = function () {
           if (response.data.setting) {
             $setting[0].selectize.enable();
 
-            var setting = {};
+            var settingArray = {};
 
-            setting = _.sortBy(response.data.setting, 'text');
+            settingArray = _.sortBy(response.data.setting, 'text');
 
             var setting = $setting[0].selectize.getValue();
             $setting[0].selectize.clearOptions();
-            $setting[0].selectize.addOption(setting);
+            $setting[0].selectize.addOption(settingArray);
             $setting[0].selectize.setValue(setting,true);
             $setting[0].selectize.refreshOptions(false);
           } else {
@@ -580,13 +580,13 @@ var Selectizer = function () {
 
           if (response.data.style) {
 
-          var style = {};
+          var styleArray = {};
 
-            style = _.sortBy(response.data.style, 'text');
+            styleArray = _.sortBy(response.data.style, 'text');
 
             var style = $style[0].selectize.getValue();
             $style[0].selectize.clearOptions();
-            $style[0].selectize.addOption(style);
+            $style[0].selectize.addOption(styleArray);
             $style[0].selectize.setValue(style,true);
           } else {
             $style[0].selectize.disable();
@@ -594,13 +594,13 @@ var Selectizer = function () {
 
           if (response.data.venue) {
 
-            var venue = {};
+            var venueArray = {};
 
-            venue = _.sortBy(response.data.venue, 'text');
+            venueArray = _.sortBy(response.data.venue, 'text');
 
             var venue = $venue[0].selectize.getValue();
             $venue[0].selectize.clearOptions();
-            $venue[0].selectize.addOption(venue);
+            $venue[0].selectize.addOption(venueArray);
             $venue[0].selectize.setValue(venue,true);
           } else {
             $venue[0].selectize.disable();
@@ -618,14 +618,14 @@ var Selectizer = function () {
 
           if (response.data.culture) {
 
-            var culture = {};
+            var cultureArray = {};
 
-            culture = _.sortBy(response.data.culture, 'text');
+            cultureArray = _.sortBy(response.data.culture, 'text');
 
 
             var culture = $culture[0].selectize.getValue();
             $culture[0].selectize.clearOptions();
-            $culture[0].selectize.addOption(culture);
+            $culture[0].selectize.addOption(cultureArray);
             $culture[0].selectize.setValue(culture,true);
           } else {
             $culture[0].selectize.disable();
@@ -633,13 +633,13 @@ var Selectizer = function () {
 
           if (response.data.setting) {
 
-            var settings = {};
+            var settingsArray = {};
 
-            settings = _.sortBy(response.data.setting, 'text');
+            settingsArray = _.sortBy(response.data.setting, 'text');
 
             var setting = $setting[0].selectize.getValue();
             $setting[0].selectize.clearOptions();
-            $setting[0].selectize.addOption(settings);
+            $setting[0].selectize.addOption(settingsArray);
             $setting[0].selectize.setValue(setting,true);
           } else {
             $setting[0].selectize.disable();
@@ -875,13 +875,13 @@ var initForm = function () {
         if (response.data.style) {         
           $style[0].selectize.enable();
 
-          var style = {};
+          var styleArray = {};
 
-          style = _.sortBy(response.data.style, 'text');
+          styleArray = _.sortBy(response.data.style, 'text');
 
           var style = $style[0].selectize.getValue();
           $style[0].selectize.clearOptions();
-          $style[0].selectize.addOption(style);
+          $style[0].selectize.addOption(styleArray);
           $style[0].selectize.setValue(style,true);
           $style[0].selectize.refreshOptions(false);
         } else {
@@ -891,13 +891,13 @@ var initForm = function () {
         if (response.data.venue) {
           $venue[0].selectize.enable();
 
-          var venue = {};
+          var venueArray = {};
 
-          venue = _.sortBy(response.data.venue, 'text');
+          venueArray = _.sortBy(response.data.venue, 'text');
 
           var venue = $venue[0].selectize.getValue();
           $venue[0].selectize.clearOptions();
-          $venue[0].selectize.addOption(venue);
+          $venue[0].selectize.addOption(venueArray);
           $venue[0].selectize.setValue(venue,true);
           $venue[0].selectize.refreshOptions(false);
         } else {
@@ -918,13 +918,13 @@ var initForm = function () {
         if (response.data.culture) {
 
           $culture[0].selectize.enable();
-          var culture = {};
+          var cultureArray = {};
 
-          culture = _.sortBy(response.data.culture, 'text');
+          cultureArray = _.sortBy(response.data.culture, 'text');
 
           var culture = $culture[0].selectize.getValue();
           $culture[0].selectize.clearOptions();
-          $culture[0].selectize.addOption(culture);
+          $culture[0].selectize.addOption(cultureArray);
           $culture[0].selectize.setValue(culture,true);
           $culture[0].selectize.refreshOptions(false);
         } else {
@@ -933,12 +933,12 @@ var initForm = function () {
 
         if (response.data.setting) {
           $setting[0].selectize.enable();
-          var setting = {};
+          var settingArray = {};
 
-          setting = _.sortBy(response.data.setting, 'text');
+          settingArray = _.sortBy(response.data.setting, 'text');
           var setting = $setting[0].selectize.getValue();
           $setting[0].selectize.clearOptions();
-          $setting[0].selectize.addOption(setting);
+          $setting[0].selectize.addOption(settingArray);
           $setting[0].selectize.setValue(setting,true);
           $setting[0].selectize.refreshOptions(false);
         } else {
