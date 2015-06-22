@@ -310,17 +310,22 @@ function get_facets() {
 
 
         foreach ($results["facets"] as $key => $terms) {
-            echo '<div class="hide"><pre>';print_r($terms);echo $key.'</pre></div>';
+
             foreach ($terms as $id => $count) {
                 $term = get_term_by('id', $id, $key);
 
-                echo '<div class="hide"><pre>';print_r($term);echo '</pre></div>';
                 if ($term->parent != 0 ) {
 
                     $pterm = get_term_by('id', $term->parent, $key);
                          
                     $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'class'=>$pterm->slug);
          
+                } else {
+
+                    // get children of current parent.
+                    $tchildren = get_term_children($term->term_id, $key);
+                    if (empty($tchildren))
+                        $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name);
                 }
                 
             }

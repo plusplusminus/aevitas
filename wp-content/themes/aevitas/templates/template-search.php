@@ -10,11 +10,17 @@
 <?php
 // Exclude categories on the homepage.
 
+$paged = 1;
+if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
+if ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
+$paged = intval( $paged );
+
 $query_args = array(
   'post_type' => array('post','storytelling','inspiration'), 
   'post__in'=>$results,
   'orderby' => 'post__in',
-  'posts_per_page'=>-1
+  'posts_per_page'=>12,
+  'paged' => $paged
 );
 
 query_posts( $query_args );
@@ -27,9 +33,9 @@ query_posts( $query_args );
 			<h2 class="section_blog--title">Filter Results</h2>
 		</div>
 		<?php if ( have_posts() ) : ?>
-			<div class="blog_row">
+			<div class="blog_row js-infinite-cont">
 				<?php while ( have_posts() ) : the_post(); ?>
-				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				  	<article id="post-<?php the_ID(); ?>" <?php post_class('blog_article css-hover-vertical clearfix js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				    	
 				    	<figure class="blog_image">
 				    		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
