@@ -360,10 +360,15 @@ var cbpBGSlideshow = (function() {
 
     // preload the images
     $slideshow.imagesLoaded( function() {
+      
       height = window.innerHeight;
-      width =  window.innerWidth;
+      width = window.innerWidth;
 
-      var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+      if (width > 991) {
+        var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
+      } else {
+        var $itemP = jQuery( '.home-slider .owl-item' ).css('height','auto');
+      }
       
     } );
   }
