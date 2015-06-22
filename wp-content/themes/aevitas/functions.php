@@ -525,10 +525,15 @@ function get_search_opts($taxonomy) {
                 
         }
          
-        
+        echo '<div class="btn-group">';
+        echo  '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                '.$taxonomy['name'].' <span class="caret"></span>
+              </button>';
          
-        echo '<ul>'.$list_of_terms.'</ul>';
-        
+        echo '<ul class="dropdown-menu">'.$list_of_terms.'</ul>';
+
+        echo '</div>';
+
     } else {
         $list_of_terms .= '<div class="btn-group"><ul class="dropdown-menu">';
 
