@@ -158,7 +158,11 @@ jQuery(document).ready(function(){
     lazyLoad: false,
     afterInit: function() {
       height = window.innerHeight;
-      jQuery( '.home-slider .owl-item' ).css('height',height);
+      width = window.innerWidth;
+
+      if (width > 960) {
+        jQuery( '.home-slider .owl-item' ).css('height',height);
+      }
     },
     navigationText:["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"],
     afterMove: function (elem) {
@@ -333,15 +337,7 @@ var cbpBGSlideshow = (function() {
 
     // preload the images
     $slideshow.imagesLoaded( function() {
-      height = window.innerHeight;
 
-      width =  window.innerWidth;
-
-console.log("132312",width);
-      if (width > 960) {
-        var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
-      }
-      
 
       if( Modernizr.backgroundsize ) {
         $slideshow.find( 'img' ).hide();
