@@ -547,6 +547,7 @@ var Selectizer = function () {
           var html = '';
 
           if (response.data.location) {
+
             var loc = $location[0].selectize.getValue();
 
             $location[0].selectize.clearOptions();
@@ -594,6 +595,10 @@ var Selectizer = function () {
           }
 
           if (response.data.setting) {
+
+            console.log(response.data.setting);
+            response.data.setting = _.sortBy(response.data.setting, 'order');
+
             var setting = $setting[0].selectize.getValue();
             $setting[0].selectize.clearOptions();
             $setting[0].selectize.addOption(response.data.setting);

@@ -318,14 +318,16 @@ function get_facets() {
 
                     $pterm = get_term_by('id', $term->parent, $key);
                          
-                    $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'class'=>$pterm->slug);
+                    $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'class'=>$pterm->slug,'order'=>$term->term_order);
          
                 } else {
 
                     // get children of current parent.
                     $tchildren = get_term_children($term->term_id, $key);
+
+                    
                     if (empty($tchildren))
-                        $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name);
+                        $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'order'=>$term->term_order);
                 }
                 
             }
