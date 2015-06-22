@@ -3626,7 +3626,7 @@
 					thisRef.$control.on('click', '.' + options.className, function(e) {
 						e.preventDefault();
 						if (self.isLocked) return;
-
+						self.trigger('remove_button');
 						self.clear(true);
 					});
 
