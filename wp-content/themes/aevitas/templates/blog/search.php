@@ -20,7 +20,7 @@ global $post;
 <section class="section_search">
 	<div class="container">
 		<div class="work_filter">
-			<ul class="work_filter--blog">
+			<ul class="filter_list work_filter--blog">
 				<?php foreach ($taxonomies as $taxonomy) {
 						if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 
