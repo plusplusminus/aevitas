@@ -336,7 +336,7 @@ function get_facets() {
                      
                     // now the CHILDREN.
                     foreach($children as $child) {
-                        $options[$key][] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
+                    //    $options[$key][] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
                               
                     } //end foreach
          
