@@ -315,11 +315,11 @@ function get_facets() {
                 if ($term->parent == 0 ) {
                  
                     // get children of current parent.
-                    $tchildren = get_term_children($term->term_id, $taxonomy);
+                    $tchildren = get_term_children($term->term_id, $key);
                      
                     $children = array();
                     foreach ($tchildren as $child) {
-                        $cterm = get_term_by( 'id', $child, $taxonomy );
+                        $cterm = get_term_by( 'id', $child, $key );
                         $children[$cterm->name] = $cterm;
                     }
                     ksort($children);
@@ -327,24 +327,25 @@ function get_facets() {
                          
                     // OPTGROUP FOR PARENTS
                     if (count($children) > 0 ) {
-                        $optgroups[$key] = array('value'=>$term->slug,'text'=> $term->name);
-                    } else $options[$key] = array('value'=>$term->term_id,'text'=> $term->name);
+                        $optgroups[$key][] = array('value'=>$term->slug,'text'=> $term->name);
+                    } else $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name);
                      
                      
                     // now the CHILDREN.
                     foreach($children as $child) {
-                        $options[$key] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
+                        $options[$key][] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
                               
                     } //end foreach
          
                 }
+                
             }
 
         }
 
         $return = array(
                 'message'   => 'Saved',
-                'data' => $options,
+                'data' => $array,
                 'result' => $results
         );
 
