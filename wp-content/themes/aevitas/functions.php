@@ -327,24 +327,23 @@ function get_facets() {
                          
                     // OPTGROUP FOR PARENTS
                     if (count($children) > 0 ) {
-                        $optgroups[] = array('value'=>$term->slug,'text'=> $term->name);
-                    } else $options[] = array('value'=>$term->term_id,'text'=> $term->name);
+                        $optgroups[$key] = array('value'=>$term->slug,'text'=> $term->name);
+                    } else $options[$key] = array('value'=>$term->term_id,'text'=> $term->name);
                      
                      
                     // now the CHILDREN.
                     foreach($children as $child) {
-                        $options[] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
+                        $options[$key] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
                               
                     } //end foreach
          
                 }
-            }
 
         }
 
         $return = array(
                 'message'   => 'Saved',
-                'data' => $array,
+                'data' => $options,
                 'result' => $results
         );
 
