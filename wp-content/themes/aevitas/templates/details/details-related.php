@@ -4,7 +4,8 @@
 $query_args = array(
 	'post_type' => array('post','inspiration'), 
 	'posts_per_page' => 3,
-	'tag'=>'details'
+	'tag'=>'details',
+	'orderby'=>'rand'
 );
 
 query_posts( $query_args );
