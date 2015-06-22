@@ -19,8 +19,8 @@ global $post;
 ?>
 <section class="section_search">
 	<div class="container">
-		<div class="filters">
-			<ul class="work_filter--blog filter_list">
+		<div class="work_filter">
+			<ul class="work_filter--blog">
 				<?php foreach ($taxonomies as $taxonomy) {
 						if ( ! empty( $taxonomy ) && ! is_wp_error( $taxonomy ) ) {
 

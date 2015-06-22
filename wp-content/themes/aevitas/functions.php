@@ -515,7 +515,7 @@ function get_search_opts($taxonomy) {
                 // OPTGROUP FOR PARENTS
                 if (count($children) > 0 ) {
                          if ($term->count > 0)
-                         $list_of_terms .= '<li class="optgroup-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .' ('.$term->count.')</a></li>';
+                         $list_of_terms .= '<li class="group-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .' ('.$term->count.')</a></li>';
                     } else
                     $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">'. $term->name .' ('.$term->count.')</a></li>';
                 $i++;
