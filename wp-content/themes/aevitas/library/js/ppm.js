@@ -622,12 +622,6 @@ var Selectizer = function () {
 
     },
 
-    clearOption: function() {
-      var selectize = this;
-
-      console.log(selectize);
-    },
-
     changeOptions: function(value) {
 
       if (value != "") {
