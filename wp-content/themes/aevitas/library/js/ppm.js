@@ -798,5 +798,8 @@ var initForm = function () {
       onDelete: Selectizer.deleteOption
   });
 
+
+  var handler = function() { console.log("!@#12312") };
+  $location.on('option_remove', handler);
   
 };
