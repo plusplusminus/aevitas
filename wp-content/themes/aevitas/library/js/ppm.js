@@ -893,5 +893,10 @@ var initForm = function () {
   };
   
   $location[0].selectize.on('remove_button', handler);
+  $style[0].selectize.on('remove_button', handler);
+  $type[0].selectize.on('remove_button', handler);
+  $culture[0].selectize.on('remove_button', handler);
+  $setting[0].selectize.on('remove_button', handler);
+  $venue[0].selectize.on('remove_button', handler);
   
 };
