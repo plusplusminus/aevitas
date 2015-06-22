@@ -799,8 +799,97 @@ var initForm = function () {
 
 
   var handler = function() { 
-    console.log(this);
-    Selectizer.deleteOption();
+    var selectize = this;
+
+    _.remove(facets, function(n) {
+      console.log(n.tax);
+      return n.tax == selectize.settings.tax;
+    });
+
+    jQuery('.submit_button').attr('disabled','disabled').text('Loading');
+    
+    console.log(facets);
+
+    jQuery.ajax({
+      type : "post",
+      dataType : "json",
+      url : myAjax.ajaxurl,
+      data : {action: "get_faceted_search",facets:facets},
+      success: function(response) { 
+        var html = '';
+
+        if (response.data.location) {
+          $location[0].selectize.enable();
+          var loc = $location[0].selectize.getValue();
+          $location[0].selectize.clearOptions();
+          $location[0].selectize.addOption(response.data.location);
+          $location[0].selectize.setValue(loc,true);
+          $location[0].selectize.refreshOptions(false);
+        } else {
+          $location[0].selectize.disable();
+        }
+
+        if (response.data.style) {         
+          $style[0].selectize.enable();
+          var style = $style[0].selectize.getValue();
+          $style[0].selectize.clearOptions();
+          $style[0].selectize.addOption(response.data.style);
+          $style[0].selectize.setValue(style,true);
+          $style[0].selectize.refreshOptions(false);
+        } else {
+          $style[0].selectize.disable();
+        }
+
+        if (response.data.venue) {
+          $venue[0].selectize.enable();
+          var venue = $venue[0].selectize.getValue();
+          $venue[0].selectize.clearOptions();
+          $venue[0].selectize.addOption(response.data.venue);
+          $venue[0].selectize.setValue(venue,true);
+          $venue[0].selectize.refreshOptions(false);
+        } else {
+          $venue[0].selectize.disable();
+        }
+
+        if (response.data.type) {
+          $type[0].selectize.enable();
+          var type = $type[0].selectize.getValue();
+          $type[0].selectize.clearOptions();
+          $type[0].selectize.addOption(response.data.type);
+          $type[0].selectize.setValue(type,true);
+          $type[0].selectize.refreshOptions(false);
+        } else {
+          $type[0].selectize.disable();
+        }
+
+        if (response.data.culture) {
+
+          $culture[0].selectize.enable();
+          var culture = $culture[0].selectize.getValue();
+          $culture[0].selectize.clearOptions();
+          $culture[0].selectize.addOption(response.data.culture);
+          $culture[0].selectize.setValue(culture,true);
+          $culture[0].selectize.refreshOptions(false);
+        } else {
+          $culture[0].selectize.disable();
+        }
+
+        if (response.data.setting) {
+          $setting[0].selectize.enable();
+          var setting = $setting[0].selectize.getValue();
+          $setting[0].selectize.clearOptions();
+          $setting[0].selectize.addOption(response.data.setting);
+          $setting[0].selectize.setValue(setting,true);
+          $setting[0].selectize.refreshOptions(false);
+        } else {
+          $setting[0].selectize.disable();
+        }
+
+        
+        jQuery('.submit_button').removeAttr("disabled").text('Filter');
+
+      }
+    })
   };
   
   $location[0].selectize.on('remove_button', handler);
