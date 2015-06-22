@@ -602,7 +602,7 @@ var Selectizer = function () {
 
             var setting = $setting[0].selectize.getValue();
             $setting[0].selectize.clearOptions();
-            $setting[0].selectize.addOption(response.data.setting);
+            $setting[0].selectize.addOption(settings);
             $setting[0].selectize.setValue(setting,true);
           } else {
             $setting[0].selectize.disable();
