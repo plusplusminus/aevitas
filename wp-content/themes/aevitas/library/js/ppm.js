@@ -892,11 +892,23 @@ var initForm = function () {
     })
   };
   
-  $location[0].selectize.on('remove_button', handler);
-  $style[0].selectize.on('remove_button', handler);
-  $type[0].selectize.on('remove_button', handler);
-  $culture[0].selectize.on('remove_button', handler);
-  $setting[0].selectize.on('remove_button', handler);
-  $venue[0].selectize.on('remove_button', handler);
+  if ($location[0]){
+    $location[0].selectize.on('remove_button', handler);
+  }
+  if ($style[0]){
+    $style[0].selectize.on('remove_button', handler);
+  }
+  if ($type[0]){
+    $type[0].selectize.on('remove_button', handler);
+  }
+  if ($culture[0]){
+    $culture[0].selectize.on('remove_button', handler);
+  }
+  if ($setting[0]){
+    $setting[0].selectize.on('remove_button', handler);
+  }
+  if ($venue[0]){
+    $venue[0].selectize.on('remove_button', handler);
+  }
   
 };
