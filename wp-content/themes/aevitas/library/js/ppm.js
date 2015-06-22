@@ -344,7 +344,7 @@ var cbpBGSlideshow = (function() {
         $slideshow.find( 'img' ).hide();
         $items.each( function() {
           var $item = jQuery( this );
-          $item.css( 'background-image', 'url(' + $item.find( 'img' ).data( 'src' ) + ')' );
+          $item.css( 'background-image', 'url(' + $item.find( 'img' ).attr( 'src' ) + ')' );
           $item.css( 'background-position', $item.data( 'x' ) + ' ' + $item.data( 'y' ));
 
         } );
