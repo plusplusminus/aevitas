@@ -526,7 +526,8 @@ var Selectizer = function () {
 
     },
 
-    clearOption: function(value) {
+    clearOption: function(e) {
+      console.log(e);
       var selectize = this;
 
       _.remove(facets, function(n) {
