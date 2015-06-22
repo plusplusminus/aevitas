@@ -311,8 +311,33 @@ function get_facets() {
 
         foreach ($results["facets"] as $key => $terms) {
             foreach ($terms as $id => $count) {
-                $item = get_term_by('id', $id, $key);
-                $array[$key][] = array('value' => $id,'text'=>$item->name );
+                $term = get_term_by('id', $id, $key);
+                if ($term->parent == 0 ) {
+                 
+                    // get children of current parent.
+                    $tchildren = get_term_children($term->term_id, $taxonomy);
+                     
+                    $children = array();
+                    foreach ($tchildren as $child) {
+                        $cterm = get_term_by( 'id', $child, $taxonomy );
+                        $children[$cterm->name] = $cterm;
+                    }
+                    ksort($children);
+
+                         
+                    // OPTGROUP FOR PARENTS
+                    if (count($children) > 0 ) {
+                        $optgroups[] = array('value'=>$term->slug,'text'=> $term->name);
+                    } else $options[] = array('value'=>$term->term_id,'text'=> $term->name);
+                     
+                     
+                    // now the CHILDREN.
+                    foreach($children as $child) {
+                        $options[] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
+                              
+                    } //end foreach
+         
+                }
             }
 
         }
