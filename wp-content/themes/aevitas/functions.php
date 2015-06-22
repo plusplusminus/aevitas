@@ -552,7 +552,7 @@ function get_search_opts($taxonomy) {
     } else {
         $list_of_terms .= '<div class="btn-group">';
 
-        $list_of_terms .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        $list_of_terms .= '<button type="button" class="css-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 '.$taxonomy['name'].' <span class="caret"></span>
               </button>';
          
