@@ -479,6 +479,8 @@ function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
 }
 
 function get_search_opts($taxonomy) {
+
+$list_of_terms = '';
  
 $terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
 // our content variable
@@ -495,7 +497,7 @@ foreach($terms as $term){
          
         $children = array();
         foreach ($tchildren as $child) {
-            $cterm = get_term_by( 'id', $child, $taxonomy );
+            $cterm = get_term_by( 'id', $child, $taxonomy['slug'] );
             $children[$cterm->name] = $cterm;
         }
         ksort($children);
