@@ -27,7 +27,7 @@ global $post;
 
 				
 								echo '<li>';
-									get_tax_opts($taxonomy['slug'],$taxonomy['name']);
+									get_search_opts($taxonomy);
 								echo '</li>';
 
 
