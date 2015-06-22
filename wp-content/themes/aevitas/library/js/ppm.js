@@ -526,48 +526,6 @@ var Selectizer = function () {
 
     },
 
-    clearOption: function(e) {
-
-      var selectize = this;
-      var loc = selectize.getValue();
-
-      console.log(selectize);
-      _.remove(facets, function(n) {
-        return n.tax == selectize.settings.tax;
-      });
-
-      jQuery('.submit_button').attr('disabled','disabled').text('Loading');
-      
-      console.log(facets);
-
-      jQuery.ajax({
-        type : "post",
-        dataType : "json",
-        url : myAjax.ajaxurl,
-        data : {action: "get_faceted_search",facets:facets},
-        success: function(response) { 
-          var html = '';
-
-          if (response.data.location) {
-            $location[0].selectize.clear();
-            $location[0].selectize.clearOptions();
-            $location[0].selectize.load(function(callback) {
-                callback(response.data.location);
-            });
-            $location[0].selectize.enable();
-            
-          } else {
-            $location[0].selectize.disable();
-          }
-
-          jQuery('.submit_button').removeAttr("disabled").text('Filter');
-
-        }
-      })
-
-
-    },
-
     changeOptions: function(value) {
 
       if (value != "") {
@@ -689,9 +647,9 @@ var initForm = function () {
 
       onChange: Selectizer.changeOptions,
 
-      //onDelete: Selectizer.deleteOption,
+      onDelete: Selectizer.deleteOption,
 
-      onClear: Selectizer.clearOption,
+      onClear: Selectizer.deleteOption,
   });
 
   $type = jQuery('#type-select').selectize({
