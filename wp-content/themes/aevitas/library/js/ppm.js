@@ -160,7 +160,7 @@ jQuery(document).ready(function(){
       height = window.innerHeight;
       width = window.innerWidth;
 
-      if (width > 960) {
+      if (width > 991) {
         jQuery( '.home-slider .owl-item' ).css('height',height);
       }
     },
@@ -375,15 +375,12 @@ var cbpBGSlideshow = (function() {
 })();
 
 function initHeader() {
-    width = window.innerWidth;
-    height = window.innerHeight;
+  height = window.innerHeight;
+  width = window.innerWidth;
 
-
-
-    largeHeader = document.querySelectorAll('.owl-item');
-
-    largeHeader.style.height = height+'px';
-
+  if (width > 991) {
+    jQuery( '.home-slider .owl-item' ).css('height',height);
+  }
 }
 
 window.addEventListener('resize', resize);
