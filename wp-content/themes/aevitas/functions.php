@@ -480,56 +480,76 @@ function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
 
 function get_search_opts($taxonomy) {
 
-$list_of_terms = '';
- 
-$terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
-// our content variable
-$list_of_terms .= '<div class="btn-group">';
- 
-foreach($terms as $term){
+    $list_of_terms = '';
+     
+    $terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
+    // our content variable
+
+    if ($taxonomy['optgroup'] == true) {
+        $list_of_terms .= '<div class="btn-group">';
          
-    $select = ($current_selected == $term->slug) ? "selected" : "";
-            
-    if ($term->parent == 0 ) {
-             
-        // get children of current parent.
-        $tchildren = get_term_children($term->term_id, $taxonomy['slug']);
+        foreach($terms as $term){
+                 
+            $select = ($current_selected == $term->slug) ? "selected" : "";
+                    
+            if ($term->parent == 0 ) {
+                     
+                // get children of current parent.
+                $tchildren = get_term_children($term->term_id, $taxonomy['slug']);
+                 
+                $children = array();
+                foreach ($tchildren as $child) {
+                    $cterm = get_term_by( 'id', $child, $taxonomy['slug'] );
+                    $children[$cterm->name] = $cterm;
+                }
+                ksort($children);
+                     
+                // OPTGROUP FOR PARENTS
+                if (count($children) > 0 ) {
+                         $list_of_terms .= '<ul class="dropdown-menu" label="'. $term->name .'">';
+                         if ($term->count > 0)
+                         $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</li>';
+                    } else
+                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</li>';
+                $i++;
+                 
+                 
+                // now the CHILDREN.
+                foreach($children as $child) {
+                     $select = ($current_selected == $cterm->slug) ? "selected" : "";
+                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'>'. $child->name.' ('.$child->count.')</li>';
+                      
+                } //end foreach
+                 
+                if (count($children) > 0 ) {
+                    $list_of_terms .= "</ul>";
+                }
          
-        $children = array();
-        foreach ($tchildren as $child) {
-            $cterm = get_term_by( 'id', $child, $taxonomy['slug'] );
-            $children[$cterm->name] = $cterm;
+            }
+                
         }
-        ksort($children);
-             
-        // OPTGROUP FOR PARENTS
-        if (count($children) > 0 ) {
-                 $list_of_terms .= '<ul class="dropdown-menu" label="'. $term->name .'">';
-                 if ($term->count > 0)
-                 $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</li>';
-            } else
-            $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</li>';
-        $i++;
          
+        $list_of_terms .= '</div>';
          
-        // now the CHILDREN.
-        foreach($children as $child) {
-             $select = ($current_selected == $cterm->slug) ? "selected" : "";
-             $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'>'. $child->name.' ('.$child->count.')</li>';
-              
-        } //end foreach
-         
-        if (count($children) > 0 ) {
-            $list_of_terms .= "</ul>";
+        echo $list_of_terms;
+    } else {
+        $list_of_terms .= '<div class="btn-group"><ul class="dropdown-menu">';
+
+        foreach($terms as $term){
+
+            // The $term is an object, so we don't need to specify the $taxonomy.
+            $term_link = get_term_link( $term );
+           
+            // If there was an error, continue to the next term.
+            if ( is_wp_error( $term_link ) ) {
+                continue;
+            }
+
+            // We successfully got a link. Print it out.
+            $list_of_terms .= '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
         }
- 
+        $list_of_terms .= '</ul></div>';
     }
-        
-}
- 
-$list_of_terms .= '</div>';
- 
-echo $list_of_terms;
 }
 
 
