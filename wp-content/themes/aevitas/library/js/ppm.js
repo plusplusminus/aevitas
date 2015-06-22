@@ -648,7 +648,7 @@ var initForm = function () {
       onChange: Selectizer.changeOptions,
 
       onDelete: Selectizer.deleteOption,
-      
+
   });
 
   $type = jQuery('#type-select').selectize({
@@ -799,6 +799,6 @@ var initForm = function () {
 
 
   var handler = function() { console.log("!@#12312") };
-  $location.on('clear', handler);
+  $location[0].on('clear', handler);
   
 };
