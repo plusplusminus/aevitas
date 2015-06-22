@@ -480,7 +480,7 @@ function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
 
 function get_search_opts($taxonomy) {
  
-$terms = get_terms($taxonomy, array('orderby' => 'name'));
+$terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
 // our content variable
 $list_of_terms .= '<div classn="btn-group">';
  
