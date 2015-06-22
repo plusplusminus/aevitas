@@ -3627,7 +3627,7 @@
 						e.preventDefault();
 						if (self.isLocked) return;
 
-						self.clear();
+						self.clear(true);
 					});
 
 				};
