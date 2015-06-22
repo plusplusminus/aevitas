@@ -337,7 +337,7 @@ var cbpBGSlideshow = (function() {
 
       width =  window.innerWidth;
 
-
+console.log(width);
       if (width > 960) {
         var $itemP = jQuery( '.home-slider .owl-item' ).css('height',height);
       }
