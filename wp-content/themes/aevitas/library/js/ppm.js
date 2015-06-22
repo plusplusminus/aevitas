@@ -597,9 +597,12 @@ var Selectizer = function () {
           if (response.data.setting) {
 
             console.log(response.data.setting);
-            response.data.setting = _.sortBy(response.data.setting, 'order');
 
-            console.log(response.data.setting);
+            var settings = {};
+
+            settings = _.sortBy(response.data.setting, 'order');
+
+            console.log(settings);
 
             var setting = $setting[0].selectize.getValue();
             $setting[0].selectize.clearOptions();
