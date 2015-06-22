@@ -856,16 +856,13 @@ hr.section_break_blank {
 	> li {
 		@media(min-width:@screen-md-min) {
 			float: left;
-			width: 14.28%;
+			width: 16.67%;
 		}
 		list-style: none;
-	}
-	.submit_button {
-	  padding: 12px;
-	  min-width: 85%;
-	  margin: auto;
-	  height: 50px;
-	  border: none;
+		border-right: 1px solid @blue-gray;
+		&:last-child {
+			border-right: none;
+		} 
 	}
 }
 
