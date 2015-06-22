@@ -799,6 +799,6 @@ var initForm = function () {
 
 
   var handler = function() { console.log("!@#12312") };
-  $location[0].selectize.on('item_remove', handler);
+  $location[0].selectize.on('remove_button', handler);
   
 };
