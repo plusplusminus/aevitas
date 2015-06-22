@@ -535,7 +535,13 @@ function get_search_opts($taxonomy) {
         echo '</div>';
 
     } else {
-        $list_of_terms .= '<div class="btn-group"><ul class="dropdown-menu">';
+        $list_of_terms .= '<div class="btn-group">'
+
+        $list_of_terms .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                '.$taxonomy['name'].' <span class="caret"></span>
+              </button>';
+         
+        $list_of_terms .= '<ul class="dropdown-menu">';
 
         foreach($terms as $term){
 
@@ -551,6 +557,8 @@ function get_search_opts($taxonomy) {
             $list_of_terms .= '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
         }
         $list_of_terms .= '</ul></div>';
+
+        echo $list_of_terms;
     }
 }
 
