@@ -531,7 +531,7 @@ var Selectizer = function () {
       var selectize = this;
       var loc = selectize.getValue();
 
-      console.log(loc);
+      console.log(selectize);
       _.remove(facets, function(n) {
         console.log(n.tax);
         return n.tax == selectize.settings.tax;
