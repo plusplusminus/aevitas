@@ -486,7 +486,7 @@ function get_search_opts($taxonomy) {
     // our content variable
 
     if ($taxonomy['optgroup'] == true) {
-        $list_of_terms .= '<div class="btn-group">';
+
          
         foreach($terms as $term){
                  
@@ -525,9 +525,10 @@ function get_search_opts($taxonomy) {
                 
         }
          
-        $list_of_terms .= '</div>';
+        
          
-        echo $list_of_terms;
+        echo '<ul>'.$list_of_terms.'</ul>';
+        
     } else {
         $list_of_terms .= '<div class="btn-group"><ul class="dropdown-menu">';
 
