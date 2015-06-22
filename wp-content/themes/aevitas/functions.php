@@ -515,9 +515,9 @@ function get_search_opts($taxonomy) {
                 // OPTGROUP FOR PARENTS
                 if (count($children) > 0 ) {
                          if ($term->count > 0)
-                         $list_of_terms .= '<li class="group-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .' ('.$term->count.')</a></li>';
+                         $list_of_terms .= '<li class="group-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .'</a></li>';
                     } else
-                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">'. $term->name .' ('.$term->count.')</a></li>';
+                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">'. $term->name .'</a></li>';
                 $i++;
                  
                  
@@ -531,7 +531,7 @@ function get_search_opts($taxonomy) {
                     continue;
                     }
                      $select = ($current_selected == $cterm->slug) ? "selected" : "";
-                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'><a href="'.$cterm_link.'">'. $child->name.' ('.$child->count.')</a></li>';
+                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'><a href="'.$cterm_link.'">'. $child->name.' </a></li>';
                       
                 } //end foreach
                  
@@ -541,7 +541,7 @@ function get_search_opts($taxonomy) {
         }
          
         echo '<div class="btn-group">';
-        echo  '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        echo  '<button type="button" class="css-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 '.$taxonomy['name'].' <span class="caret"></span>
               </button>';
          
