@@ -72,7 +72,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 		$this->woo_widget_idbase = 'woodojo_instagram';
 		$this->woo_widget_title = __('WooDojo - Instagram', 'woodojo' );
 		
-		$this->transient_expire_time = 60 * 60 * 24; // 1 day.
+		$this->transient_expire_time = 60 * 60; // 1 day.
 		$this->client_id = '79a1ad0924854bad93558757ff86c7f7';
 		$this->client_secret = '2feefd865b5643909395d81135af7840';
 
@@ -491,6 +491,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 	 * @return string       The rendered HTML.
 	 */
 	private function prepare_photos_html ( $data, $instance ) {
+
 		$html = '';
 
 		if ( is_object( $data ) && isset( $data->data ) && is_array( $data->data ) && ( count( $data->data ) > 0 ) ) {
@@ -508,7 +509,7 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 			$class = 'instagram-photo-link';
 
 			if ( $instance['enable_thickbox'] == true ) {
-				$class .= ' fancybox';
+				$class .= ' blog_article--link';
 				$anchor_params .= ' rel="instagram-thickbox-' . $this->number . '"';
 			}
 
@@ -523,14 +524,13 @@ class WooDojo_Widget_Instagram extends WP_Widget {
 				}
 
 				$html .= '<div class="col-md-2">' . "\n";
-				if ( $instance['link_to_fullsize'] == true ) {
-					$html .= '<a href="' . esc_url( $v->images->standard_resolution->url ) . '" data-title="' . esc_attr( $caption ) . '" class="' . esc_attr( $class ) . '"' . $anchor_params . '>' . "\n";
-				}
-					$html .= '<img class="img-responsive" src="' . esc_url( $v->images->$size_token->url ) . '"' . $params . ' alt="' . esc_attr( $caption ) . '" />' . "\n";
-				if ( $instance['link_to_fullsize'] == true ) {
-					$html .= '</a>' . "\n";
-				}
-				$html .= '</div>' . "\n";
+					$html .= '<figure class="blog_image">
+								<img class="img-responsive" src="' . esc_url( $v->images->$size_token->url ) . '"' . $params . ' alt="' . esc_attr( $caption ) . '" />';
+					$html .= '<div class="instacount text-center"><p><span class="fa fa-heart"></span>	'.$v->likes->count.'</p><p><span class="fa fa-comment"></span>	'.$v->comments->count.'</p></div>';
+					$html .= 	'<a target="_blank" href="' . esc_url( $v->link ) . '" class="' . esc_attr( $class ) . '"' . $anchor_params . '></a>';
+
+
+					$html .= '</figure></div>' . "\n";
 			}
 			$html .= '</div>' . "\n";
 		}
