@@ -478,5 +478,56 @@ function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
     return $content;
 }
 
+function get_search_opts($taxonomy) {
+ 
+// our content variable
+$list_of_terms .= '<div classn="btn-group">';
+ 
+foreach($terms as $term){
+         
+    $select = ($current_selected == $term->slug) ? "selected" : "";
+            
+    if ($term->parent == 0 ) {
+             
+        // get children of current parent.
+        $tchildren = get_term_children($term->term_id, $taxonomy);
+         
+        $children = array();
+        foreach ($tchildren as $child) {
+            $cterm = get_term_by( 'id', $child, $taxonomy );
+            $children[$cterm->name] = $cterm;
+        }
+        ksort($children);
+             
+        // OPTGROUP FOR PARENTS
+        if (count($children) > 0 ) {
+                 $list_of_terms .= '<ul label="'. $term->name .'">';
+                 if ($term->count > 0)
+                 $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>All '. $term->name .' ('.$term->count.')</li>';
+            } else
+            $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'>'. $term->name .' ('.$term->count.')</li>';
+        $i++;
+         
+         
+        // now the CHILDREN.
+        foreach($children as $child) {
+             $select = ($current_selected == $cterm->slug) ? "selected" : "";
+             $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'>'. $child->name.' ('.$child->count.')</li>';
+              
+        } //end foreach
+         
+        if (count($children) > 0 ) {
+            $list_of_terms .= "</ul>";
+        }
+ 
+    }
+        
+}
+ 
+$list_of_terms .= '</div>';
+ 
+echo $list_of_terms;
+}
+
 
 ?>
