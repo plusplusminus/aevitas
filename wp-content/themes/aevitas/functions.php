@@ -491,7 +491,7 @@ foreach($terms as $term){
     if ($term->parent == 0 ) {
              
         // get children of current parent.
-        $tchildren = get_term_children($term->term_id, $taxonomy);
+        $tchildren = get_term_children($term->term_id, $taxonomy['slug']);
          
         $children = array();
         foreach ($tchildren as $child) {
