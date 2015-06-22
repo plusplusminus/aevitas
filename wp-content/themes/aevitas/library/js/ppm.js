@@ -526,6 +526,12 @@ var Selectizer = function () {
 
     },
 
+    clearOption: function() {
+      var selectize = this;
+
+      console.log(selectize);
+    },
+
     changeOptions: function(value) {
 
       if (value != "") {
@@ -647,7 +653,9 @@ var initForm = function () {
 
       onChange: Selectizer.changeOptions,
 
-      onDelete: Selectizer.deleteOption
+      onDelete: Selectizer.deleteOption,
+
+      onClear: Selectizer.clearOption,
   });
 
   $type = jQuery('#type-select').selectize({
