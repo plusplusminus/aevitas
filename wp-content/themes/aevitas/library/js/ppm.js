@@ -799,6 +799,7 @@ var initForm = function () {
 
 
   var handler = function() { 
+    console.log(this);
     Selectizer.deleteOption();
   };
   
